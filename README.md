@@ -1,5 +1,9 @@
-# AI Kids Teacher
+# Little Whys (working title)
 
-A voice-first, interactive AI teacher for kids aged 2–5: talking, counting, letters, colors and shapes, plus a free-play zone. Parents can give the teacher a face from a photo they upload and a voice they record.
+A series of screen-free, read-together picture books that parents use to teach children aged 2–4:
+knowledge, values (kindness, empathy, honesty), cleanliness and practical maths. 20 stories per book,
+built with Python, sold as PDFs through a PayPal-powered site.
 
-See [docs/PLAN.md](docs/PLAN.md) for the curriculum, architecture, model choices and roadmap.
+See [docs/PLAN.md](docs/PLAN.md) for the plan, series catalogue, production pipeline, shop design and roadmap.
+
+The earlier voice-app plan is archived in [docs/archive/APP_PLAN.md](docs/archive/APP_PLAN.md).
