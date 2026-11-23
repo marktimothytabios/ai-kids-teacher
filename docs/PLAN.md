@@ -1,6 +1,6 @@
 # Little Whys: A Series of Read-Together Books for Toddlers
 
-Plan and write-up. Status: **planning, nothing built yet.**
+Plan and write-up. Status: **decisions made, foundation in progress** (see section 12 for the decisions and section 13 for what is built).
 
 *(The earlier voice-app plan is kept in [archive/APP_PLAN.md](archive/APP_PLAN.md). We are no longer building
 an app: it is screen-based, and the product is now a book that a parent reads *with* a child.)*
@@ -15,7 +15,7 @@ a short, simple answer, and a hands-on "Let's try!" activity. The series covers 
 animals, the body), **values** (kindness, empathy, honesty, gratitude), **practical skills** (counting,
 sorting, tidying up, keeping clean) and anything else that helps a child grow up good and curious.
 Books are screen-free: the child never touches a device. Parents buy a book as a PDF to print or read,
-and later we may add real printed copies. A website sells each book through PayPal.
+and later we may add real printed copies. A website sells each book through Stripe.
 
 **Why this works as a product:** parents of toddlers already want screen-free, co-reading content;
 the format is proven by the first book (which you liked); and 20 stories per book makes each book small
@@ -50,8 +50,8 @@ them first" advice. **What to improve:**
    basic (see section 6, the biggest risk for selling).
 5. **Fact-check pass.** Some answers are simplified. That is fine for age 2–4, but nothing should be
    *wrong*. Every story gets a short review before release (section 8).
-6. **Spelling:** the book uses British spelling ("colours", "Practise"). Decide the market first
-   (section 12).
+6. **Spelling:** the first book is British ("colours", "Practise"). The series now supports **both US and
+   British spelling**, chosen when the PDF is generated (section 5.1).
 
 ---
 
@@ -192,6 +192,15 @@ content (YAML)  →  validate  →  illustrate (SVG)  →  lay out pages  →  P
 installed here. WeasyPrint gives easier layout with CSS but needs system libraries. We can switch later if
 page design gets complicated; the content files do not change.
 
+### 5.1 US and British spelling from one source
+
+Content is written once. Where the two spellings differ, the text marks the choice inline as
+`{us|uk}`, for example `all the {colors|colours} of the rainbow` or `Let's {practice|practise}`.
+The builder resolves each marker for the chosen variant, so **one command builds both** PDFs:
+`--spelling us` or `--spelling uk`. A checker flags common unmarked words (color, mom, gray…) so nothing
+slips through. This is explicit on purpose: an automatic word-swapper cannot tell the noun "practice"
+from the verb "practise".
+
 ### Proposed repository layout
 
 ```
@@ -244,8 +253,8 @@ change is not a rewrite.
 
 ### 7.1 Do it in two steps
 
-1. **Validate first (week of launch):** sell with a hosted tool that supports PayPal (for example Gumroad
-   or Payhip) while the site is built. Nothing to code, and you learn if people buy.
+1. **Validate first:** a **Stripe Payment Link** for each book needs no code: Stripe hosts the checkout and
+   you deliver the PDF by link or email. You learn whether people buy.
 2. **Own site:** build the custom Python site below once you see demand.
 
 ### 7.2 Recommended stack
@@ -254,7 +263,7 @@ change is not a rewrite.
 |---|---|---|
 | Web framework | **FastAPI** + Jinja templates (HTMX for small interactions) | Python, fast, little JavaScript, clear structure |
 | Database | SQLite first, move to PostgreSQL when needed | Simple at the start |
-| Payments | **PayPal Orders v2 API** (PayPal Checkout buttons, server-side create and capture) | Standard way to take one-off payments |
+| Payments | **Stripe Checkout** (hosted page, created by our server) + **Stripe Tax** for sales tax/VAT/GST | Handles cards, wallets, many currencies and countries, so we can sell to anyone. PayPal can be added later as an extra option through Stripe, if wanted |
 | File storage | Private object storage (S3 or Cloudflare R2), or local disk at the start | PDFs must never be public URLs |
 | Delivery | **Signed, expiring download links** (e.g. 7 days, 5 downloads) sent by email | Prevents link sharing |
 | Email | Resend, Postmark or SES | Receipts and download links |
@@ -264,20 +273,22 @@ change is not a rewrite.
 
 ```
 Visitor → book page (preview images, sample PDF, price)
-   → PayPal button → PayPal approves → our server **captures** the order
-   → webhook confirms (PAYMENT.CAPTURE.COMPLETED) → order saved
-   → email with signed download link + "My Library" login-free page
+   → buyer picks spelling (US / UK) → "Buy" → our server creates a Stripe Checkout Session
+   → buyer pays on Stripe's page → Stripe sends webhook `checkout.session.completed`
+   → we verify the signature, save the order → email with signed download link
 ```
 
 Rules that matter:
 
-- **Never trust the browser.** Mark an order paid only after our server captures it, or after a verified
-  PayPal webhook. Verify the webhook signature.
+- **Never trust the browser.** Mark an order paid only after a verified Stripe webhook (check the
+  signature with the webhook secret), never because the buyer reached a "thank you" page.
 - **Idempotent:** a repeated webhook must not create a second order.
-- **Refunds/disputes:** a webhook handler marks the order refunded and disables the link.
+- **Refunds/disputes:** a webhook handler (`charge.refunded`, `charge.dispute.created`) marks the order refunded and disables the link.
 - **Per-buyer watermark:** the build step stamps a tiny line ("Licensed to name@email") on the last page
   of the buyer's copy. It deters sharing without hurting honest customers. (Generated on demand and
   cached, ~1 second per book.)
+- **Spelling choice:** the buyer chooses **US or British** on the book page (and can download the other
+  version later from their library at no cost). Both versions are built from the same content files.
 - **Pages:** Home, Series/Catalogue, Book page, Cart or Buy now, "My downloads" (by email link),
   Free sample, About, FAQ, Terms/Privacy/Refunds, Contact.
 
@@ -287,10 +298,10 @@ Rules that matter:
 book(id, slug, title, volume, theme, price_cents, status, cover_url, sample_pdf, master_pdf)
 bundle(id, slug, title, price_cents)           bundle_item(bundle_id, book_id)
 customer(id, email, created_at)
-order(id, customer_id, paypal_order_id, status, total_cents, currency, created_at)
-order_item(order_id, book_id|bundle_id, price_cents)
+order(id, customer_id, stripe_session_id, stripe_payment_intent, status, total_cents, currency, created_at)
+order_item(order_id, book_id|bundle_id, price_cents, spelling)   -- spelling: 'us' | 'uk'
 download_token(id, order_item_id, token_hash, expires_at, downloads_left)
-event_log(id, source, type, payload, created_at)   -- raw PayPal webhooks for auditing
+event_log(id, source, type, payload, created_at)   -- raw Stripe webhooks for auditing
 ```
 
 ### 7.5 Pricing (to test, not fixed)
@@ -298,16 +309,19 @@ event_log(id, source, type, payload, created_at)   -- raw PayPal webhooks for au
 - Single book (48 pages PDF): **US$4.99–6.99**
 - Bundle of all 10: about **US$29–39** (roughly 40–50% off)
 - **Free sample:** first 3 stories of each book, plus one full free "starter" book to collect emails
-- PayPal's fee is roughly 3.5% plus a small fixed fee on each sale; check current rates, since a small
-  fixed fee hurts most on low prices. A bundle and "buy 2 get 1" help.
+- Stripe's card fee is roughly 3% plus a small fixed fee per sale (higher for some countries and
+  currencies, and Stripe Tax has its own fee); check current rates, since a fixed fee hurts most on low
+  prices. Bundles help. Show prices in the buyer's currency with Stripe's currency options.
 - Later: printed copies through print-on-demand (Lulu, Amazon KDP or IngramSpark). The print PDF target
   in section 5 prepares for this.
 
 ### 7.6 Legal and admin to check early
 
 - Business registration and taxes for digital goods in your country and in your customers' countries
-  (some places, like the EU, UK and Australia, require VAT/GST on digital downloads; a "merchant of
-  record" platform like Gumroad or Paddle can handle this if you do not want to).
+  (some places, like the EU, UK and Australia, require VAT/GST on digital downloads). **Stripe Tax**
+  calculates and collects it, but *you* still register and file in each place you must. If you sell to
+  "anyone" from day one, a merchant-of-record platform such as Paddle or Lemon Squeezy would do the
+  filing for you at a higher fee. This is worth a short decision once you know where buyers are.
 - Privacy policy, terms, refund policy. We collect only email and order data. **No child data at all**
   (a big advantage of the book format over the app).
 - Trademark and domain check for the series name before printing it on 10 covers.
@@ -338,9 +352,9 @@ For a children's brand, trust is the product. Every book passes these gates befo
 |---|---|---|
 | **0. Foundations (1–2 weeks)** | Repo layout; story schema; port the 50 existing stories to YAML; rebuild book 1 PDF from YAML with the pipeline; choose the font and palette | One command reproduces a book from content files |
 | **1. Prototype book (2 weeks)** | Build **Book 6, "Kind Hearts"** (values test), with 17 new stories and the new elements (Talk about it, Grown-up corner, recap, activity page); first character cast | A complete, polished 48-page book |
-| **2. Test the market (2–3 weeks)** | Books 1, 5 and 6 done; 3-story samples; a landing page, or a Gumroad/Payhip listing with PayPal; ask 10–20 parents for feedback | Real signals: who buys, what they ask for |
+| **2. Test the market (2–3 weeks)** | Books 1, 5 and 6 done; 3-story samples; a landing page with Stripe Payment Links; ask 10–20 parents for feedback | Real signals: who buys, what they ask for |
 | **3. Build the series (6–10 weeks)** | Books 2–4, 7–10; print target; QA pipeline; educator review | 10 books ready |
-| **4. Own shop (3–4 weeks)** | FastAPI site, PayPal Orders v2, webhook, signed downloads, email, watermarking, admin page | Live store on your domain |
+| **4. Own shop (3–4 weeks)** | FastAPI site, Stripe Checkout + webhook, signed downloads, email, watermarking, admin page | Live store on your domain |
 | **5. Grow** | Commissioned illustration kit, printed books, age 4–6 editions, bundles, bilingual editions | Brand and revenue |
 
 Phases 2 and 3 can overlap. **One person (with Claude doing the heavy lifting on code and drafting)** can do
@@ -373,28 +387,37 @@ phases 0–2 in about **6 weeks** part-time; the exact time depends on how much 
 
 ---
 
-## 12. Open questions for you
+## 12. Decisions made
 
-1. **Name.** Keep "Why? Why? Why?" or choose a series name that is easier to own (the plan uses "Little
-   Whys" as a placeholder)?
-2. **Spelling and market.** British ("colours") or US ("colors")? Which country do you sell to first?
-   This also affects tax and currency.
-3. **Cast.** Do you want recurring characters (recommended), and should they look like your child's world
-   (family, culture, language)?
-4. **Languages.** English only at launch, or also Tagalog/Spanish/others? Bilingual editions are an easy
-   upsell because the content is in YAML.
-5. **Illustration route.** Start with option D (code-drawn first, commissioned later)?
-6. **Budget** for an educator review and for the illustrator.
-7. **Print.** Do you want printed books from the start, or PDFs only?
+| # | Question | Decision |
+|---|---|---|
+| 1 | Series name | **Little Whys.** Every story is a "why" question, and every book title is "Little Whys: <theme>" |
+| 2 | Spelling | **Both US and British**, selected when the PDF is generated and by the buyer in the shop (section 5.1) |
+| 3 | Market | **Any country.** Payments through **Stripe** (Checkout + Stripe Tax). See section 7.6 for tax filing |
+| 4 | Cast | **Recurring characters.** Small cast, returning in every book |
+| 5 | Languages | **English only** for now. Content in YAML keeps other languages possible later |
+| 6 | Print | **PDF only.** Parents print at home. A print-friendly layout is still built in (clean margins, black-and-white activity page) |
+| 7 | Illustration route | Option D: code-drawn first, commission an illustrator later |
+
+Still open: the budget for an educator review and an illustrator, and trademark/domain checks for
+"Little Whys".
 
 ---
 
-## 13. Proposed next step
+## 13. Build status
 
-1. You confirm the 10-book catalogue (or swap in your own themes) and answer the questions above.
-2. I set up the repo (layout, schema, builder skeleton) and port the existing 50 stories into YAML.
-3. I rebuild book 1's PDF from the new pipeline and write the full **Kind Hearts** book as the
-   first complete new-format book, for you to read and react to.
+| Item | Status |
+|---|---|
+| Plan | Done (this document) |
+| Repo layout, YAML story schema and validator | Built |
+| All 50 existing stories ported to YAML (US spelling with `{us|uk}` markers) | Built |
+| Builder: US/UK spelling, page layout, simple illustration kit, PDF output | Built (first version) |
+| Draft books for the 10 catalogue themes, filled with the stories we already have | Built (marked draft until they have 20 stories) |
+| 150 new stories, cast artwork, QA gates, educator review | Not started |
+| Stripe shop | Not started |
+
+**Next:** write the full *Kind Hearts* book (17 new stories), then Books 1 and 5, then test the market
+(phase 2 of the roadmap).
 
 ---
 
@@ -405,5 +428,5 @@ phases 0–2 in about **6 weeks** part-time; the exact time depends on how much 
   building early language skills.
 - Early learning domains used for tags are based on the Head Start Early Learning Outcomes Framework
   (language, cognition, social-emotional, approaches to learning, physical development).
-- PayPal Orders v2 API and webhook verification: https://developer.paypal.com/docs/api/orders/v2/
+- Stripe Checkout and webhooks: https://docs.stripe.com/payments/checkout and https://docs.stripe.com/webhooks
 - Please check current fees, tax rules and print-on-demand specifications before launch; these change.
