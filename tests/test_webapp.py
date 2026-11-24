@@ -93,3 +93,11 @@ def test_can_allow_indexing(tmp_path):
     c = TestClient(create_app(out_dir=tmp_path, settings=Settings(indexable=True)))
     assert 'name="robots"' not in c.get("/").text
     assert "Allow: /" in c.get("/robots.txt").text
+
+
+def test_about_tells_the_story_in_both_spellings(client):
+    us = client.get("/about?spelling=us").text
+    uk = client.get("/about?spelling=uk").text
+    assert "Psalm" in us and "Psalm" in uk
+    assert "realize" in us and "judgment" in us and "realise" not in us
+    assert "realise" in uk and "judgement" in uk and "realize" not in uk
