@@ -1,0 +1,14 @@
+id: sky-weather-01
+question: Why is the sky blue?
+answer: Sunlight looks white, but it is made of all the {colors|colours} of the rainbow. When sunlight
+  bumps into the air, the blue light bounces all around the sky. So when we look up, we see blue!
+lets_try: Look up at the sky. Is it blue today? Can you find something blue in your room?
+talk_about: ''
+grown_up_corner: ''
+tags:
+  domain: science
+  value: ''
+  skill: ''
+  activity: ''
+scene: day
+source: book1-01

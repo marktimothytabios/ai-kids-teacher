@@ -1,274 +1,432 @@
-# AI Kids Teacher — Architecture & Product Plan
+# Little Whys: A Series of Read-Together Books for Toddlers
 
-An interactive, voice-first AI teacher for children aged 2–5. It teaches talking, counting, letters,
-colors, shapes and more, and has a free-play zone (puzzles, animals, music). Parents can make the
-teacher look like a picture they upload and speak in a voice they record.
+Plan and write-up. Status: **decisions made, foundation in progress** (see section 12 for the decisions and section 13 for what is built).
 
-Status: planning. Nothing here is built yet.
-
----
-
-## 1. Product principles
-
-1. **Voice-first, reading-optional.** Toddlers can't read or type. Every interaction is speech, big
-   tap targets or drag gestures.
-2. **Wait for the child.** What Ms Rachel does on video (ask, pause, praise) we do for real:
-   listen, react to what the child actually said or did, and adapt.
-3. **Short sessions.** Ages 2–5 hold attention for about 5–10 minutes. Lessons are 3–7 minute
-   "episodes", and the app includes a parent-set daily limit (the AAP suggests about 1 hour/day of
-   high-quality content for ages 2–5, ideally watched together).
-4. **Scripted spine, AI where it adds value.** A lesson has a fixed structure written by us. The
-   LLM only fills in the live parts: reacting to answers, rephrasing, praise, small talk. This keeps
-   content safe and predictable, and keeps costs low.
-5. **Privacy by default.** Children's voice recordings are personal information under COPPA.
-   Process audio, don't keep it.
+*(The earlier voice-app plan is kept in [archive/APP_PLAN.md](archive/APP_PLAN.md). We are no longer building
+an app: it is screen-based, and the product is now a book that a parent reads *with* a child.)*
 
 ---
 
-## 2. Curriculum (ages 2–5)
+## 1. The idea in one paragraph
 
-Built from the **CDC developmental milestones** (what most kids can do by each age) and the
-**Head Start Early Learning Outcomes Framework (ELOF)**, which covers five domains: Language &
-Literacy, Cognition (math + science), Social-Emotional, Approaches to Learning, and
-Perceptual/Motor.
+A series of short picture books for **parents to read with children aged 2–4**. Each book has
+**20 stories**. Every story is one small question a toddler might ask ("Why do we wash our hands?"),
+a short, simple answer, and a hands-on "Let's try!" activity. The series covers **knowledge** (sky,
+animals, the body), **values** (kindness, empathy, honesty, gratitude), **practical skills** (counting,
+sorting, tidying up, keeping clean) and anything else that helps a child grow up good and curious.
+Books are screen-free: the child never touches a device. Parents buy a book as a PDF to print or read,
+and later we may add real printed copies. A website sells each book through Stripe.
 
-| Track | Age 2–3 ("Tiny Talkers") | Age 3–4 ("Explorers") | Age 4–5 ("Pre-K Ready") |
-|---|---|---|---|
-| **Talking / language** | Name everyday objects, body parts, animal sounds; 2–3 word phrases ("more milk"); copy words; answer "what's this?" | 3–4 word sentences; who/what/where questions; describe pictures; tell what happened | Tell short stories in order; use "yesterday / tomorrow"; rhyming words; follow 3-step directions |
-| **Letters & phonics** | Sing the ABC song; notice letters in their own name | Recognize ~10 letters (start with their name); letter sounds for common letters | Recognize most upper/lowercase letters; beginning sounds ("ball starts with /b/"); rhyming; syllable clapping |
-| **Numbers & math** | Count 1–3 objects; "one" vs "many"; big/small | Count to 10; 1-to-1 counting of 5 objects; basic shapes; sort by color | Count to 20+; recognize numerals 1–10; compare more/less; simple patterns (ABAB); add/take away within 5 |
-| **Colors & shapes** | Match colors; circle, square | Name 4–6 colors; triangle, star, heart | All basic colors and shapes; shapes in real objects |
-| **Social-emotional** | Name feelings (happy, sad); take turns; say hi/bye | Understand why someone feels a way; calm-down breathing; sharing | Name more feelings; solve small conflicts; manners in context |
-| **World / science** | Animals and their sounds; food; vehicles | Weather, seasons, where animals live, body parts and what they do | Plants grow, day/night, sink/float, the five senses, community helpers |
-| **Movement / music** | Clap, stomp, dance along; finger plays | Action songs ("Head, Shoulders"); freeze dance | Follow-the-leader sequences; rhythm patterns |
-
-**Structure**
-
-- Curriculum is data, not code: `track → unit → lesson → activity` stored as JSON/YAML with an
-  age band and required skills. The app downloads new lessons without an app update.
-- Each **skill** has a mastery level per child (not seen → exposed → practicing → mastered). A
-  simple spaced-repetition scheduler picks what to review.
-- **Adaptive by level, not just age.** The age band sets the starting point; performance moves the
-  child up or down.
-- Have an early-childhood educator or speech-language pathologist review the scope and sequence
-  before launch. This matters both for quality and for marketing claims.
-
-**Episode template (about 5 min)**
-
-1. Hello song + child's name (teacher greets the child by name)
-2. Warm-up: review 1–2 mastered items
-3. Teach 1 new thing (model → child tries → praise/help)
-4. Game: tap, drag or say it
-5. Movement break (song/dance)
-6. Recap + goodbye song, with a parent note ("Today we practiced the letter B")
+**Why this works as a product:** parents of toddlers already want screen-free, co-reading content;
+the format is proven by the first book (which you liked); and 20 stories per book makes each book small
+enough to finish in a few weeks and cheap enough to sell at a low price.
 
 ---
 
-## 3. Free-play zone
+## 2. What the first book taught us
 
-Runs almost entirely **on the device**, with no AI cost per minute.
+I read the PDF you made (103 pages, ReportLab, 800×800 square pages). Its structure is the template
+for the whole series:
 
-- **Puzzles:** shape sorters, jigsaws with 2–12 pieces, matching pairs
-- **Animals:** tap an animal to hear its sound and name; "Where does it live?" drag game
-- **Drawing:** trace letters and numbers, color by number
-- **Music:** xylophone, drums, sing-along
-- **Build:** stacking blocks, dress the teacher
-- **Stories:** picture books read by the teacher's voice (pre-generated audio)
-
-The teacher can appear in free play as a light companion ("You found the lion! What sound does a
-lion make?"). These lines come from a pre-written phrase bank, and the live LLM is called only
-when the child talks to the teacher.
-
----
-
-## 4. Recommended architecture
-
-### 4.1 Mobile app
-
-**Recommendation: React Native with Expo (TypeScript).**
-
-- Works on iOS and Android from one codebase, has good audio and animation libraries, and makes
-  OTA updates easy for content and fixes.
-- Animation: **Rive** (`rive-react-native`) for the teacher character and games, with state
-  machines driven by visemes. **react-native-skia** for drawing and tracing.
-- Audio: WebRTC through the LiveKit React Native SDK for live conversation, and `expo-audio` for
-  pre-rendered clips.
-- On-device voice activity detection (VAD) so we only stream audio while the child is speaking.
-
-Alternative: Flutter (Flame for games) is also strong. Choose it only if the team already knows
-Dart.
-
-### 4.2 System diagram
-
-```
-┌──────────────────────── Mobile app (Expo / React Native) ────────────────────────┐
-│  Lesson player (runs lesson JSON)   Free-play games (Rive/Skia, offline)           │
-│  Teacher avatar (Rive 2D rig, lip-sync from visemes)                               │
-│  Mic → on-device VAD → WebRTC  ◄──►  audio + viseme stream                         │
-│  Local cache: lesson packs, pre-rendered audio, avatar assets                      │
-│  Parent area (behind a parent gate): profiles, limits, progress, consent            │
-└───────────────┬───────────────────────────────────────────┬─────────────────────┘
-                │ WebRTC (LiveKit)                          │ HTTPS
-┌───────────────▼──────────────────────┐   ┌───────────────▼──────────────────────┐
-│  Realtime voice agent (LiveKit Agents)│   │  Backend API (Supabase: Postgres,     │
-│  1. STT (streaming)                   │   │  Auth, Storage, Edge Functions)       │
-│  2. Answer check (fuzzy/phonetic)     │   │  - child profiles, skill mastery      │
-│  3. LLM (small, cheap) + safety filter│   │  - curriculum / lesson packs          │
-│  4. TTS in the parent's cloned voice  │   │  - avatar + voice creation jobs       │
-│     → audio + word timings → visemes  │   │  - billing (RevenueCat)               │
-└──────────────────────────────────────┘   └───────────────────────────────────────┘
-                │                                           │
-        Model providers (swappable)             Offline batch jobs:
-        STT / LLM / TTS                          pre-render lesson audio in each
-                                                 teacher voice; cartoonize photo
-```
-
-### 4.3 Why a cascaded pipeline (STT → LLM → TTS), not speech-to-speech
-
-Speech-to-speech models such as OpenAI Realtime and Gemini Live feel more natural, but they only
-offer **preset voices**. They can't speak in a voice the parent uploads. The cascaded pipeline
-also:
-
-- gives us **text in between**, so we can run safety filters, check answers and log the lesson
-  flow (as text only, no audio)
-- produces **word/phoneme timestamps** from the TTS, which drive the avatar's lip-sync
-- lets us swap any part for a cheaper or better provider
-
-With streaming at every step, latency of about 800 ms to 1.2 s is realistic, and that is fine for
-toddlers. The teacher can also say a filler line ("Hmm, let me see…") from cache while it waits.
-
-### 4.4 Handling toddler speech (the hardest technical problem)
-
-Speech recognition is much less accurate on 2–3-year-olds. Design around it:
-
-- Most prompts have an **expected answer**. Match it phonetically and fuzzily ("tat" ≈ "cat"), and
-  keep a list of common toddler variants for each word.
-- **Any attempt is praised.** For ages 2–3, "the child made a sound after the prompt" (from VAD)
-  already counts as a success signal.
-- Always offer a **tap alternative** (show 2–3 pictures) so a non-verbal or shy child can still
-  move forward.
-- Only use the LLM's open conversation for ages 4–5 or free chat, where speech is clearer.
-- Later: fine-tune or add a child-speech-adapted speech recognition model using data from
-  consenting parents only, stored under COPPA rules.
-
-### 4.5 Custom teacher: look ("upload any picture")
-
-A one-time **character creation** job for each teacher:
-
-1. Parent uploads a photo (of themselves, a grandparent, a pet, a drawing).
-2. The backend makes a **friendly cartoon version** with an image model, finds the face landmarks
-   (eyes, mouth) and generates mouth-shape and blink layers.
-3. These are placed into a template **Rive 2D rig**, so the teacher animates on the phone at
-   60 fps with **no cost per minute**. Lip-sync comes from the TTS visemes.
-
-Premium option, later: photo-realistic talking head using LivePortrait-style models on a server
-GPU. This is expensive for each minute of live use, so use it only to pre-render fixed content
-such as songs and intros.
-
-Guardrails: the parent must confirm they have the right to use the image. Block known public
-figures and celebrities (for example, don't let users recreate Ms Rachel). Stylizing the photo
-into a cartoon also lowers the risk of deepfake misuse.
-
-### 4.6 Custom teacher: voice ("make it talk")
-
-- Parent records about 30–60 seconds of their voice in the app, including a **spoken consent
-  phrase**. We check that the phrase matches, to prevent cloning someone else's voice.
-- Create a cloned voice with a TTS provider that supports zero-shot cloning.
-- **Pre-render** all fixed lesson lines in that voice once, in a batch job, and cache them on the
-  device. Only the live replies generated by the LLM are synthesized in real time. This removes
-  most TTS cost.
-- Also offer a few built-in "house" voices for families who don't want to clone.
-
----
-
-## 5. Model recommendations (free → cheap)
-
-| Layer | MVP pick (cheap, managed) | Cheaper / self-hosted later | Notes |
-|---|---|---|---|
-| **LLM** (teacher replies) | **Gemini Flash-Lite** (has a free tier for development) or **Claude Haiku 4.5** ($1 / $5 per 1M tokens) | Open model (e.g. Gemma / Llama small) on a GPU host | Replies are 1–2 short sentences. Use prompt caching on the long, fixed system prompt. Pick the one that scores best on our safety/tone eval set. |
-| **STT** (speech-to-text) | Deepgram or Gemini/OpenAI streaming STT | Whisper (e.g. faster-whisper) self-hosted | Must stream. Test with real toddler audio from consenting families. |
-| **TTS + voice clone** | **Cartesia Sonic** (~90 ms latency) or **Fish Audio** (cheap per character) | **Chatterbox** (MIT, zero-shot clone from ~5 s) or F5-TTS self-hosted | ElevenLabs sounds best but costs the most. **Kokoro** is free and fast but can't clone, so use it only for house voices. |
-| **Realtime transport** | **LiveKit Cloud** (free tier) + LiveKit Agents | Self-hosted LiveKit server | Handles WebRTC, echo cancellation, interruptions. |
-| **Photo → cartoon** | Any image-generation API, run once per teacher | Open image model (SDXL/Flux-class) self-hosted | One-time cost for each avatar. |
-| **Safety** | Our own rules + a moderation model on both input and output text | — | Kid-specific blocklist, topic allowlist, "redirect to lesson" fallback. |
-
-**Rough cost for live conversation** (estimates; test before relying on them):
-
-- Cascaded pipeline: STT ≈ $0.005/min, LLM < $0.001/min, TTS ≈ $0.005–0.012/min (only for live
-  replies). Total **≈ $0.01–0.02 per minute of live talk**.
-- If a child uses **10 min/day of live AI** (the rest is pre-rendered lessons + on-device play),
-  that is about **$3–6 per child per month**. Free play and pre-rendered lessons cost roughly $0.
-- Lower costs by: caching TTS, pre-rendering, VAD so we never stream silence, a short LLM context
-  (the lesson state lives in code, not in the chat history), and moving to self-hosted STT/TTS
-  once there are enough users.
-
-**Business model hint:** a free tier with the scripted lessons, house voices and full free-play;
-a paid tier ($5–8/month) for the custom face and voice plus live conversation.
-
----
-
-## 6. Data model (first draft)
-
-```
-parent(id, email, consent_status, consent_method, created_at)
-child(id, parent_id, first_name, birth_year_month, avatar_teacher_id, daily_limit_min)
-teacher(id, parent_id, name, rive_asset_url, voice_provider_id, voice_consent_at)
-curriculum_skill(id, track, age_min, age_max, description, prerequisites[])
-lesson(id, unit_id, age_band, version, json_spec)
-child_skill(child_id, skill_id, level, last_seen_at, next_review_at)
-session(id, child_id, lesson_id, started_at, ended_at, summary_text)   -- text only, no audio
-```
-
----
-
-## 7. Safety, privacy & compliance (non-negotiable)
-
-- **COPPA (amended rule, compliance required since April 22, 2026):** voice recordings and
-  biometric data such as voiceprints and face templates are personal information. We need
-  **verifiable parental consent** before any recording, a written data-retention policy, and
-  separate consent before sharing data with third parties (our AI providers count). Delete audio
-  right after transcription, and never use children's data for training without explicit opt-in.
-- Choose AI vendors that offer **zero data retention / no training** on API data, and sign data
-  processing agreements (DPAs).
-- A **parent gate** (e.g. "hold 3 fingers" or a math question) guards settings, purchases and
-  external links. No ads, no open chat with other users, no external links in the kids' area.
-- The LLM follows a tight persona: always kind, never asks for personal information (address,
-  last name), steers away from off-topic subjects, and never pretends to be a real person. The
-  output filter blocks anything that isn't age-appropriate.
-- App store requirements: Apple Kids Category and Google Families policy (limits on third-party
-  SDKs and analytics).
-- Screen-time respect: parent-set limits, a "goodbye" wind-down, and encouraging co-play
-  ("Ask a grown-up to count with you!").
-
----
-
-## 8. Roadmap
-
-| Phase | Scope | Goal |
+| Part | What it is | Keep? |
 |---|---|---|
-| **0. Prototype (2–3 wks)** | Expo app, one house avatar (Rive), 3 scripted lessons (counting 1–5, letter A, animal sounds), live voice loop with LiveKit + cheap STT/LLM/TTS | Measure latency and how well STT works on real toddler speech |
-| **1. MVP (6–8 wks)** | Curriculum engine (JSON lessons + mastery), ~20 lessons across tracks, 4 free-play games, parent area, COPPA consent flow, Supabase backend | Closed beta with ~20 families |
-| **2. Personalization** | Photo → cartoon teacher, voice cloning with consent, batch pre-rendering, progress reports | Paid tier |
-| **3. Scale** | Self-hosted STT/TTS, more lessons (educator-reviewed), Spanish/Tagalog, offline mode | Lower cost per user, more markets |
+| Cover | Title, subtitle, "a read-together book for ages 2–4" | Keep, add series branding and volume number |
+| "For the grown-up" page | 6 tips: read 1–2 at a time, ask first, point and name, do the activity, simplified on purpose, "let's find out together" | Keep. This is what makes it a *parent* book. Make it specific to each book |
+| Question page (full page) | Big picture, numbered badge, the question | Keep |
+| Answer page | Small picture, 2–4 sentences, **"Let's try!"** activity box | Keep, add one more element (below) |
+| End page | "Keep asking WHY!" | Keep, add a recap and a "what's next" page |
+
+**What works:** one idea per spread, very short text, a physical activity on every answer, and the "ask
+them first" advice. **What to improve:**
+
+1. **Add a "Talk about it" prompt** next to "Let's try!". For example, "When did you last share?". Asking
+   open questions while reading is one of the most effective things a parent can do, and it is the
+   difference between a book that is read *to* a child and one read *with* them.
+2. **Add a "grown-up corner"** (one line, small print): a fuller fact for the parent, or the value behind
+   the story. This lets parents answer the follow-up "but why?".
+3. **Repeating characters.** The first book has anonymous kids. A small cast (say 4 children and a pet)
+   that returns in every book builds attachment and brand.
+4. **Better art for a paid product.** The first book's flat vector art is clean and consistent, but it is
+   basic (see section 6, the biggest risk for selling).
+5. **Fact-check pass.** Some answers are simplified. That is fine for age 2–4, but nothing should be
+   *wrong*. Every story gets a short review before release (section 8).
+6. **Spelling:** the first book is British ("colours", "Practise"). The series now supports **both US and
+   British spelling**, chosen when the PDF is generated (section 5.1).
 
 ---
 
-## 9. Open questions
+## 3. The series
 
-1. Which languages at launch? (English only, or bilingual such as English + Tagalog/Spanish?)
-2. Is the teacher allowed to look like a real photo, or is it always cartoonized? (Cartoon is
-   recommended for safety and cost.)
-3. Budget for an early-childhood / speech-language consultant to review the curriculum?
-4. Solo developer or a team? This affects the choice between managed services and self-hosting.
+### 3.1 Book format
+
+- **20 stories per book.** 20 stories × 2 pages = 40 pages, plus front and back matter = **48 pages**
+  (a multiple of 4, so it can also be printed and bound later).
+- Page layout per book:
+
+| Pages | Content |
+|---|---|
+| 1 | Cover |
+| 2 | Title page and "For the grown-up" (book-specific) |
+| 3 | Contents: the 20 questions as a picture checklist (tick off as you read) |
+| 4–43 | 20 stories (question page + answer page) |
+| 44 | "What we learned": all 20 answers as tiny pictures, for recap |
+| 45 | Activity page: colouring or a simple printable (sticker chart, shapes to cut out) |
+| 46 | "Next in the series" |
+| 47 | Credits, copyright, usage licence |
+| 48 | Back cover |
+
+- **Reading time:** one story is about 2–3 minutes. A book lasts 3–4 weeks at a story a day, which is a
+  good "one book per month" rhythm for a subscription-like habit.
+
+### 3.2 Launch catalogue: 10 books, 200 stories
+
+Your 50 existing stories are all reused, and **150 new stories** need writing. Every book has a theme
+and a "value or skill" it teaches.
+
+| # | Book | Teaches | Reused from book 1 | New |
+|---|---|---|---|---|
+| 1 | **Sky, Weather & Seasons** | Curiosity about nature | Sky blue, sun at night, moon, stars, rain, thunder, rainbows, wind, ice, snow, shadow (11) | 9 |
+| 2 | **Plants & Animals** | Care for living things | Leaves, flowers, bees, plants need water, birds, fish, dogs, cats, kangaroos, ducks (10) | 10 |
+| 3 | **How Things Work** | Cause and effect | Sea is salty, waves, balls bounce, things fall, boats float, wheels (6) | 14 |
+| 4 | **My Amazing Body** | Knowing and loving your body | Tummy rumbles, belly button, two eyes, ears, sneeze, hiccups, yawn, grow, heartbeat (9) | 11 |
+| 5 | **Clean, Healthy & Strong** | Cleanliness and habits | Teeth, baths, hand-washing, sleep, vegetables, water, shoes, sun hat (8) | 12 |
+| 6 | **Kind Hearts** | Kindness, empathy, sharing | Please and thank you, sharing, family love (3) | 17 |
+| 7 | **Feelings & Friends** | Naming feelings, friendship | Why do I cry (1) | 19 |
+| 8 | **Little Mathematicians** | Practical maths | none | 20 |
+| 9 | **Safe & Smart** | Safety, honesty, listening | Holding hands near the road (1) | 19 |
+| 10 | **Helpers & Our World** | Community, jobs, caring for Earth | Why grown-ups work (1) | 19 |
+| | **Total** | | **50** | **150** |
+
+### 3.3 Ideas for the new stories (starting list, not final)
+
+- **Kind Hearts (empathy):** Why do we say sorry? Why is it nice to help? Why do we hug someone who is
+  sad? Why do we wait for our turn? Why do we use gentle hands? Why do we say hello? Why do we help
+  tidy up? Why do we listen when someone talks?
+- **Feelings & Friends:** Why do I get angry? Why do I feel scared of the dark? Why do I get shy? Why
+  is it OK to feel sad? Why do friends matter? Why do we take deep breaths?
+- **Little Mathematicians (practical maths):** Why do we count? Why do we have two shoes? Why is it
+  "more" or "less"? Why do we set the table with one plate each? Why do we sort laundry? Why do shapes
+  matter? What is half? Why do we need a clock? What are coins for?
+- **Safe & Smart:** Why do we tell the truth? Why do we not touch hot things? Why do we stay close in
+  the shop? Why do we wear a seatbelt? Why do we ask before taking something?
+- **Clean, Healthy & Strong (new part):** Why do we cover our cough? Why do we wipe our nose? Why do we
+  put rubbish in the bin? Why do we wash fruit? Why do we need exercise?
+- **Helpers & Our World:** Why do we recycle? Why do we switch off the light? Why do we not waste food?
+  Who grows our food? What does a doctor do?
+
+**Later volumes:** Feelings 2, Numbers 2, Letters & Sounds, Food (farm to table), Seasons around the
+world, Money basics, Manners at the table, Bedtime stories, My Family and My Culture. Parents will
+also ask for **age 4–6 editions** ("Why Why Why: Big Kids") with more detail.
+
+### 3.4 A learning framework for every story
+
+Each story carries four tags in its data. They keep the series balanced and let us sell by theme.
+
+| Tag | Examples |
+|---|---|
+| **Domain** | Science, My body, Maths, Social-emotional, Health, Safety, Community |
+| **Value** (if any) | Kindness, empathy, honesty, gratitude, patience, responsibility, courage |
+| **Skill** | Counting, sorting, naming feelings, turn-taking, hygiene routine |
+| **Activity type** | Move, touch, pretend, sing, count, make, look around |
+
+Each book must cover at least two domains, and the whole series should include roughly 40% knowledge,
+40% values/emotional skills and 20% practical skills, so that it is not only "science facts".
 
 ---
 
-## Sources
+## 4. How a story is written (the content rules)
 
-- CDC milestones: https://www.cdc.gov/act-early/milestones/index.html
-- Head Start ELOF: https://headstart.gov/school-readiness/article/head-start-early-learning-outcomes-framework
-- Amended COPPA rule: https://www.federalregister.gov/documents/2025/04/22/2025-05904/childrens-online-privacy-protection-rule
-- AAP screen-time guidance summary: https://health.choc.org/updated-aap-recommendations-for-screen-time/
-- Voice agent cost comparisons: https://inworld.ai/resources/voice-agent-cost-per-minute-2026
-- TTS / voice cloning options: https://ocdevel.com/blog/20250720-tts
-- Talking-head models: https://lipsync.com/blog/open-source-lip-sync
+- **Question:** starts with "Why" or "How", under 8 words, in a child's voice.
+- **Answer:** 2–4 short sentences, 8–12 words each, concrete words a 2–4-year-old knows, one idea,
+  something they can see or feel. For values stories, use a tiny scene rather than a lecture ("Mia
+  shares her ball. Now Ben is smiling too").
+- **Let's try!:** one physical action that needs no equipment or only household items, and takes a minute.
+- **Talk about it:** one open question that has no wrong answer.
+- **Grown-up corner:** one or two sentences of real explanation or the value behind the story.
+- **Tone:** warm, never scary, never shaming, nothing about punishment. Values are shown as "this makes
+  hearts happy", not "good children do this".
+- **Inclusive:** varied skin tones, family types and abilities in the cast. Avoid gender stereotypes in
+  jobs and roles.
+- **Readability check:** automated (sentence length, word list) plus a human read-aloud test.
+
+### Story file format (YAML, one file per story)
+
+```yaml
+id: kind-hearts-03
+book: kind-hearts
+order: 3
+question: "Why do we say sorry?"
+answer: >
+  Sometimes we bump into a friend or grab a toy. That can make them sad.
+  Saying sorry shows we care, and it helps our friend feel better.
+lets_try: "Pretend to bump a teddy. Then say, 'Sorry, teddy!' and give it a gentle pat."
+talk_about: "How do you feel when someone says sorry to you?"
+grown_up_corner: >
+  Toddlers say sorry best when they see the other child's face. Point out the feeling first,
+  then practise the words.
+tags: {domain: social-emotional, value: empathy, skill: apologising, activity: pretend}
+scene: {template: two_kids_with_toy, mood: gentle, palette: warm_pink}
+reviewed: {facts: false, values: false, readability: false}
+```
+
+---
+
+## 5. Python production pipeline
+
+Everything is generated by Python from the content files. **Write content once, build every format.**
+
+```
+content (YAML)  →  validate  →  illustrate (SVG)  →  lay out pages  →  PDF  →  QA checks  →  publish
+```
+
+| Step | What it does | Tool |
+|---|---|---|
+| Validate | Schema check, word counts, readability, banned words, all 20 stories present | `pydantic`, `textstat` |
+| Illustrate | Build each scene from reusable parts: characters, backgrounds, objects, palettes | `svgwrite` or hand-built SVG, rendered with `cairosvg` |
+| Lay out | Page templates: cover, question page, answer page, recap, activity page | `reportlab` (already used for book 1, installed here) |
+| Fonts | Embedded child-friendly font with open licence (e.g. Nunito or Andika, plus DejaVu as fallback) | TTF files in repo |
+| Output | **Screen PDF** (RGB, small file), **Print PDF** (A5/US 8×8, CMYK-safe, 3 mm bleed), **Sample PDF** (first 3 stories), **Thumbnails/preview images** for the shop | `reportlab`, `pypdf`, `pillow` |
+| QA | Fonts embedded, no text overflow, no empty pages, page count = 48, file size limit, contrast check | custom checks + `pypdf` |
+
+**Why ReportLab and not HTML-to-PDF (WeasyPrint)?** ReportLab is already working for you and is
+installed here. WeasyPrint gives easier layout with CSS but needs system libraries. We can switch later if
+page design gets complicated; the content files do not change.
+
+### 5.1 US and British spelling from one source
+
+Content is written once. Where the two spellings differ, the text marks the choice inline as
+`{us|uk}`, for example `all the {colors|colours} of the rainbow` or `Let's {practice|practise}`.
+The builder resolves each marker for the chosen variant, so **one command builds both** PDFs:
+`--spelling us` or `--spelling uk`. A checker flags common unmarked words (color, mom, gray…) so nothing
+slips through. This is explicit on purpose: an automatic word-swapper cannot tell the noun "practice"
+from the verb "practise".
+
+### Proposed repository layout
+
+```
+ai-kids-teacher/
+├── content/
+│   ├── series.yaml                 # series name, cast, palettes, book list
+│   └── books/
+│       ├── 01-sky-weather/
+│       │   ├── book.yaml           # title, grown-up note, cover scene
+│       │   └── stories/01.yaml … 20.yaml
+│       └── 02-plants-animals/ …
+├── kit/                            # illustration kit
+│   ├── characters/                 # cast with moods and poses
+│   ├── scenes/                     # reusable backgrounds
+│   ├── objects/                    # sun, ball, toothbrush, etc.
+│   └── palettes.py
+├── builder/                        # the Python package
+│   ├── schema.py   validate.py   illustrate.py
+│   ├── layout.py   build_pdf.py  qa.py   cli.py
+├── site/                           # the shop (section 7)
+├── tests/
+├── out/                            # generated PDFs (git-ignored)
+└── docs/
+```
+
+CLI sketch: `python -m builder build 01-sky-weather --target screen|print|sample`, and
+`python -m builder qa --all`.
+
+---
+
+## 6. Illustrations: the biggest decision
+
+The first book's art is generated by code from flat shapes. It is consistent and free, but it is simple
+and a paying customer will compare it with professionally illustrated toddler books.
+
+| Option | Cost | Quality | Consistency | Notes |
+|---|---|---|---|---|
+| **A. Code-drawn vector kit** (as in book 1, but richer) | Free | OK | Perfect | Good enough to *launch and test demand*. Slow to make new scenes look rich |
+| **B. AI-generated images** | Low per image | High but uneven | Hard (characters drift between pages) | 200 stories need the same characters. Legal point: in the US, purely AI-made images are not copyrightable, so competitors could copy them. Also check each tool's commercial-use terms |
+| **C. Commissioned illustrator, then compose in Python** | One-off fee for a character and asset kit (often a few hundred to a few thousand dollars) | Best | Perfect, because the kit is fixed | Illustrator draws the cast (poses, emotions) and about 100 objects and backgrounds as SVG. Python assembles them into every page. You **own** the art |
+| **D. Hybrid** | | | | Start with A for books 1–3 at low price. Commission C once sales prove the idea, and re-release |
+
+**Recommendation: D.** Launch with an upgraded version of A (still cheap, still consistent), run a small
+paid test, and commission C with the revenue. The pipeline treats the kit as a swappable folder, so the
+change is not a rewrite.
+
+---
+
+## 7. The shop (long term)
+
+### 7.1 Do it in two steps
+
+1. **Validate first:** a **Stripe Payment Link** for each book needs no code: Stripe hosts the checkout and
+   you deliver the PDF by link or email. You learn whether people buy.
+2. **Own site:** build the custom Python site below once you see demand.
+
+### 7.2 Recommended stack
+
+| Part | Choice | Why |
+|---|---|---|
+| Web framework | **FastAPI** + Jinja templates (HTMX for small interactions) | Python, fast, little JavaScript, clear structure |
+| Database | SQLite first, move to PostgreSQL when needed | Simple at the start |
+| Payments | **Stripe Checkout** (hosted page, created by our server) + **Stripe Tax** for sales tax/VAT/GST | Handles cards, wallets, many currencies and countries, so we can sell to anyone. PayPal can be added later as an extra option through Stripe, if wanted |
+| File storage | Private object storage (S3 or Cloudflare R2), or local disk at the start | PDFs must never be public URLs |
+| Delivery | **Signed, expiring download links** (e.g. 7 days, 5 downloads) sent by email | Prevents link sharing |
+| Email | Resend, Postmark or SES | Receipts and download links |
+| Hosting | Fly.io, Render or a small VPS | Cheap, Python-friendly |
+
+### 7.3 Purchase flow
+
+```
+Visitor → book page (preview images, sample PDF, price)
+   → buyer picks spelling (US / UK) → "Buy" → our server creates a Stripe Checkout Session
+   → buyer pays on Stripe's page → Stripe sends webhook `checkout.session.completed`
+   → we verify the signature, save the order → email with signed download link
+```
+
+Rules that matter:
+
+- **Never trust the browser.** Mark an order paid only after a verified Stripe webhook (check the
+  signature with the webhook secret), never because the buyer reached a "thank you" page.
+- **Idempotent:** a repeated webhook must not create a second order.
+- **Refunds/disputes:** a webhook handler (`charge.refunded`, `charge.dispute.created`) marks the order refunded and disables the link.
+- **Per-buyer watermark:** the build step stamps a tiny line ("Licensed to name@email") on the last page
+  of the buyer's copy. It deters sharing without hurting honest customers. (Generated on demand and
+  cached, ~1 second per book.)
+- **Spelling choice:** the buyer chooses **US or British** on the book page (and can download the other
+  version later from their library at no cost). Both versions are built from the same content files.
+- **Pages:** Home, Series/Catalogue, Book page, Cart or Buy now, "My downloads" (by email link),
+  Free sample, About, FAQ, Terms/Privacy/Refunds, Contact.
+
+### 7.4 Data model (first draft)
+
+```
+book(id, slug, title, volume, theme, price_cents, status, cover_url, sample_pdf, master_pdf)
+bundle(id, slug, title, price_cents)           bundle_item(bundle_id, book_id)
+customer(id, email, created_at)
+order(id, customer_id, stripe_session_id, stripe_payment_intent, status, total_cents, currency, created_at)
+order_item(order_id, book_id|bundle_id, price_cents, spelling)   -- spelling: 'us' | 'uk'
+download_token(id, order_item_id, token_hash, expires_at, downloads_left)
+event_log(id, source, type, payload, created_at)   -- raw Stripe webhooks for auditing
+```
+
+### 7.5 Pricing (to test, not fixed)
+
+- Single book (48 pages PDF): **US$4.99–6.99**
+- Bundle of all 10: about **US$29–39** (roughly 40–50% off)
+- **Free sample:** first 3 stories of each book, plus one full free "starter" book to collect emails
+- Stripe's card fee is roughly 3% plus a small fixed fee per sale (higher for some countries and
+  currencies, and Stripe Tax has its own fee); check current rates, since a fixed fee hurts most on low
+  prices. Bundles help. Show prices in the buyer's currency with Stripe's currency options.
+- Later: printed copies through print-on-demand (Lulu, Amazon KDP or IngramSpark). The print PDF target
+  in section 5 prepares for this.
+
+### 7.6 Legal and admin to check early
+
+- Business registration and taxes for digital goods in your country and in your customers' countries
+  (some places, like the EU, UK and Australia, require VAT/GST on digital downloads). **Stripe Tax**
+  calculates and collects it, but *you* still register and file in each place you must. If you sell to
+  "anyone" from day one, a merchant-of-record platform such as Paddle or Lemon Squeezy would do the
+  filing for you at a higher fee. This is worth a short decision once you know where buyers are.
+- Privacy policy, terms, refund policy. We collect only email and order data. **No child data at all**
+  (a big advantage of the book format over the app).
+- Trademark and domain check for the series name before printing it on 10 covers.
+- Copyright notice and usage licence ("for personal and classroom use, no resale").
+
+---
+
+## 8. Quality and trust
+
+For a children's brand, trust is the product. Every book passes these gates before it is sold:
+
+1. **Automated:** schema, readability, word lists, page count, fonts embedded, no overflow.
+2. **Fact check:** each answer checked against a reliable source (this can be done with AI help and a
+   human read). Simplification is allowed; false statements are not.
+3. **Values and safety review:** nothing scary, shaming, stereotyped or unsafe in the "Let's try!" tasks
+   (no activity that needs a hot stove, small parts a toddler could swallow, or running near roads).
+4. **Educator review:** ideally a preschool teacher or early-childhood specialist reads each book once
+   (a small paid review, or a friendly teacher). If you make learning claims on the shop, this also
+   supports them.
+5. **Real-child test:** read the finished book to 2–3 toddlers. Note which stories hold attention and
+   which are skipped, and use that to improve later books.
+
+---
+
+## 9. Roadmap
+
+| Phase | Scope | Result |
+|---|---|---|
+| **0. Foundations (1–2 weeks)** | Repo layout; story schema; port the 50 existing stories to YAML; rebuild book 1 PDF from YAML with the pipeline; choose the font and palette | One command reproduces a book from content files |
+| **1. Prototype book (2 weeks)** | Build **Book 6, "Kind Hearts"** (values test), with 17 new stories and the new elements (Talk about it, Grown-up corner, recap, activity page); first character cast | A complete, polished 48-page book |
+| **2. Test the market (2–3 weeks)** | Books 1, 5 and 6 done; 3-story samples; a landing page with Stripe Payment Links; ask 10–20 parents for feedback | Real signals: who buys, what they ask for |
+| **3. Build the series (6–10 weeks)** | Books 2–4, 7–10; print target; QA pipeline; educator review | 10 books ready |
+| **4. Own shop (3–4 weeks)** | FastAPI site, Stripe Checkout + webhook, signed downloads, email, watermarking, admin page | Live store on your domain |
+| **5. Grow** | Commissioned illustration kit, printed books, age 4–6 editions, bundles, bilingual editions | Brand and revenue |
+
+Phases 2 and 3 can overlap. **One person (with Claude doing the heavy lifting on code and drafting)** can do
+phases 0–2 in about **6 weeks** part-time; the exact time depends on how much of the writing review you do.
+
+---
+
+## 10. Risks and how to handle them
+
+| Risk | Impact | Response |
+|---|---|---|
+| Art looks too basic to sell | Low conversion | Free samples, test price, commission the kit with early revenue (section 6) |
+| Illustrations inconsistent if AI-made | Brand looks cheap | Use the fixed Python kit; do not generate characters per page |
+| Factual mistakes in simplified answers | Loses trust | Fact-check gate and a "grown-up corner" with the real explanation |
+| PDF sharing / piracy | Lost sales | Signed links, per-buyer watermark, low price; do not over-engineer DRM |
+| Payment bugs (double charge, unpaid access) | Money and trust | Server-side capture, verified webhooks, idempotency, tests |
+| Taxes on digital goods | Legal exposure | Check early, or use a merchant-of-record platform at first |
+| Burnout writing 150 stories | Project stalls | Batch by book, template the format, release a book at a time |
+| Name clashes ("Why Why Why") | Rebrand cost | Search trademarks and domains now |
+
+---
+
+## 11. Success measures
+
+- **Quality:** 3 of 3 test toddlers ask to read it again; parents complete the "Let's try!" on 7 of 10
+  stories.
+- **Market test (phase 2):** at least 5% of sample downloaders buy; at least 10 parents give feedback.
+- **Operations:** a new 20-story book goes from draft to published PDF in about 2 weeks after the
+  pipeline is set up.
+
+---
+
+## 12. Decisions made
+
+| # | Question | Decision |
+|---|---|---|
+| 1 | Series name | **Little Whys.** Every story is a "why" question, and every book title is "Little Whys: <theme>" |
+| 2 | Spelling | **Both US and British**, selected when the PDF is generated and by the buyer in the shop (section 5.1) |
+| 3 | Market | **Any country.** Payments through **Stripe** (Checkout + Stripe Tax). See section 7.6 for tax filing |
+| 4 | Cast | **Recurring characters.** Small cast, returning in every book |
+| 5 | Languages | **English only** for now. Content in YAML keeps other languages possible later |
+| 6 | Print | **PDF only.** Parents print at home. A print-friendly layout is still built in (clean margins, black-and-white activity page) |
+| 7 | Illustration route | Option D: code-drawn first, commission an illustrator later |
+
+Still open: the budget for an educator review and an illustrator, and trademark/domain checks for
+"Little Whys".
+
+---
+
+## 13. Build status
+
+| Item | Status |
+|---|---|
+| Plan | Done (this document) |
+| Repo layout, YAML story schema and validator | Built |
+| All 50 existing stories ported to YAML (US spelling with `{us|uk}` markers) | Built |
+| Builder: US/UK spelling, page layout, simple illustration kit, PDF output | Built (first version) |
+| Draft books for the 10 catalogue themes, filled with the stories we already have | Built (marked draft until they have 20 stories) |
+| 150 new stories, cast artwork, QA gates, educator review | Not started |
+| Stripe shop | Not started |
+
+**Next:** write the full *Kind Hearts* book (17 new stories), then Books 1 and 5, then test the market
+(phase 2 of the roadmap).
+
+---
+
+## Sources and background
+
+- Existing book: `Why_Why_Why_Picture_Book.pdf`, 103 pages, 50 stories, ReportLab, ages 2–4.
+- Dialogic reading (asking open questions while reading with a child) is a well-studied method for
+  building early language skills.
+- Early learning domains used for tags are based on the Head Start Early Learning Outcomes Framework
+  (language, cognition, social-emotional, approaches to learning, physical development).
+- Stripe Checkout and webhooks: https://docs.stripe.com/payments/checkout and https://docs.stripe.com/webhooks
+- Please check current fees, tax rules and print-on-demand specifications before launch; these change.
