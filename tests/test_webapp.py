@@ -82,3 +82,14 @@ def test_download_hook_blocks_paid_books(tmp_path):
     assert paid.get("/books/sky-weather/download/us").status_code == 402
     assert paid.get("/books/sky-weather/download/us?sample=true").status_code == 200
     assert "not available" in paid.get("/books/sky-weather").text
+
+
+def test_hidden_from_search_engines_by_default(client):
+    assert 'name="robots"' in client.get("/").text
+    assert "Disallow: /" in client.get("/robots.txt").text
+
+
+def test_can_allow_indexing(tmp_path):
+    c = TestClient(create_app(out_dir=tmp_path, settings=Settings(indexable=True)))
+    assert 'name="robots"' not in c.get("/").text
+    assert "Allow: /" in c.get("/robots.txt").text

@@ -5,12 +5,13 @@ Everything is free to download for now. The one place that decides who may downl
 """
 from __future__ import annotations
 
+import os
 import threading
 from dataclasses import dataclass
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse, PlainTextResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -27,6 +28,8 @@ COOKIE_MAX_AGE = 60 * 60 * 24 * 365
 class Settings:
     free: bool = True  # while True every book is a free download
     site_name: str = "Little Whys"
+    # Hidden from search engines until you are ready to launch: set SITE_INDEXABLE=1 to allow indexing.
+    indexable: bool = os.environ.get("SITE_INDEXABLE", "0") == "1"
 
 
 def can_download(request: Request, settings: Settings, book) -> bool:
@@ -124,9 +127,21 @@ def create_app(out_dir: Path | None = None, warm: bool = False, settings: Settin
         response.set_cookie(COOKIE, variant, max_age=COOKIE_MAX_AGE, samesite="lax")
         return response
 
+    @app.get("/robots.txt", response_class=PlainTextResponse)
+    def robots():
+        return "User-agent: *\nAllow: /\n" if settings.indexable else "User-agent: *\nDisallow: /\n"
+
     @app.get("/healthz")
     def healthz():
         return {"ok": True, **catalog.totals()}
+
+    @app.middleware("http")
+    async def security_headers(request: Request, call_next):
+        response = await call_next(request)
+        response.headers.setdefault("X-Content-Type-Options", "nosniff")
+        response.headers.setdefault("Referrer-Policy", "same-origin")
+        response.headers.setdefault("X-Frame-Options", "DENY")
+        return response
 
     @app.exception_handler(404)
     def not_found(request: Request, exc):

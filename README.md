@@ -10,10 +10,14 @@ The earlier voice-app plan is archived in [docs/archive/APP_PLAN.md](docs/archiv
 > **Before selling:** the text has only had an automatic check. Get a human fact check, safety review and an
 > educator read-through first (PLAN section 8).
 
+## Put it online
+
+See [docs/DEPLOY.md](docs/DEPLOY.md): a free Render deploy straight from GitHub, nothing to install.
+
 ## Run the website on your computer
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 python -m webapp
 ```
 

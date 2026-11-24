@@ -16,7 +16,7 @@ PAGE_PT = 576  # 8 x 8 inches
 K = PAGE_PT / S
 CREAM, TIP_BG, TIP_FG, GREY = "#FFF8EC", "#FFE3B3", "#B85C00", "#6B6F80"
 FONT, BOLD = "LW-Sans", "LW-Sans-Bold"
-FONT_DIRS = ["/usr/share/fonts/truetype/dejavu", "/usr/share/fonts/dejavu", "fonts"]
+FONT_DIRS = [Path(__file__).resolve().parent.parent / "fonts", Path("/usr/share/fonts/truetype/dejavu"), Path("/usr/share/fonts/dejavu")]
 
 GROWN_UP_TIPS = [
     "Read one or two questions at a time. Little ones learn best in short, happy bursts.",
@@ -37,7 +37,7 @@ def _register_fonts() -> None:
             pdfmetrics.registerFont(TTFont(FONT, str(reg)))
             pdfmetrics.registerFont(TTFont(BOLD, str(bold)))
             return
-    raise RuntimeError("DejaVuSans fonts not found; install fonts-dejavu or put them in ./fonts")
+    raise RuntimeError("DejaVuSans fonts not found in ./fonts")
 
 
 def wrap(text, font, size, width):

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Little Whys: screen-free picture books for toddlers{% endblock %}</title>
   <meta name="description" content="{% block description %}Screen-free picture books for parents to read with children aged 2-4. Twenty big questions per book, with a tiny story, an activity and something to talk about.{% endblock %}">
+  {% if not settings.indexable %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/static/style.css">
 </head>
