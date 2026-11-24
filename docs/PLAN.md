@@ -332,7 +332,8 @@ event_log(id, source, type, payload, created_at)   -- raw Stripe webhooks for au
 ### 7.7 What exists today (free, localhost) and how Stripe plugs in
 
 The `webapp/` package is a working free site: home page, a page per book, US/UK switch (cookie, or the
-browser's language), cover and page previews, PDF and 3-story sample downloads built on demand and cached.
+browser's language), cover and page previews, an **online reader** for every page, PDF and 3-story sample
+downloads built on demand and cached.
 Run it with `python -m webapp`.
 
 Stripe is a small addition rather than a rewrite:
@@ -341,6 +342,8 @@ Stripe is a small addition rather than a rewrite:
    Today it returns `True`. With payments, it checks a paid order for the visitor.
 2. Set `Settings(free=False)` to switch the site into paid mode. A test already checks that full downloads
    then return **402** while the free sample still works.
+   In paid mode the reader keeps the first 9 pages (front matter and 3 stories) open as a preview and returns **402**
+   for the rest; the text of locked pages is never sent to the browser.
 3. Add: a Stripe Checkout Session route, a verified webhook route, the `order` and `download_token` tables
    from 7.4, signed expiring links, and email. Everything else stays as it is.
 
@@ -429,7 +432,7 @@ Still open: the budget for an educator review and an illustrator, and trademark/
 | Story schema, validator and US/UK spelling markers | Built and tested |
 | **All 200 stories** (50 ported from book 1, 150 new), each with a question, answer, "Let's try!", "Talk about it" and "Grown-up corner" | Written. 10 books, all marked `ready`, 48 pages each |
 | Builder: 48-page layout, sample build, per-book covers, stage scenes with 100+ drawn items | Built |
-| Free local website (FastAPI): catalogue, book pages, US/UK switch, previews, PDF and sample downloads, parents' guide | Built, 24 tests passing |
+| Free website (FastAPI): catalogue, book pages, US/UK switch, previews, **online reader** (all 48 pages, keyboard, swipe, jump to a story), PDF and sample downloads, parents' guide, About page | Built, 33 tests passing. Deployable with Docker (Render) |
 | Stripe checkout, accounts, emails, hosting | **Not started, on purpose** (see 7.7) |
 | Fact check, educator review, real-child test (section 8) | **Not done.** The text was written by an AI assistant and has had an automatic check only. Do not sell it before a human review |
 | Illustration kit by a real illustrator | Not started. Current pictures are code-drawn placeholders, and many stories share a similar scene |

@@ -101,3 +101,48 @@ def test_about_tells_the_story_in_both_spellings(client):
     assert "Psalm" in us and "Psalm" in uk
     assert "realize" in us and "judgment" in us and "realise" not in us
     assert "realise" in uk and "judgement" in uk and "realize" not in uk
+
+
+def test_reader_page(client):
+    r = client.get("/books/kind-hearts/read?spelling=us")
+    assert r.status_code == 200
+    assert 'data-total="48"' in r.text and 'data-page="1"' in r.text
+    assert "/books/kind-hearts/pages/us/1.webp" in r.text
+    assert "Download PDF to print" in r.text
+
+
+def test_reader_clamps_page_number(client):
+    assert 'data-page="48"' in client.get("/books/kind-hearts/read?page=999").text
+    assert 'data-page="1"' in client.get("/books/kind-hearts/read?page=-5").text
+
+
+def test_reader_page_images(client):
+    r = client.get("/books/kind-hearts/pages/us/4.webp")
+    assert r.status_code == 200 and r.headers["content-type"] == "image/webp"
+    assert r.content[:4] == b"RIFF" and r.content[8:12] == b"WEBP"
+    assert client.get("/books/kind-hearts/pages/us/0.webp").status_code == 404
+    assert client.get("/books/kind-hearts/pages/us/49.webp").status_code == 404
+    assert client.get("/books/kind-hearts/pages/au/1.webp").status_code == 404
+    assert client.get("/books/nope/pages/us/1.webp").status_code == 404
+
+
+def test_reader_text_alternatives(client):
+    page = client.get("/books/kind-hearts/read?page=4&spelling=us").text
+    assert "Why do we say please and thank you?" in page  # as image description and in the jump list
+
+
+def test_book_page_offers_reader(client):
+    assert "/books/kind-hearts/read" in client.get("/books/kind-hearts").text
+
+
+def test_paid_mode_keeps_only_the_preview_open(tmp_path):
+    paid = TestClient(create_app(out_dir=tmp_path, settings=Settings(free=False)))
+    assert paid.get("/books/kind-hearts/pages/us/9.webp").status_code == 200
+    assert paid.get("/books/kind-hearts/pages/us/10.webp").status_code == 402
+    page = paid.get("/books/kind-hearts/read?page=10&spelling=us").text
+    assert "end of the free preview" in page
+    assert "pages/us/10.webp" not in page
+    assert "Download PDF to print" not in page
+    import json
+    alts = json.loads(page.split('id="alts">')[1].split("</script>")[0])
+    assert len(alts) == 48 and all(alts[:9]) and not any(alts[9:])  # text of locked pages is not sent

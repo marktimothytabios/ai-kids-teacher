@@ -10,8 +10,13 @@ def main() -> None:
     ap.add_argument("--host", default=os.environ.get("HOST", "127.0.0.1"))
     ap.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8000")))
     ap.add_argument("--reload", action="store_true", help="restart when code changes (development)")
+    ap.add_argument("--prerender", action="store_true", help="render every reader page, then exit (used when building the image)")
     ap.add_argument("--no-warm", action="store_true", help="do not pre-build the PDFs at start-up")
     a = ap.parse_args()
+    if a.prerender:
+        from .catalog import Catalog
+        print(f"Rendered {Catalog().prerender()} pages")
+        return
     print(f"\n  Little Whys is starting at http://{a.host}:{a.port}\n")
     if a.reload:
         os.environ["LITTLE_WHYS_WARM"] = "0" if a.no_warm else "1"

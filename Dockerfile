@@ -9,8 +9,9 @@ COPY builder ./builder
 COPY content ./content
 COPY webapp ./webapp
 
-# Build every book (US and UK) now, so the site starts fast and downloads are instant
+# Build every book (US and UK) and render every reader page now, so the site starts fast
 RUN python -m builder build all --spelling both > /dev/null \
+    && python -m webapp --prerender > /dev/null \
     && useradd --create-home app && chown -R app /app
 USER app
 

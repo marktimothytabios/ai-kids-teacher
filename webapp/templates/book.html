@@ -22,11 +22,14 @@
         </div>
         {% if allowed %}
         <p class="cta">
-          <a class="btn primary" href="/books/{{ book.slug }}/download/{{ spelling }}">Download the book (PDF){% if settings.free %} &middot; free{% endif %}</a>
+          <a class="btn primary" href="/books/{{ book.slug }}/read">Read online{% if settings.free %} &middot; free{% endif %}</a>
+          <a class="btn" href="/books/{{ book.slug }}/download/{{ spelling }}">Download PDF to print</a>
           <a class="btn" href="/books/{{ book.slug }}/download/{{ spelling }}?sample=true">Free sample: first 3 stories</a>
         </p>
         {% else %}
         <p class="notice">This book is not available to you yet.</p>
+        <p class="cta"><a class="btn primary" href="/books/{{ book.slug }}/read">Read the free preview</a>
+          <a class="btn" href="/books/{{ book.slug }}/download/{{ spelling }}?sample=true">Free sample PDF</a></p>
         {% endif %}
         <p class="small muted"><a href="/parents#printing">How to print it</a> &middot; Switching spelling changes the book and these pages.</p>
       </div>

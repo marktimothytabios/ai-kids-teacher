@@ -17,7 +17,7 @@ from fastapi.templating import Jinja2Templates
 
 from builder import spelling
 
-from .catalog import PREVIEW_PAGES, Catalog
+from .catalog import PREVIEW_PAGES, SAMPLE_PAGES, Catalog
 
 HERE = Path(__file__).resolve().parent
 COOKIE = "spelling"
@@ -38,6 +38,14 @@ def can_download(request: Request, settings: Settings, book) -> bool:
     Free launch: always true. With Stripe, check the visitor's paid order here.
     """
     return settings.free
+
+
+def can_read_page(request: Request, settings: Settings, book, page: int) -> bool:
+    """Whether a visitor may see page ``page`` (1-based) in the online reader.
+
+    Free launch: everything. When paid, the front matter and first 3 stories stay open as a sample.
+    """
+    return can_download(request, settings, book) or page <= SAMPLE_PAGES
 
 
 def pick_spelling(request: Request) -> tuple[str, bool]:
@@ -102,6 +110,31 @@ def create_app(out_dir: Path | None = None, warm: bool = False, settings: Settin
             raise HTTPException(402, "Purchase required")
         path = catalog.pdf_path(book, variant, sample)
         return FileResponse(path, media_type="application/pdf", filename=path.name)
+
+    @app.get("/books/{slug}/read", response_class=HTMLResponse)
+    def read(request: Request, slug: str, page: int = 1):
+        book = get_book(slug)
+        variant, _ = pick_spelling(request)
+        total = catalog.page_total(book, variant)
+        page = max(1, min(page, total))
+        texts = catalog.page_texts(book, variant)
+        open_pages = [can_read_page(request, settings, book, n) for n in range(1, total + 1)]
+        alts = [texts[i][:400] if open_pages[i] else "" for i in range(total)]  # never leak locked text
+        limit = 0 if all(open_pages) else SAMPLE_PAGES
+        story_pages = [(i, s.question, 4 + 2 * (i - 1)) for i, s in enumerate(catalog.view(book, variant).stories, start=1)]
+        return render(request, "read.html", book=catalog.view(book, variant), page=page, total=total, alts=alts,
+                      limit=limit, story_pages=story_pages, unlocked=open_pages[page - 1],
+                      downloadable=can_download(request, settings, book))
+
+    @app.get("/books/{slug}/pages/{variant}/{page}.webp")
+    def page_image(request: Request, slug: str, variant: str, page: int):
+        book, variant = get_book(slug), get_variant(variant)
+        if not 1 <= page <= catalog.page_total(book, variant):
+            raise HTTPException(404, "No such page")
+        if not can_read_page(request, settings, book, page):
+            raise HTTPException(402, "Purchase required")
+        return FileResponse(catalog.page_image(book, variant, page), media_type="image/webp",
+                            headers={"Cache-Control": "private, max-age=3600"})
 
     @app.get("/previews/{slug}/{variant}/{page}.png")
     def preview(slug: str, variant: str, page: int):

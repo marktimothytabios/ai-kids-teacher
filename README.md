@@ -25,7 +25,7 @@ Open <http://127.0.0.1:8000>. The first start builds all the PDFs and
 covers in the background (about 20 seconds); pages work while that happens. Options:
 `--port 9000`, `--reload` (restart on code changes), `--no-warm` (do not pre-build).
 
-Downloads are free for now. To add Stripe later, see PLAN section 7.7.
+Each book page has **Read online** (a page-by-page reader) and **Download PDF to print**. Both are free for now. To add Stripe later, see PLAN section 7.7.
 
 ## Build books from the command line
 
