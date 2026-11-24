@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Read {{ book.title }} &middot; Little Whys{% endblock %}
+{% block description %}Read {{ book.title }} online, page by page, then download the PDF to print.{% endblock %}
+{% block content %}
+<div class="wrap reader" id="reader" data-slug="{{ book.slug }}" data-variant="{{ spelling }}"
+     data-total="{{ total }}" data-page="{{ page }}" data-limit="{{ limit }}" data-stories="{{ book.story_count }}">
+  <p class="crumbs"><a href="/">Home</a> / <a href="/books/{{ book.slug }}">{{ book.title }}</a> / Read</p>
+  <div class="reader-head">
+    <h1>{{ book.title }}</h1>
+    <p class="cta">
+      {% if downloadable %}<a class="btn primary" href="/books/{{ book.slug }}/download/{{ spelling }}">Download PDF to print</a>{% endif %}
+      <a class="btn" href="/books/{{ book.slug }}">Book details</a>
+    </p>
+  </div>
+
+  <figure class="stage" id="stage">
+    {% if unlocked %}
+    <img id="page-img" src="/books/{{ book.slug }}/pages/{{ spelling }}/{{ page }}.webp" alt="{{ alts[page - 1] or ('Page ' ~ page) }}" width="922" height="922">
+    {% else %}
+    <img id="page-img" class="hidden" alt="" width="922" height="922">
+    {% endif %}
+    <div id="locked" class="locked{% if unlocked %} hidden{% endif %}">
+      <h2>This is the end of the free preview</h2>
+      <p>The rest of the book is part of the full version.</p>
+      <p class="cta"><a class="btn" href="/books/{{ book.slug }}/read?page=1">Back to the start</a></p>
+    </div>
+  </figure>
+
+  <nav class="pager" aria-label="Pages">
+    <a id="prev" class="btn" {% if page > 1 %}href="?page={{ page - 1 }}"{% else %}aria-disabled="true"{% endif %}>&larr; Previous</a>
+    <span id="status" role="status" aria-live="polite">Page {{ page }} of {{ total }}</span>
+    <a id="next" class="btn primary" {% if page < total %}href="?page={{ page + 1 }}"{% else %}aria-disabled="true"{% endif %}>Next &rarr;</a>
+  </nav>
+  <p class="small muted center">Tip: use the left and right arrow keys, or swipe.</p>
+
+  <details class="jump">
+    <summary>Jump to a story</summary>
+    <ol>
+      {% for number, question, start in story_pages %}
+      <li><a href="?page={{ start }}" data-page="{{ start }}">{{ question }}</a></li>
+      {% endfor %}
+    </ol>
+  </details>
+  <script type="application/json" id="alts">{{ alts | tojson }}</script>
+</div>
+<script src="/static/reader.js" defer></script>
+{% endblock %}

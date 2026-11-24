@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import re
 import tempfile
 import threading
 from collections import Counter
@@ -12,6 +13,9 @@ from builder import content, pdf, spelling
 
 ROOT = content.ROOT
 PREVIEW_SCALE = 1.0
+PAGE_SCALE = 1.6  # reader pages: about 920 px square, ~30 KB as WebP
+PAGE_QUALITY = 82
+SAMPLE_PAGES = 9  # pages 1-9 (front matter and the first 3 stories) stay readable even when books are paid
 PREVIEW_PAGES = (0, 3, 4, 9)  # cover, first question, first answer, a story from the middle
 
 DOMAIN_LABELS = {
@@ -45,6 +49,7 @@ class Catalog:
         self.books = [b for b in content.load_all() if b.status == "ready" and b.stories]
         self.by_slug = {b.slug: b for b in self.books}
         self._lock = threading.RLock()
+        self._texts: dict = {}
 
     # ------------------------------------------------------------- views
     def view(self, book: content.Book, variant: str) -> BookView:
@@ -100,3 +105,57 @@ class Catalog:
         for b in self.books:
             for v in spelling.VARIANTS:
                 self.preview_path(b, v, 0)
+
+    # ------------------------------------------------------------- reader
+    def page_total(self, book: content.Book, variant: str) -> int:
+        import pypdfium2 as pdfium
+
+        doc = pdfium.PdfDocument(str(self.pdf_path(book, variant)))
+        try:
+            return len(doc)
+        finally:
+            doc.close()
+
+    def page_image(self, book: content.Book, variant: str, page: int) -> Path:
+        """Return page ``page`` (1-based) as a WebP file, rendering and caching it on first use."""
+        import pypdfium2 as pdfium
+
+        source = self.pdf_path(book, variant)
+        target = self.out_dir / "pages" / f"{book.slug}-{variant}-{page:02d}.webp"
+        with self._lock:
+            if target.exists() and target.stat().st_mtime >= source.stat().st_mtime:
+                return target
+            doc = pdfium.PdfDocument(str(source))
+            try:
+                if not 1 <= page <= len(doc):
+                    raise IndexError(page)
+                image = doc[page - 1].render(scale=PAGE_SCALE).to_pil().convert("RGB")
+            finally:
+                doc.close()
+            target.parent.mkdir(parents=True, exist_ok=True)
+            tmp = target.with_suffix(".tmp.webp")
+            image.save(tmp, "WEBP", quality=PAGE_QUALITY)
+            os.replace(tmp, target)
+            return target
+
+    def page_texts(self, book: content.Book, variant: str) -> list[str]:
+        """Plain text of each page, used as image descriptions for screen readers."""
+        from pypdf import PdfReader
+
+        source = self.pdf_path(book, variant)
+        key = (book.slug, variant, source.stat().st_mtime)
+        with self._lock:
+            if key not in self._texts:
+                reader = PdfReader(str(source))
+                self._texts[key] = [re.sub(r"\s+", " ", p.extract_text() or "").strip() for p in reader.pages]
+            return self._texts[key]
+
+    def prerender(self) -> int:
+        """Render every reader page for every book and spelling (run once when the site is built)."""
+        count = 0
+        for b in self.books:
+            for v in spelling.VARIANTS:
+                for n in range(1, self.page_total(b, v) + 1):
+                    self.page_image(b, v, n)
+                    count += 1
+        return count
