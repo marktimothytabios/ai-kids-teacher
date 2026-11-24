@@ -1,0 +1,16 @@
+id: little-mathematicians-06
+question: Why do we sort things?
+answer: Sorting puts things that are alike together. We might sort by {color|colour}, by size or by kind.
+  Then it is easy to find what we need and to see how many!
+lets_try: 'Mix up some toys and sort them into groups: all the red ones, all the blue ones, all the yellow
+  ones.'
+talk_about: How else could we sort these toys?
+grown_up_corner: Sorting is early data handling. Offer baskets or bowls and let your child choose the
+  rule. Ask, 'How did you sort?' to hear their thinking.
+tags:
+  domain: maths
+  value: ''
+  skill: sorting
+  activity: move
+scene: plain|ball,apple,block,circle
+source: new

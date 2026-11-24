@@ -1,0 +1,15 @@
+id: little-mathematicians-18
+question: Why does a snack get smaller when we eat it?
+answer: When we eat a grape, it is gone. Then there are fewer left. If we have five grapes and eat one,
+  we have four!
+lets_try: Line up five grapes or crackers. Eat one. Now count how many are left.
+talk_about: How many are left if you eat two?
+grown_up_corner: 'This is subtraction, called ''taking away''. Act it out with real snacks, fingers or
+  a toy bus where passengers get off. Describe it: ''five take away one leaves four.'''
+tags:
+  domain: maths
+  value: ''
+  skill: taking away
+  activity: count
+scene: kitchen|cookie*4,kid
+source: new

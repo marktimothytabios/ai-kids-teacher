@@ -1,0 +1,16 @@
+id: how-things-work-07
+question: Why can planes fly?
+answer: A plane has big strong wings. When it zooms along very fast, the air flows over the wings and
+  lifts it up. Its engines push it forward through the sky.
+lets_try: Stretch your arms out like wings and zoom around the room. Now come in for a gentle landing.
+talk_about: Where would you fly in a plane?
+grown_up_corner: The wing's shape makes air move faster over the top, which helps lift the plane. Engines
+  give the push forward. Watching planes at an airport or from the garden is a treat.
+tags:
+  domain: science
+  value: ''
+  skill: how machines work
+  activity: move
+scene: sky|plane,cloud*2
+source: new
+sound: Zoom!

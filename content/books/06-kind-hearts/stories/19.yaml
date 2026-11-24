@@ -1,0 +1,15 @@
+id: kind-hearts-19
+question: Why do we love our grandparents?
+answer: Grandparents love us so much. They tell stories, give cuddles and have lots of time to play. They
+  were once little, too!
+lets_try: Call or draw a picture for a grandparent or an older friend. What would you tell them?
+talk_about: What do you like to do with your grandparents?
+grown_up_corner: If a grandparent lives far away or has died, this is a good moment to look at photos
+  together and talk about them. Older {neighbors|neighbours} and friends can fill this role, too.
+tags:
+  domain: values
+  value: love
+  skill: family bonds
+  activity: make
+scene: hearts|kid,heart*3,cake
+source: new

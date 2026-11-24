@@ -1,14 +1,16 @@
 id: kind-hearts-03
-question: Why does my family love me?
-answer: Because you are YOU! Your family loves you when you are happy, sad, silly or sleepy. Love doesn't
-  stop - not ever, ever, ever.
-lets_try: Give someone you love a great big cuddle!
-talk_about: ''
-grown_up_corner: ''
+question: Why do we share?
+answer: Sharing means we both get to have fun. When we take turns, everyone gets a go, and we make friends.
+  Sharing makes hearts happy!
+lets_try: 'Take turns rolling a ball with someone: my turn, your turn!'
+talk_about: What do you like to share the most?
+grown_up_corner: Toddlers are just learning that things belong to people. Sharing becomes easier with
+  practice, praise and turn-taking, such as 'when the sand timer is done, it is Ben's turn'. Special toys
+  can be put away before a playdate.
 tags:
   domain: values
-  value: love
-  skill: ''
-  activity: ''
-scene: hearts
-source: book1-50
+  value: sharing
+  skill: turn taking
+  activity: pretend
+scene: play
+source: book1-48

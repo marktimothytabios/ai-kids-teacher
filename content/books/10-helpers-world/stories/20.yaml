@@ -1,0 +1,15 @@
+id: helpers-world-20
+question: Why do we have parties and celebrations?
+answer: Parties are a way to be together and feel happy. We celebrate birthdays, holidays and good news.
+  We sing, eat, give gifts and say thank you.
+lets_try: Have a teddy bear party! Sing 'Happy Birthday', and share a snack.
+talk_about: What is your {favorite|favourite} thing at a party?
+grown_up_corner: Celebrations connect families and communities. Talk about the different celebrations
+  your family and friends enjoy, and why they matter to them.
+tags:
+  domain: community
+  value: joy and togetherness
+  skill: community
+  activity: pretend
+scene: plain|balloon*3,cake,gift,kid
+source: new

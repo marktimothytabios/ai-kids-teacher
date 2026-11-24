@@ -1,14 +1,16 @@
 id: plants-animals-06
-question: Why do dogs wag their tails?
-answer: Dogs can't talk with words, so they talk with their tails! A happy wag means 'I'm happy to see
-  you!' Always ask a grown-up before patting a dog.
-lets_try: Can you wiggle like a happy dog? Woof, woof!
-talk_about: ''
-grown_up_corner: ''
+question: Why do worms live in the soil?
+answer: Worms like it dark, damp and cool. They wriggle through the soil and eat dead leaves. Their tunnels
+  help air and water get to the plant roots.
+lets_try: After rain, look for worms in the garden with a grown-up. Watch them wriggle, then put them
+  back gently.
+talk_about: How does a worm move without any legs?
+grown_up_corner: Worms breathe through their skin, which must stay damp. Their droppings feed the soil.
+  Sunshine and dry paths can hurt them, so help any worm on a path back to soil.
 tags:
   domain: science
-  value: ''
-  skill: ''
-  activity: ''
-scene: day
-source: book1-17
+  value: gentleness
+  skill: observing nature
+  activity: look
+scene: park|kid,worm*2,sprout
+source: new

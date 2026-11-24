@@ -1,14 +1,15 @@
 id: my-body-08
-question: Why do I grow bigger?
-answer: Every day, your body is busy building. Good food, sleep and play help your bones and muscles grow.
-  Every birthday, you're a little bit taller!
-lets_try: Stand by the wall. How tall are you? Ask a grown-up to mark it!
-talk_about: ''
-grown_up_corner: ''
+question: Why do I laugh when I am tickled?
+answer: Tickles feel funny on your skin, and your body does a giggle! Laughing makes us feel happy and
+  brings us closer to our friends and family.
+lets_try: Tickle a teddy gently, and stop right away if the teddy says 'Stop!' Giggle together.
+talk_about: What makes you laugh the most?
+grown_up_corner: 'Laughing is a social signal. It is also good practice for body respect: when a child
+  says stop, we stop tickling straight away so they learn their words matter.'
 tags:
   domain: body
-  value: ''
-  skill: ''
-  activity: ''
-scene: body
-source: book1-42
+  value: respect
+  skill: consent and joy
+  activity: pretend
+scene: play
+source: new

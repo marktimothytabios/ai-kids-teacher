@@ -1,14 +1,15 @@
 id: sky-weather-11
-question: Why do leaves fall off trees?
-answer: Some trees take a rest when the weather gets cold. Their leaves turn red, orange and yellow, then
-  float to the ground. In spring, new green leaves grow back!
-lets_try: Collect some leaves. Which one is the biggest? Which one is the smallest?
-talk_about: ''
-grown_up_corner: ''
+question: Why does the wind blow?
+answer: Wind is air on the move! When the sun warms the air, the air moves around and pushes on things.
+  We can't see wind, but we can see it wiggle the trees and blow our hair.
+lets_try: Take a big breath and blow! Whoooosh - you made wind!
+talk_about: What can the wind move? What stays still?
+grown_up_corner: Wind is moving air. Some ground warms up faster than other ground, and the warm air rises
+  while cooler air rushes in to take its place. Try a scarf, a kite or a feather in the breeze.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: garden
-source: book1-11
+  skill: observing
+  activity: move
+scene: wind
+source: book1-08

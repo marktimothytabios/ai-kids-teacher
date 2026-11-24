@@ -1,0 +1,15 @@
+id: helpers-world-04
+question: Why do farmers grow food?
+answer: Farmers plant seeds and look after the plants and animals. They grow our vegetables, fruit, milk
+  and eggs. Farmers work hard so that we have food to eat.
+lets_try: 'Look at your lunch. Can you name where each food came from: a plant or an animal?'
+talk_about: What is your {favorite|favourite} food that comes from a farm?
+grown_up_corner: Many children think that food comes from a {store|shop}. A farm visit, a farmer's market
+  or growing a pot of herbs can show the journey from farm to table.
+tags:
+  domain: community
+  value: gratitude
+  skill: where food comes from
+  activity: look
+scene: park|cow,chicken,carrot,apple
+source: new

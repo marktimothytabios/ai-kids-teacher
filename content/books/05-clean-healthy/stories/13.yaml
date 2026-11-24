@@ -1,0 +1,15 @@
+id: clean-healthy-13
+question: Why do we wash fruit before we eat it?
+answer: Fruit grows outside, where there are bugs, dust and dirt. Washing it with water rinses all of
+  that away. Then it is clean and yummy to eat.
+lets_try: Wash an apple under cool water. Rub it gently. Now take a big crunchy bite!
+talk_about: Which fruit do you like best?
+grown_up_corner: Rinse fruit and vegetables under running water, even if you peel them. A fruit-washing
+  job is a good chance for little ones to help in the kitchen.
+tags:
+  domain: health
+  value: cleanliness
+  skill: healthy eating
+  activity: taste
+scene: kitchen|kid,apple*3,orange,tap
+source: new

@@ -1,0 +1,13 @@
+# Book builder
+reportlab>=4.0
+PyYAML>=6.0
+pypdf>=4.0
+# Web app (localhost)
+fastapi>=0.110
+uvicorn>=0.29
+jinja2>=3.1
+pypdfium2>=4.0   # cover and page previews
+pillow>=10.0
+# Tests
+pytest>=8.0
+httpx>=0.27      # FastAPI test client

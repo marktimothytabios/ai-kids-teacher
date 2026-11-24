@@ -1,0 +1,15 @@
+id: how-things-work-12
+question: Why does water come out of the {faucet|tap}?
+answer: Water travels in pipes from a big tank or a river to our house. When we turn the {faucet|tap},
+  the water rushes out. Turn it off and it stops.
+lets_try: Turn the {faucet|tap} on a little, then off. Fill a cup and say 'Thank you, water!'
+talk_about: How can we save water when we wash our hands?
+grown_up_corner: Clean water is treated and pumped through pipes to our homes. Turn the tap off while
+  brushing teeth or scrubbing hands to show the saving habit.
+tags:
+  domain: science
+  value: ''
+  skill: where things come from
+  activity: touch
+scene: bath|kid,tap,cup,drop*2
+source: new

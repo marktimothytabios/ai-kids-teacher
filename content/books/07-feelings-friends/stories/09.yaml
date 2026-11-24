@@ -1,0 +1,15 @@
+id: feelings-friends-09
+question: Why do I feel frustrated?
+answer: Frustrated feels grumpy and stuck. It happens when something is hard and does not work. Take a
+  breath. Try again, or ask for help.
+lets_try: Stack some blocks as high as you can. If they fall, take a breath and say, 'I can try again!'
+talk_about: What can you do when something is too hard?
+grown_up_corner: Frustration is a sign of learning at the edge of a child's skills. Say 'This is tricky.
+  Let's try again.' Offer help, not an instant fix, and celebrate persistence.
+tags:
+  domain: social-emotional
+  value: perseverance
+  skill: persistence
+  activity: make
+scene: plain|kid:sad,block*4
+source: new

@@ -1,0 +1,15 @@
+id: sky-weather-15
+question: Why can I see my breath when it is cold?
+answer: Your breath is warm and has tiny drops of water in it. In cold air, the drops make a little cloud.
+  Puff! A cloud from your mouth!
+lets_try: Breathe out slowly on a cold day. Or breathe on a mirror and watch it go misty.
+talk_about: What shape is your breath cloud?
+grown_up_corner: The warm water vapor in our breath cools quickly outside and becomes tiny droplets. On
+  a warm day, breathing on a cold glass or mirror shows the same thing.
+tags:
+  domain: science
+  value: ''
+  skill: observing
+  activity: move
+scene: snow|kid:o,cloud
+source: new

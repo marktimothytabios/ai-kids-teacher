@@ -1,14 +1,16 @@
 id: plants-animals-04
-question: Why can birds fly?
-answer: Birds have wings and very light bodies. When they flap their wings, they push the air down, and
-  that lifts them up into the sky! Their feathers help them glide.
-lets_try: Stretch your arms out like wings. Flap, flap - fly around the room!
-talk_about: ''
-grown_up_corner: ''
+question: Why do bees buzz?
+answer: 'bzzz! Bees flap their little wings super, super fast. So fast that it makes a sound: bzzzzz!
+  Bees are busy helpers. They visit flowers and make yummy honey.'
+lets_try: Flap your arms super fast and say 'Bzzzzz!'
+talk_about: What other animals make a buzzing sound?
+grown_up_corner: Bees beat their wings about 200 times every second, which makes the buzz. Bees help us
+  because they carry pollen between flowers. Teach children to give bees space and not to swat them.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: day
-source: book1-15
+  skill: listening
+  activity: listen
+scene: garden
+source: book1-13
+sound: bzzz!

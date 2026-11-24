@@ -1,0 +1,15 @@
+id: how-things-work-09
+question: Why do magnets stick together?
+answer: A magnet has a special pulling power called magnetism. It pulls things made of iron or steel,
+  like a paper clip. Two magnets can pull each other or push each other away.
+lets_try: With a grown-up, try a fridge magnet. What does it stick to? What does it not stick to?
+talk_about: Which things in our house do you think a magnet will stick to?
+grown_up_corner: Only a few metals, mostly iron and steel, are attracted to magnets. Keep small or strong
+  magnets away from toddlers, since swallowed magnets are very dangerous.
+tags:
+  domain: science
+  value: ''
+  skill: testing ideas
+  activity: touch
+scene: plain|magnet,block*2,coin
+source: new

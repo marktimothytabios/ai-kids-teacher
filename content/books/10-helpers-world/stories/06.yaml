@@ -1,0 +1,16 @@
+id: helpers-world-06
+question: Why do we have {stores|shops}?
+answer: '{Stores|Shops} sell lots of things in one place, like food, clothes and toys. People work in
+  {stores|shops} to help us find what we need. We give money, and they give us what we need.'
+lets_try: Set up a pretend {store|shop} with some toys and play money. Take turns being the {store|shop}
+  keeper and the customer.
+talk_about: What would you sell in your {store|shop}?
+grown_up_corner: Playing {store|shop} builds language, counting and social skills. In a real {store|shop},
+  let your child hand over the money and say thank you.
+tags:
+  domain: community
+  value: fairness
+  skill: community helpers
+  activity: pretend
+scene: shop|apple*3,bread,milk,coin
+source: new

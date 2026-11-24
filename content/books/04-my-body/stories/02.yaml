@@ -1,15 +1,15 @@
 id: my-body-02
-question: Why do I have a belly button?
-answer: Before you were born, you grew inside {Mommy's|Mummy's} tummy. A special tube gave you food while
-  you were in there. When you were born, you didn't need it any more, and your belly button is where it
-  was!
-lets_try: Can you find your belly button? Can you find Teddy's?
-talk_about: ''
-grown_up_corner: ''
+question: Why do we have two eyes?
+answer: Two eyes help you see how near or far away things are. Each eye sees a little bit differently,
+  and your brain puts the pictures together. That helps you catch a ball!
+lets_try: Close one eye, then the other. Does the picture jump?
+talk_about: What can you see when you close one eye?
+grown_up_corner: Our two eyes see slightly different pictures, and the brain puts them together. This
+  helps us judge how far away things are. Try catching a ball with one eye covered, then both.
 tags:
   domain: body
   value: ''
-  skill: ''
-  activity: ''
+  skill: using senses
+  activity: look
 scene: body
-source: book1-35
+source: book1-36

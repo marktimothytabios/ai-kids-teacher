@@ -1,0 +1,15 @@
+id: little-mathematicians-02
+question: Why do we count on our fingers?
+answer: Our fingers are always with us, like a little counting tool. We can show a number with our fingers
+  and everyone can see it. One finger, two fingers, three fingers!
+lets_try: Hold up one finger, then two, then three, up to five. Say each number as you go.
+talk_about: How many fingers are on one hand? On two hands?
+grown_up_corner: Finger counting is a great step toward number sense. Let your child use fingers freely.
+  Make number rhymes with actions, like 'Five little ducks'.
+tags:
+  domain: maths
+  value: ''
+  skill: counting to 5
+  activity: count
+scene: plain|hand*2
+source: new

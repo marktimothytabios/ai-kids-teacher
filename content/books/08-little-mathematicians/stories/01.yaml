@@ -1,0 +1,15 @@
+id: little-mathematicians-01
+question: Why do we count?
+answer: 'Counting tells us how many there are. We say one number for each thing: one, two, three. The
+  last number we say is how many!'
+lets_try: 'Count your fingers out loud. Then count three apples: one, two, three!'
+talk_about: What can you count in this room?
+grown_up_corner: 'Let your child touch each object as they say the number. This builds one-to-one correspondence,
+  the basis of counting. Count real things all day: stairs, spoons, steps.'
+tags:
+  domain: maths
+  value: curiosity
+  skill: counting to 3
+  activity: count
+scene: kitchen|apple*3
+source: new

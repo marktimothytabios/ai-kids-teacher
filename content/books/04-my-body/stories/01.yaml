@@ -1,14 +1,15 @@
 id: my-body-01
-question: Why does my tummy rumble?
-answer: Your tummy squishes and squeezes your food to help your body use it. When your tummy is empty,
-  the air and juices inside gurgle and rumble. It might be saying 'Snack time, please!'
-lets_try: Pat your tummy. Can you make a rumbly sound? Grrrrr!
-talk_about: ''
-grown_up_corner: ''
+question: Why do I have hair?
+answer: Hair grows from tiny roots in our skin. The hair on our head keeps the sun off and keeps us warm.
+  Hair comes in lots of {colors|colours}, curls and sizes.
+lets_try: Touch your hair. Is it soft, curly or straight? Now touch your friend's hair, if they say yes.
+talk_about: What {color|colour} is your hair? What {color|colour} is your teddy's fur?
+grown_up_corner: Hair also protects our eyes (eyebrows and lashes) and nose. Haircuts do not hurt because
+  hair has no feeling, but the roots do. Celebrate all hair types.
 tags:
   domain: body
-  value: ''
-  skill: ''
-  activity: ''
-scene: home
-source: book1-34
+  value: appreciating differences
+  skill: knowing my body
+  activity: touch
+scene: bath|kid,comb
+source: new

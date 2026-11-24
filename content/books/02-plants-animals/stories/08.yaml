@@ -1,14 +1,15 @@
 id: plants-animals-08
-question: Why do kangaroos hop?
-answer: Kangaroos have big, strong back legs and a long tail to help them balance. Hopping helps them
-  go far and fast without getting tired. Boing, boing, boing!
-lets_try: Hop like a kangaroo! How many hops can you do?
-talk_about: ''
-grown_up_corner: ''
+question: Why does a snail carry a shell?
+answer: The shell is the snail's house, and it carries it everywhere! When it feels scared or dry, it
+  slides inside to hide. Snails move slowly on a sticky trail.
+lets_try: Move as slowly as a snail. Can you cross the room in ten slow steps?
+talk_about: If you carried your house, what would you put in it?
+grown_up_corner: A snail's shell grows with the snail and protects it from birds and from drying out.
+  The slime helps it glide and stick. Wash hands after touching a snail.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: day
-source: book1-19
+  skill: observing nature
+  activity: move
+scene: park|snail,leaf*2
+source: new

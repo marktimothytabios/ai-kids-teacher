@@ -1,0 +1,15 @@
+id: helpers-world-14
+question: Why do we not drop litter?
+answer: Litter is {trash|rubbish} on the ground. It looks messy, and animals can get hurt or eat it. We
+  keep the Earth beautiful when we put litter in the bin.
+lets_try: Go on a litter hunt outside with a grown-up and gloves. Put what you find in the bin.
+talk_about: Where do we put our wrappers?
+grown_up_corner: Always use gloves, and never let toddlers pick up sharp or unknown things. Celebrate
+  the clean park or beach you leave behind.
+tags:
+  domain: community
+  value: caring for our world
+  skill: caring for places
+  activity: move
+scene: park|kid,bin,leaf*3
+source: new

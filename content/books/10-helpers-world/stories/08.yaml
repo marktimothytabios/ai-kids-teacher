@@ -1,0 +1,15 @@
+id: helpers-world-08
+question: Why does the {mail carrier|postal worker} bring letters?
+answer: Letters are messages we write on paper. The {mail carrier|postal worker} carries them from house
+  to house. Then someone far away can read your message!
+lets_try: Draw a picture for a friend or a grandparent. Put it in an envelope and mail it together.
+talk_about: Who would you like to send a letter to?
+grown_up_corner: Getting a real letter is a thrill for a child. Write a card together, add a stamp and
+  post it, then wait for a reply.
+tags:
+  domain: community
+  value: connection
+  skill: community helpers
+  activity: make
+scene: street|mailbox,letter*3
+source: new

@@ -1,14 +1,15 @@
 id: sky-weather-05
-question: Why does it rain?
-answer: Clouds are made of teeny tiny drops of water. When lots of drops squish together, they get too
-  heavy to float. Then they fall down as rain! Plants and animals drink the rain.
-lets_try: Pitter-patter! Tap your fingers on the table like rain. Now go fast like a big storm!
-talk_about: ''
-grown_up_corner: ''
+question: Why do I have a shadow?
+answer: When you stand in the sunshine, your body blocks some of the light. The dark shape on the ground
+  where the light can't reach is your shadow. It copies everything you do!
+lets_try: Go outside on a sunny day. Can you make your shadow wave?
+talk_about: What shape is your shadow? Can you make it dance?
+grown_up_corner: A shadow forms when something blocks light. Shadows are long in the early morning and
+  late afternoon and short around midday.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: rain
-source: book1-05
+  skill: cause and effect
+  activity: move
+scene: day
+source: book1-23

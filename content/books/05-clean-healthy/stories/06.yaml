@@ -1,14 +1,16 @@
 id: clean-healthy-06
-question: Why do we drink water?
-answer: Your body is full of water. When you run and play, you use some up and get thirsty. Drinking water
-  fills you back up so you feel good.
-lets_try: Have a big drink of water. Glug, glug, ahhh!
-talk_about: ''
-grown_up_corner: ''
+question: Why do we wash our hair?
+answer: Our hair gets dusty, sweaty and sticky from playing. Shampoo and warm water wash all that away.
+  Then our hair smells nice and feels soft.
+lets_try: Pretend to wash your teddy's fur with a little foam. Rub gently, then rinse. Don't forget to
+  dry!
+talk_about: What does your hair smell like after you wash it?
+grown_up_corner: Use a small cup or a visor to keep shampoo out of little eyes. If your child dislikes
+  hair washing, make it a game of 'rain' or 'bubble hats'.
 tags:
   domain: health
-  value: ''
-  skill: ''
-  activity: ''
-scene: home
-source: book1-33
+  value: cleanliness
+  skill: personal care
+  activity: pretend
+scene: bath|kid,soap,comb,towel
+source: new

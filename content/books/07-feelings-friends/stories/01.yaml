@@ -1,14 +1,15 @@
 id: feelings-friends-01
-question: Why do I cry?
-answer: Crying is how your body lets out big feelings, like sad, hurt or cross. Tears help you feel better,
-  and they tell others you might need a cuddle. It's okay to cry.
-lets_try: Make a sad face. Now a happy face! What helps you feel better?
-talk_about: ''
-grown_up_corner: ''
+question: Why do I feel happy?
+answer: Happy feelings bubble up when good things happen. We might feel happy when we play, hug or eat
+  something yummy. Happy feels warm and smiley inside!
+lets_try: Make your happiest face. Now show a happy dance! What makes you feel happy today?
+talk_about: What makes you feel happy?
+grown_up_corner: 'Naming feelings gives children words for what is going on inside. Point out happy moments
+  as they happen: ''You are smiling. You seem so happy!'''
 tags:
   domain: social-emotional
-  value: ''
-  skill: ''
-  activity: ''
-scene: hearts
-source: book1-40
+  value: gratitude
+  skill: naming feelings
+  activity: move
+scene: day
+source: new

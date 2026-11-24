@@ -1,0 +1,15 @@
+id: safe-smart-03
+question: Why do we wear a seatbelt?
+answer: A car can stop quickly, and our bodies keep moving. A seatbelt or car seat holds us safely in
+  place. Click! We are ready to go.
+lets_try: Click your teddy into a pretend car seat. Say 'Click it!' before every trip.
+talk_about: What do we do first when we get in the car?
+grown_up_corner: 'Always use a correctly fitted car seat for your child''s age and size. Make the buckle-up
+  routine non-negotiable: ''The car does not go until everyone clicks.'''
+tags:
+  domain: safety
+  value: safety
+  skill: car safety
+  activity: pretend
+scene: plain|car,teddy,kid
+source: new

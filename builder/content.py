@@ -66,7 +66,7 @@ def find_book(key: str, books: list[Book]) -> Book:
     raise KeyError(f"no book {key!r}; have: {', '.join(b.slug for b in books)}")
 
 
-def validate(books: list[Book], scenes: set[str]) -> tuple[list[str], list[str]]:
+def validate(books: list[Book], scene_ok) -> tuple[list[str], list[str]]:
     """Return (errors, warnings). Errors block a build; warnings are advice."""
     errors, warnings = [], []
     seen: set[str] = set()
@@ -85,7 +85,7 @@ def validate(books: list[Book], scenes: set[str]) -> tuple[list[str], list[str]]
             for name in ("question", "answer", "lets_try"):
                 if not str(getattr(s, name)).strip():
                     errors.append(f"{where}: {name} is empty")
-            if s.scene not in scenes:
+            if not scene_ok(s.scene):
                 errors.append(f"{where}: unknown scene {s.scene!r}")
             if not s.question.startswith(QUESTION_STARTS) or not s.question.endswith("?"):
                 errors.append(f"{where}: question must start with Why/How/What... and end with ?")

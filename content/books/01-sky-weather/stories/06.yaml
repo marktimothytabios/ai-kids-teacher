@@ -1,15 +1,15 @@
 id: sky-weather-06
-question: Why is there thunder?
-answer: BOOM! Lightning is a big, bright spark in the clouds. It is so hot that it makes the air go BOOM!
-  That boom is thunder. It is very loud, but we are safe and {cozy|cosy} inside our house.
-lets_try: Make thunder! Clap a big loud BOOM, then a tiny quiet boom.
-talk_about: ''
-grown_up_corner: ''
+question: Why do clouds move?
+answer: Wind pushes the clouds across the sky. Strong winds high up make them travel far. Some clouds
+  drift slowly. Some zoom along!
+lets_try: Lie on your back and watch the clouds. Can you find one that looks like an animal?
+talk_about: Which way are the clouds going today?
+grown_up_corner: Clouds are made of tiny water drops or ice floating in the air. Winds high above us can
+  be much faster than the breeze we feel on the ground.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: storm
-source: book1-06
-sound: BOOM!
+  skill: observing
+  activity: look
+scene: sky|kid:o,cloud*3
+source: new

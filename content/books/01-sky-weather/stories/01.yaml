@@ -3,12 +3,14 @@ question: Why is the sky blue?
 answer: Sunlight looks white, but it is made of all the {colors|colours} of the rainbow. When sunlight
   bumps into the air, the blue light bounces all around the sky. So when we look up, we see blue!
 lets_try: Look up at the sky. Is it blue today? Can you find something blue in your room?
-talk_about: ''
-grown_up_corner: ''
+talk_about: What {colors|colours} can you see in the sky today?
+grown_up_corner: Sunlight is a mix of all {colors|colours}. Blue light bounces around in the air more
+  than red light does, so the whole sky glows blue. At sunset the light travels farther, so we see red
+  and orange.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
+  skill: observing colors
+  activity: look
 scene: day
 source: book1-01

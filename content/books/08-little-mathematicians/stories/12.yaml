@@ -1,0 +1,15 @@
+id: little-mathematicians-12
+question: Why do boxes have corners?
+answer: Boxes have flat sides that meet in corners. A square has four sides that are all the same, and
+  four corners. Squares and boxes stack nicely!
+lets_try: Build a tower with square blocks. Count the corners on one block.
+talk_about: How many corners does a square have?
+grown_up_corner: Squares and boxes pack and stack well. Let your child trace a square, then feel the corners
+  with a finger. Compare with a rectangle, which has two long and two short sides.
+tags:
+  domain: maths
+  value: ''
+  skill: square
+  activity: make
+scene: plain|block*3,gift,book
+source: new

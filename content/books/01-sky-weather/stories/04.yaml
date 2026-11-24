@@ -3,12 +3,13 @@ question: Why do stars twinkle?
 answer: Stars are giant suns, very, very far away. Their light travels a long, long way to reach us. On
   the way, the wiggly air makes the light wobble, so the stars look like they twinkle!
 lets_try: Make your fingers twinkle like stars! Now sing 'Twinkle, Twinkle, Little Star'.
-talk_about: ''
-grown_up_corner: ''
+talk_about: Where do you think the stars go in the morning?
+grown_up_corner: Stars twinkle because their light wiggles as it passes through moving air. The stars
+  are still there in the day. The bright sky just hides them, like a torch in sunshine.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
+  skill: wonder
+  activity: look
 scene: night
 source: book1-04

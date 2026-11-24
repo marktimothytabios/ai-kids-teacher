@@ -8,7 +8,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfgen import canvas
 
-from . import kit, spelling
+from . import kit, spelling, stage
 from .content import Book, Story
 from .kit import DARK, ORANGE, S, Pen
 
@@ -84,7 +84,7 @@ class BookBuilder:
         c.translate(x, S - y - size)
         k = size / S
         c.scale(k, k)
-        kit.draw_scene(self.p, scene, hero)
+        stage.draw_scene(self.p, scene, hero)
         c.restoreState()
 
     def hero(self, story_index: int):
@@ -93,12 +93,15 @@ class BookBuilder:
     # -------------------------------------------------------------- pages
     def cover(self):
         b = self.book
+        bg, ground, icons = COVERS.get(b.slug, ("#FFD166", kit.GREEN, ("sun", "cloud")))
+        hero = kit.CAST[b.volume % len(kit.CAST)]
         def d():
-            self.p.rect(0, 0, S, S, "#FFD166"); self.p.rect(0, 600, S, 200, GREEN_)
-            kit.sun(self.p, 665, 470, 48); kit.cloud(self.p, 130, 520, .7)
-            for x, y, c, sz in [(150, 380, kit.PURPLE, 120), (650, 330, kit.RED, 100), (560, 560, kit.BLUE, 70)]:
+            self.p.rect(0, 0, S, S, bg); self.p.rect(0, 610, S, 190, ground)
+            for x, y, c, sz in [(130, 360, kit.PURPLE, 120), (670, 330, kit.RED, 100)]:
                 self.p.text(x, y + sz * .35, "?", BOLD, sz, c)
-            kit.child(self.p, 400, 665, kit.CAST[0], 1.2, "o", "up")
+            for x, name in zip((135, 665), icons):
+                stage.ITEMS[name](self.p, x, 640 if name not in stage.FLOAT else 520, 150, 0)
+            kit.child(self.p, 400, 665, hero, 1.2, "o", "up")
             self.panel(60, 70, 680, 200)
             self.p.text(400, 175, "Little Whys", BOLD, 92, DARK)
             self.p.text(400, 230, self.t(b.title), BOLD, 32 if len(b.title) < 26 else 27, TIP_FG)
@@ -161,39 +164,39 @@ class BookBuilder:
         self.page(d)
 
     def thumb_full(self, scene, hero):
-        kit.draw_scene(self.p, scene, hero)
+        stage.draw_scene(self.p, scene, hero)
 
     def answer_page(self, i: int, s: Story):
         hero = self.hero(i)
-        boxes = [("Let's try!", s.lets_try, 21, 28, TIP_BG, TIP_FG)]
+        boxes = [("Let's try!", s.lets_try, 21, 27, TIP_BG, TIP_FG)]
         if s.talk_about.strip():
-            boxes.append(("Talk about it", s.talk_about, 21, 28, "#DDF0E4", "#2D7A4F"))
+            boxes.append(("Talk about it", s.talk_about, 21, 27, "#DDF0E4", "#2D7A4F"))
         if s.grown_up_corner.strip():
-            boxes.append(("Grown-up corner", s.grown_up_corner, 17, 23, "#E8E6F4", "#4B4A8C"))
+            boxes.append(("Grown-up corner", s.grown_up_corner, 16, 21, "#E8E6F4", "#4B4A8C"))
         def d():
             self.p.rect(0, 0, S, S, CREAM)
-            size = 210 if len(boxes) > 1 else 250
-            self.thumb(s.scene, hero, 400 - size / 2, 36, size)
-            # stack boxes from the bottom
-            y = S - 30
+            size = {1: 250, 2: 200}.get(len(boxes), 160)
+            self.thumb(s.scene, hero, 400 - size / 2, 28, size)
+            y = S - 28  # stack the boxes from the bottom
             for label, text, fs, lh, bg, fg in reversed(boxes):
-                lines = wrap(self.t(text), FONT, fs, 610)
-                h = 24 + 34 + len(lines) * lh + 10
+                lines = wrap(self.t(text), FONT, fs, 620)
+                h = 62 + (len(lines) - 1) * lh + 22
                 y -= h
-                self.panel(50, y, 700, h, bg, r=30)
-                self.p.text(80, y + 40, label, BOLD, 24 if fs > 17 else 20, fg, "start")
+                self.panel(50, y, 700, h, bg, r=28)
+                self.p.text(78, y + 34, label, BOLD, 23 if fs > 16 else 19, fg, "start")
                 for j, ln in enumerate(lines):
-                    self.p.text(80, y + 70 + j * lh, ln, FONT, fs, DARK, "start")
-                y -= 16
-            avail_top, avail_bottom = 36 + size + 40, y
-            fs = 27
-            while fs >= 19:
+                    self.p.text(78, y + 64 + j * lh, ln, FONT, fs, DARK, "start")
+                y -= 14
+            avail_top, avail_bottom = 28 + size + 38, y - 4
+            fs = 28
+            while fs > 21:
                 lines = wrap(self.t(s.answer), FONT, fs, 650)
-                if avail_top + len(lines) * fs * 1.4 <= avail_bottom or fs == 19:
+                if avail_top + len(lines) * fs * 1.32 <= avail_bottom:
                     break
                 fs -= 1
+            lines = wrap(self.t(s.answer), FONT, fs, 650)
             for j, ln in enumerate(lines):
-                self.p.text(75, avail_top + fs + j * fs * 1.4, ln, FONT, fs, DARK, "start")
+                self.p.text(75, avail_top + fs + j * fs * 1.32, ln, FONT, fs, DARK, "start")
         self.page(d)
 
     def recap(self):
@@ -282,13 +285,27 @@ class BookBuilder:
         return self.pages
 
 
-GREEN_ = kit.GREEN
+COVERS = {  # slug: (background, ground, two cover pictures)
+    "sky-weather": ("#A8D5F5", kit.GREEN, ("sun", "cloud")),
+    "plants-animals": ("#C9F0B8", kit.GREEN, ("flower", "bee")),
+    "how-things-work": ("#FFD6A5", "#8FD18A", ("magnet", "bike")),
+    "my-body": ("#FDE0EA", "#FFAFCC", ("heart", "hand")),
+    "clean-healthy": ("#BDE8F7", "#9AD1E8", ("soap", "toothbrush")),
+    "kind-hearts": ("#FFC8DD", "#FFAFCC", ("heart", "gift")),
+    "feelings-friends": ("#E1D5FF", "#C9B8F0", ("balloon", "star")),
+    "little-mathematicians": ("#FFF1B8", "#F5E6CC", ("block", "clock")),
+    "safe-smart": ("#CDE7FF", "#ADB5BD", ("car", "hat")),
+    "helpers-world": ("#D8F3DC", "#8FD18A", ("recycle", "house")),
+}
+
+
+def pdf_filename(book: Book, variant: str, sample: bool = False) -> str:
+    return f"little-whys-{book.volume:02d}-{book.slug}-{variant}{'-sample' if sample else ''}.pdf"
 
 
 def build_book(book: Book, out_dir: Path, variant: str, sample: bool = False,
                all_books: list[Book] | None = None) -> Path:
     out_dir.mkdir(parents=True, exist_ok=True)
-    suffix = "-sample" if sample else ""
-    out = out_dir / f"little-whys-{book.volume:02d}-{book.slug}-{variant}{suffix}.pdf"
+    out = out_dir / pdf_filename(book, variant, sample)
     BookBuilder(book, out, variant, sample, all_books).build()
     return out

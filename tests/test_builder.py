@@ -1,7 +1,7 @@
 import pytest
 import pypdf
 
-from builder import content, kit, pdf, spelling
+from builder import content, pdf, spelling, stage
 
 
 def test_resolve_both_variants():
@@ -24,16 +24,17 @@ def test_lint_flags_unmarked_only():
 
 def test_all_content_validates():
     books = content.load_all()
-    errors, _ = content.validate(books, set(kit.SCENES))
+    errors, _ = content.validate(books, stage.scene_ok)
     assert errors == []
     assert len(books) == 10
-    assert sum(len(b.stories) for b in books) == 50
+    assert all(b.status == "ready" and len(b.stories) == 20 for b in books)
+    assert sum(len(b.stories) for b in books) == 200
 
 
 def test_validate_catches_problems():
     s = content.Story(id="a", question="The sky", answer="", lets_try="x", scene="nope")
     b = content.Book("t", 1, "T", "T", "x", "science", "ready", 20, [s], None)
-    errors, _ = content.validate([b], set(kit.SCENES))
+    errors, _ = content.validate([b], stage.scene_ok)
     text = " ".join(errors)
     assert "ready needs 20" in text and "answer is empty" in text and "unknown scene" in text
     assert "must start with" in text
@@ -46,7 +47,7 @@ def test_pdf_spelling(tmp_path, variant, present, absent):
     r = pypdf.PdfReader(str(out))
     text = " ".join(p.extract_text() for p in r.pages)
     assert present in text and absent not in text
-    assert len(r.pages) == 3 + 2 * len(books[0].stories) + 5
+    assert len(r.pages) == 48
 
 
 def test_sample_has_three_stories(tmp_path):
@@ -60,3 +61,33 @@ def test_every_book_with_stories_builds(tmp_path):
     for b in books:
         if b.stories:
             assert pdf.build_book(b, tmp_path, "us", all_books=books).stat().st_size > 10_000
+
+
+def test_us_and_uk_words_differ(tmp_path):
+    books = {b.slug: b for b in content.load_all()}
+    texts = {}
+    for v in ("us", "uk"):
+        r = pypdf.PdfReader(str(pdf.build_book(books["how-things-work"], tmp_path, v)))
+        texts[v] = " ".join(p.extract_text() for p in r.pages)
+    assert "elevator" in texts["us"] and "elevator" not in texts["uk"]
+    assert "lift" in texts["uk"]
+
+
+def test_every_story_is_complete():
+    for b in content.load_all():
+        for s in b.stories:
+            for field in ("question", "answer", "lets_try", "talk_about", "grown_up_corner"):
+                assert getattr(s, field).strip(), (s.id, field)
+
+
+def test_questions_are_unique():
+    qs = [s.question for b in content.load_all() for s in b.stories]
+    assert len(qs) == len(set(qs))
+
+
+def test_stage_scene_parsing():
+    assert stage.parse_scene("day") == ("day", None)
+    base, toks = stage.parse_scene("kitchen|kid,apple*3,row,cup")
+    assert base == "kitchen" and toks == [("kid", 1), ("apple", 3), ("row", 1), ("cup", 1)]
+    for bad in ("nope", "kitchen|", "kitchen|unicorn", "nowhere|apple", "kitchen|apple*0", "kitchen|apple*99"):
+        assert not stage.scene_ok(bad), bad

@@ -1,0 +1,15 @@
+id: clean-healthy-18
+question: Why do we go to the doctor?
+answer: The doctor checks that our body is growing well. Sometimes the doctor helps when we are sick or
+  hurt. Doctors are kind helpers who want us to be healthy.
+lets_try: Play doctor with your teddy. Listen to its heart, check its ears and put on a bandage.
+talk_about: How do you feel when you go to the doctor?
+grown_up_corner: 'Playing out a doctor visit takes away a lot of fear. Be honest if a visit includes a
+  needle: ''It might pinch, and then it is done.'' Praise bravery, and allow feelings.'
+tags:
+  domain: health
+  value: courage
+  skill: coping with fear
+  activity: pretend
+scene: plain|kid,teddy,bandage,medicine
+source: new

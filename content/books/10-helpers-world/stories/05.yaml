@@ -1,0 +1,15 @@
+id: helpers-world-05
+question: Why do bakers get up so early?
+answer: Bakers make bread, rolls and cakes. Bread has to be baked fresh, so they start while it is still
+  dark. By morning, the bread is ready for us!
+lets_try: Pretend to knead dough, roll it, then pop it in the oven. Say, 'Fresh bread, who wants some?'
+talk_about: What is your {favorite|favourite} thing to eat for breakfast?
+grown_up_corner: Bread dough needs time to rise, so bakers start before dawn. If you can, bake something
+  simple together, like bread rolls or muffins.
+tags:
+  domain: community
+  value: appreciating work
+  skill: community helpers
+  activity: pretend
+scene: kitchen|kid,bread*3,cake
+source: new

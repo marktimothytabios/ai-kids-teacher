@@ -1,0 +1,15 @@
+id: safe-smart-07
+question: Why do we hold the rail on the stairs?
+answer: Stairs go up and down, and it is easy to slip. The rail helps us feel steady. We take one step
+  at a time and hold on.
+lets_try: Walk up and down the stairs with a grown-up. Hold the rail with one hand and count each step.
+talk_about: How many steps are in your stairs?
+grown_up_corner: Use safety gates and supervise stairs with young toddlers. Teach children to carry nothing
+  big while on the stairs and to keep toys off the steps.
+tags:
+  domain: safety
+  value: safety
+  skill: stair safety
+  activity: count
+scene: plain|kid,door,block*2
+source: new

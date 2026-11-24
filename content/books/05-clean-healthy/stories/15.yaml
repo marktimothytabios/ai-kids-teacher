@@ -1,0 +1,15 @@
+id: clean-healthy-15
+question: Why do we eat breakfast?
+answer: While we sleep, our body uses up its energy. Breakfast fills the tank again. Then we have energy
+  to play, learn and grow.
+lets_try: 'Help set out a healthy breakfast: bread, fruit, milk. How many things can you name?'
+talk_about: What is your {favorite|favourite} breakfast?
+grown_up_corner: A breakfast with some protein, fruit and whole grain keeps children going until lunch.
+  Let your child choose between two healthy options to build ownership.
+tags:
+  domain: health
+  value: healthy choices
+  skill: healthy eating
+  activity: taste
+scene: kitchen|kid,bread,banana,milk,bowl
+source: new

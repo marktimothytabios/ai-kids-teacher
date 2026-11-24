@@ -10,9 +10,9 @@ VARIANTS = ("us", "uk")
 # Words that should never appear outside a {us|uk} marker. Deliberately not "practice/practise",
 # which is a noun/verb pair and has to be marked by hand.
 US_ONLY = {"color", "colors", "colored", "mom", "mommy", "gray", "favorite", "neighbor", "cozy",
-           "center", "pajamas", "flavor", "realize"}
+           "center", "pajamas", "flavor", "realize", "meters", "meter", "tire", "elevator", "diaper", "sidewalk", "trash", "faucet"}
 UK_ONLY = {"colour", "colours", "coloured", "mum", "mummy", "grey", "favourite", "neighbour", "cosy",
-           "centre", "pyjamas", "flavour", "realise"}
+           "centre", "pyjamas", "flavour", "realise", "metres", "metre", "tyre", "nappy", "pavement", "rubbish", "mum"}
 
 
 def resolve(text: str, variant: str) -> str:

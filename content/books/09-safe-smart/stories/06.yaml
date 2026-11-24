@@ -1,0 +1,16 @@
+id: safe-smart-06
+question: What do we do if we get lost?
+answer: If we cannot find our grown-up, we stop and stay where we are. We look for a helper, like a person
+  in a uniform. We say our name and ask for help. Our grown-up will come and find us.
+lets_try: 'Play pretend: you are lost. Walk to a pretend helper and say, ''I am lost. My name is ___.'''
+talk_about: Who can you ask for help?
+grown_up_corner: Teach your child their full name and your name. Agree a meeting point when out, and explain
+  that a helper is someone in uniform or behind a {store|shop} counter, or a parent with children. {Practice|Practise}
+  the plan calmly, as a game.
+tags:
+  domain: safety
+  value: safety
+  skill: getting help
+  activity: pretend
+scene: street|kid:sad,door
+source: new

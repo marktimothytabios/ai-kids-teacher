@@ -1,0 +1,15 @@
+id: little-mathematicians-11
+question: Why is a ball round?
+answer: A ball is round like a circle. A circle has no corners and no straight sides. A round ball can
+  roll very well!
+lets_try: Find three round things in the house, like a plate, a coin or a clock. Trace around one on paper.
+talk_about: Which things are round and roll?
+grown_up_corner: 'Teach shape names through real things: the clock is a circle, the ball a sphere. Let
+  your child hunt for circles on a walk.'
+tags:
+  domain: maths
+  value: ''
+  skill: circle
+  activity: look
+scene: plain|ball,clock,coin,plate
+source: new

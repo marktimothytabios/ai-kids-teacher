@@ -1,15 +1,16 @@
 id: my-body-05
-question: Why do I sneeze?
-answer: ACHOO! Sometimes dust or tiny things tickle inside your nose. Your body pushes them out with a
-  big ACHOO! Remember to sneeze into your elbow.
-lets_try: 'Pretend to sneeze into your elbow: ah... ah... ACHOO!'
-talk_about: ''
-grown_up_corner: ''
+question: Why do I have a nose?
+answer: Your nose helps you smell flowers, food and more. It also warms the air you breathe in. It is
+  a little air door that helps you breathe!
+lets_try: Smell a banana, a flower or a bit of toast. Which one smells best? Hold your nose and smell
+  again.
+talk_about: What is your {favorite|favourite} smell?
+grown_up_corner: Our nose has tiny hairs and sticky mucus to catch dust and germs. Smell and taste work
+  together, which is why food tastes dull when we have a cold.
 tags:
   domain: body
   value: ''
-  skill: ''
-  activity: ''
-scene: body
-source: book1-38
-sound: ACHOO!
+  skill: using senses
+  activity: smell
+scene: kitchen|kid:o,bread,orange
+source: new

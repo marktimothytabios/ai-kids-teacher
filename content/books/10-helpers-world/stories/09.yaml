@@ -1,0 +1,15 @@
+id: helpers-world-09
+question: Why do we go to the library?
+answer: A library is a big room full of books. We can borrow books and bring them back. A librarian helps
+  us find stories and facts.
+lets_try: Choose three books about things you like. Find a {cozy|cosy} place to read them together.
+talk_about: What story would you like to hear today?
+grown_up_corner: Library visits build a love of reading. Borrow different types of books, such as stories,
+  facts, rhymes, and let your child choose some.
+tags:
+  domain: community
+  value: care for shared things
+  skill: community places
+  activity: look
+scene: plain|book*5,kid
+source: new

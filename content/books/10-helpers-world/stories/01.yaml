@@ -3,12 +3,13 @@ question: Why do grown-ups go to work?
 answer: Grown-ups go to work to help other people, and to earn money for food and our home. Some build
   houses, some help sick people, and some grow food. What job would you like to do?
 lets_try: Pretend to be a builder, a doctor or a chef! What do you do?
-talk_about: ''
-grown_up_corner: ''
+talk_about: What job would you like to do when you grow up?
+grown_up_corner: 'Talk about the different jobs people do, and why they matter, including the work done
+  at home. Let your child ''go to work'' with pretend play: dressing up, using tools, helping people.'
 tags:
   domain: community
-  value: ''
-  skill: ''
-  activity: ''
+  value: appreciating work
+  skill: community jobs
+  activity: pretend
 scene: street
 source: book1-49

@@ -1,0 +1,15 @@
+id: sky-weather-16
+question: Why do we wear coats in winter?
+answer: Our bodies make heat, and cold air takes it away. A warm coat keeps our heat close to us. Hats,
+  scarves and mittens help too!
+lets_try: Dress your teddy for snow with a hat, mittens and a coat. What goes on first?
+talk_about: What do you wear when it is cold?
+grown_up_corner: Clothes trap a layer of warm air next to the skin. Several thin layers keep children
+  warmer than one thick layer. Check little hands and cheeks, not just the coat.
+tags:
+  domain: science
+  value: ''
+  skill: self care
+  activity: pretend
+scene: snow|kid,coat,mitten*2
+source: new

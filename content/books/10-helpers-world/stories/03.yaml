@@ -1,0 +1,15 @@
+id: helpers-world-03
+question: Why do builders build houses?
+answer: Everybody needs a safe, warm place to live. Builders use bricks, wood and tools to make houses.
+  Many people work together to build one.
+lets_try: Build a house with blocks. Then ask a friend to help build a bigger one!
+talk_about: What would you put in your house?
+grown_up_corner: Building shows teamwork, planning and math, such as measuring and counting bricks. Watching
+  a building site from a safe distance is a good outing.
+tags:
+  domain: community
+  value: teamwork
+  skill: community helpers
+  activity: make
+scene: plain|house,hammer,block*2
+source: new

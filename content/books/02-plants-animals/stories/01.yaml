@@ -1,14 +1,15 @@
 id: plants-animals-01
-question: Why do flowers smell nice?
-answer: Flowers smell sweet to say 'Come here!' to bees and butterflies. The bees visit the flowers and
-  help them make seeds, so more flowers can grow.
-lets_try: Smell a flower very gently. Sniff, sniff! Does it smell sweet?
-talk_about: ''
-grown_up_corner: ''
+question: Why do seeds grow into plants?
+answer: A seed is a tiny baby plant with its own packed lunch. When it gets water and warmth, it wakes
+  up. A little root goes down and a little shoot goes up!
+lets_try: Put a bean seed on a damp paper towel in a clear cup. Look at it every day.
+talk_about: What do you think the seed needs to grow?
+grown_up_corner: Seeds hold a tiny plant and stored food. Water softens the seed coat, and the root grows
+  first. Beans sprout in about a week on a warm windowsill.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: garden
-source: book1-12
+  skill: life cycles
+  activity: make
+scene: park|kid,seed*3,sprout*2
+source: new

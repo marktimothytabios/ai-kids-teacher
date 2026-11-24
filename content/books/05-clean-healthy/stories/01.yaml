@@ -1,14 +1,16 @@
 id: clean-healthy-01
-question: Why do we brush our teeth?
-answer: Tiny germs love to eat the bits of food left on our teeth. Brushing sweeps the germs away, so
-  our teeth stay clean, strong and shiny. Brush in the morning and at night!
-lets_try: 'Show me your big smile! Now pretend to brush: scrub, scrub, scrub.'
-talk_about: ''
-grown_up_corner: ''
+question: Why do we wash our hands?
+answer: Our hands touch lots of things and pick up tiny germs we can't see. Soap and water wash the germs
+  away, so they don't make us sick. Scrub, rinse, dry!
+lets_try: Wash your hands and sing 'Happy Birthday' two times.
+talk_about: When do we wash our hands?
+grown_up_corner: Wet hands, add soap, scrub for as long as it takes to sing 'Happy Birthday' twice (about
+  20 seconds), rinse and dry. Do it before eating, after the toilet, after playing outside and after touching
+  animals.
 tags:
   domain: health
-  value: self-care
-  skill: ''
-  activity: ''
+  value: cleanliness
+  skill: handwashing
+  activity: move
 scene: home
-source: book1-28
+source: book1-30

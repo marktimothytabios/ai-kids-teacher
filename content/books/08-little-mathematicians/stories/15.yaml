@@ -1,0 +1,15 @@
+id: little-mathematicians-15
+question: Why do we put one plate for each person?
+answer: One plate for each person means everyone gets a turn to eat. We count the people and then we count
+  the plates. If the numbers match, nobody is left out!
+lets_try: Help to set the table. Put one cup or plate for each person. Count them as you go.
+talk_about: How many people are eating with us today?
+grown_up_corner: One-to-one matching is an important early math idea. Setting the table is a natural,
+  helpful and fun place to {practice|practise} it.
+tags:
+  domain: maths
+  value: fairness
+  skill: one to one matching
+  activity: count
+scene: kitchen|plate*4,cup*4
+source: new

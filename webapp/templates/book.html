@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ book.title }} &middot; Little Whys{% endblock %}
+{% block description %}{{ book.title }}: 20 stories for ages 2-4. {{ book.teaches }}.{% endblock %}
+{% block content %}
+<div class="wrap">
+  <p class="crumbs"><a href="/">Home</a> / <a href="/#books">Books</a> / {{ book.title }}</p>
+  <div class="book-head">
+    <img class="big-cover" src="/previews/{{ book.slug }}/{{ spelling }}/0.png" alt="Cover of {{ book.title }}" width="576" height="576">
+    <div>
+      <p class="vol">Book {{ book.volume }} &middot; {{ book.domain_label }}</p>
+      <h1>{{ book.title }}</h1>
+      <p class="lead">{{ book.teaches }}.</p>
+      <ul class="facts">
+        <li>{{ book.story_count }} stories</li><li>48 pages</li><li>Ages 2&ndash;4</li><li>PDF, printable</li>
+      </ul>
+      {% if book.values %}<p class="chips">{% for v in book.values %}<span>{{ v }}</span>{% endfor %}</p>{% endif %}
+
+      <div class="buy">
+        <div class="seg big" role="group" aria-label="Choose spelling">
+          <a href="/set-spelling/us?next=/books/{{ book.slug }}" {% if spelling == 'us' %}aria-current="true"{% endif %}>US spelling</a>
+          <a href="/set-spelling/uk?next=/books/{{ book.slug }}" {% if spelling == 'uk' %}aria-current="true"{% endif %}>UK spelling</a>
+        </div>
+        {% if allowed %}
+        <p class="cta">
+          <a class="btn primary" href="/books/{{ book.slug }}/download/{{ spelling }}">Download the book (PDF){% if settings.free %} &middot; free{% endif %}</a>
+          <a class="btn" href="/books/{{ book.slug }}/download/{{ spelling }}?sample=true">Free sample: first 3 stories</a>
+        </p>
+        {% else %}
+        <p class="notice">This book is not available to you yet.</p>
+        {% endif %}
+        <p class="small muted"><a href="/parents#printing">How to print it</a> &middot; Switching spelling changes the book and these pages.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Peek inside</h2>
+  <ul class="peek">
+    {% for p in previews %}
+    <li><img src="/previews/{{ book.slug }}/{{ spelling }}/{{ p }}.png" alt="Page {{ p + 1 }} of {{ book.title }}" loading="lazy" width="576" height="576"></li>
+    {% endfor %}
+  </ul>
+
+  <h2>The {{ book.story_count }} questions</h2>
+  <ol class="qlist">
+    {% for s in book.stories %}
+    <li><span>{{ s.question }}</span>{% if s.value %}<em>{{ s.value }}</em>{% endif %}</li>
+    {% endfor %}
+  </ol>
+
+  <h2>More books</h2>
+  <ul class="grid small-grid">
+    {% for b in others[:4] %}
+    <li class="card">
+      <a href="/books/{{ b.slug }}" class="cover-link"><img src="/previews/{{ b.slug }}/{{ spelling }}/0.png" alt="Cover of {{ b.title }}" loading="lazy" width="576" height="576"></a>
+      <div class="card-body"><p class="vol">Book {{ b.volume }}</p><h3><a href="/books/{{ b.slug }}">{{ b.title }}</a></h3></div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

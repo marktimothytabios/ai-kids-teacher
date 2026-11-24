@@ -1,0 +1,15 @@
+id: safe-smart-08
+question: Why do we put toys away so we do not trip?
+answer: A toy on the floor can trip someone. A fall can hurt. When toys go back in their box, everyone
+  can walk safely.
+lets_try: Pick up five toys and put them in the box. Count them as they go in.
+talk_about: Where do your toys sleep at night?
+grown_up_corner: 'Tidying with a purpose, such as safety, makes more sense to a toddler than ''because
+  I said so''. Link it to real moments: ''I nearly tripped on the truck!'''
+tags:
+  domain: safety
+  value: responsibility
+  skill: tidiness
+  activity: move
+scene: bedroom|kid,block*3,toy_train,basket
+source: new

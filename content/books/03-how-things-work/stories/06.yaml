@@ -1,14 +1,16 @@
 id: how-things-work-06
-question: Why do cars have wheels?
-answer: Wheels are round, so they roll! Rolling is much easier than sliding. Wheels help cars, buses,
-  bikes and prams go along smoothly.
-lets_try: Roll a ball and push a block. Which one goes further?
-talk_about: ''
-grown_up_corner: ''
+question: Why do balloons float up?
+answer: Some balloons are filled with a special gas called helium. Helium is lighter than the air around
+  us. So the balloon floats up, up, up!
+lets_try: Throw a balloon filled with your breath. It floats down slowly. Then watch a helium balloon
+  float up!
+talk_about: What would you do if a balloon floated away?
+grown_up_corner: Balloons filled with breath are heavier than helium balloons and sink slowly. Never let
+  young children chew on balloons, and clear away burst pieces because they are a choking risk.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: street
-source: book1-27
+  skill: air and gas
+  activity: look
+scene: sky|balloon*3,kid:o
+source: new

@@ -1,0 +1,16 @@
+id: helpers-world-11
+question: Why do firefighters come in a big red truck?
+answer: Firefighters help people when there is a fire or an emergency. The big truck carries water and
+  ladders and gets them there fast. They are brave helpers.
+lets_try: Pretend to be a firefighter. Roll out a hose. Say 'Whoosh!' Then climb a ladder, slowly.
+talk_about: Do you know the number to call for help?
+grown_up_corner: Teach children that firefighters are friends, not to be scared of in their gear. Make
+  a fire escape plan together and learn your local emergency number.
+tags:
+  domain: community
+  value: courage
+  skill: community helpers
+  activity: pretend
+scene: street|firetruck,drop*3
+source: new
+sound: Nee-naw!

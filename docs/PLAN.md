@@ -1,6 +1,6 @@
 # Little Whys: A Series of Read-Together Books for Toddlers
 
-Plan and write-up. Status: **decisions made, foundation in progress** (see section 12 for the decisions and section 13 for what is built).
+Plan and write-up. Status: **all 10 launch books written and building; free local website running.** See section 12 for the decisions and section 13 for what is built.
 
 *(The earlier voice-app plan is kept in [archive/APP_PLAN.md](archive/APP_PLAN.md). We are no longer building
 an app: it is screen-based, and the product is now a book that a parent reads *with* a child.)*
@@ -85,8 +85,8 @@ and a "value or skill" it teaches.
 
 | # | Book | Teaches | Reused from book 1 | New |
 |---|---|---|---|---|
-| 1 | **Sky, Weather & Seasons** | Curiosity about nature | Sky blue, sun at night, moon, stars, rain, thunder, rainbows, wind, ice, snow, shadow (11) | 9 |
-| 2 | **Plants & Animals** | Care for living things | Leaves, flowers, bees, plants need water, birds, fish, dogs, cats, kangaroos, ducks (10) | 10 |
+| 1 | **Sky, Weather & Seasons** | Curiosity about nature | Sky blue, sun at night, moon, stars, rain, thunder, rainbows, wind, ice, snow, leaves, shadow (12) | 8 |
+| 2 | **Plants & Animals** | Care for living things | Flowers, bees, plants need water, birds, fish, dogs, cats, kangaroos, ducks (9) | 11 |
 | 3 | **How Things Work** | Cause and effect | Sea is salty, waves, balls bounce, things fall, boats float, wheels (6) | 14 |
 | 4 | **My Amazing Body** | Knowing and loving your body | Tummy rumbles, belly button, two eyes, ears, sneeze, hiccups, yawn, grow, heartbeat (9) | 11 |
 | 5 | **Clean, Healthy & Strong** | Cleanliness and habits | Teeth, baths, hand-washing, sleep, vegetables, water, shoes, sun hat (8) | 12 |
@@ -329,6 +329,23 @@ event_log(id, source, type, payload, created_at)   -- raw Stripe webhooks for au
 
 ---
 
+### 7.7 What exists today (free, localhost) and how Stripe plugs in
+
+The `webapp/` package is a working free site: home page, a page per book, US/UK switch (cookie, or the
+browser's language), cover and page previews, PDF and 3-story sample downloads built on demand and cached.
+Run it with `python -m webapp`.
+
+Stripe is a small addition rather than a rewrite:
+
+1. `webapp/app.py` has one function, `can_download(request, settings, book)`, that decides who may download.
+   Today it returns `True`. With payments, it checks a paid order for the visitor.
+2. Set `Settings(free=False)` to switch the site into paid mode. A test already checks that full downloads
+   then return **402** while the free sample still works.
+3. Add: a Stripe Checkout Session route, a verified webhook route, the `order` and `download_token` tables
+   from 7.4, signed expiring links, and email. Everything else stays as it is.
+
+---
+
 ## 8. Quality and trust
 
 For a children's brand, trust is the product. Every book passes these gates before it is sold:
@@ -409,15 +426,20 @@ Still open: the budget for an educator review and an illustrator, and trademark/
 | Item | Status |
 |---|---|
 | Plan | Done (this document) |
-| Repo layout, YAML story schema and validator | Built |
-| All 50 existing stories ported to YAML (US spelling with `{us|uk}` markers) | Built |
-| Builder: US/UK spelling, page layout, simple illustration kit, PDF output | Built (first version) |
-| Draft books for the 10 catalogue themes, filled with the stories we already have | Built (marked draft until they have 20 stories) |
-| 150 new stories, cast artwork, QA gates, educator review | Not started |
-| Stripe shop | Not started |
+| Story schema, validator and US/UK spelling markers | Built and tested |
+| **All 200 stories** (50 ported from book 1, 150 new), each with a question, answer, "Let's try!", "Talk about it" and "Grown-up corner" | Written. 10 books, all marked `ready`, 48 pages each |
+| Builder: 48-page layout, sample build, per-book covers, stage scenes with 100+ drawn items | Built |
+| Free local website (FastAPI): catalogue, book pages, US/UK switch, previews, PDF and sample downloads, parents' guide | Built, 24 tests passing |
+| Stripe checkout, accounts, emails, hosting | **Not started, on purpose** (see 7.7) |
+| Fact check, educator review, real-child test (section 8) | **Not done.** The text was written by an AI assistant and has had an automatic check only. Do not sell it before a human review |
+| Illustration kit by a real illustrator | Not started. Current pictures are code-drawn placeholders, and many stories share a similar scene |
 
-**Next:** write the full *Kind Hearts* book (17 new stories), then Books 1 and 5, then test the market
-(phase 2 of the roadmap).
+### Known limits of this first full version
+
+- **Pictures** are simple and repeat across stories. They are fine for a free launch and need an illustrator before paid sales.
+- **Content review is the gate.** Facts, safety of activities and tone need a person (ideally an early-childhood educator) before launch.
+- One ported sentence (`my-body-17`, hiccups) is longer than the 18-word guideline.
+- The site has no accounts, no analytics and no email. That is intentional until payments exist.
 
 ---
 

@@ -3,7 +3,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from . import content, kit, pdf
+from . import content, pdf, stage
 
 OUT = content.ROOT / "out"
 
@@ -20,7 +20,7 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
 
     books = content.load_all()
-    errors, warnings = content.validate(books, set(kit.SCENES))
+    errors, warnings = content.validate(books, stage.scene_ok)
     for w in warnings:
         print("warning:", w)
     for e in errors:

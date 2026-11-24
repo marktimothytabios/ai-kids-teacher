@@ -1,14 +1,16 @@
 id: plants-animals-05
-question: Why do fish live in water?
-answer: Fish breathe water instead of air. They have special parts called gills that take the air out
-  of the water. Their fins and tails help them swim.
-lets_try: Make fish lips! Now swim your hand like a little fish.
-talk_about: ''
-grown_up_corner: ''
+question: Why does a caterpillar turn into a butterfly?
+answer: A caterpillar eats and eats and grows big. Then it wraps up in a safe case called a chrysalis.
+  Inside, it slowly changes into a butterfly with wings!
+lets_try: Crouch down and crawl like a caterpillar. Curl up small. Now flutter your arms like wings!
+talk_about: What do you think the caterpillar eats?
+grown_up_corner: This change is called metamorphosis. The caterpillar eats leaves, then its body rebuilds
+  itself inside the chrysalis. It takes about two weeks. Library books and local butterfly houses are
+  a good follow-up.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: sea
-source: book1-16
+  skill: life cycles
+  activity: pretend
+scene: park|caterpillar,leaf*2,butterfly
+source: new

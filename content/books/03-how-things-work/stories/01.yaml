@@ -1,14 +1,15 @@
 id: how-things-work-01
-question: Why is the sea salty?
-answer: Rain washes teeny bits of salt from rocks into rivers. The rivers carry the salt all the way to
-  the sea. The salt stays there, so the sea tastes salty!
-lets_try: Taste a tiny pinch of salt with a grown-up. Is it salty? Yuck or yum?
-talk_about: ''
-grown_up_corner: ''
+question: Why do cars have wheels?
+answer: Wheels are round, so they roll! Rolling is much easier than sliding. Wheels help cars, buses,
+  bikes and prams go along smoothly.
+lets_try: Roll a ball and push a block. Which one goes further?
+talk_about: What things do you know that have wheels?
+grown_up_corner: A round wheel keeps rolling with very little rubbing, so it takes much less effort than
+  sliding. Let your child roll a ball, a toy car and a block, and see which one rolls best.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: sea
-source: book1-21
+  skill: cause and effect
+  activity: touch
+scene: street
+source: book1-27

@@ -1,14 +1,16 @@
 id: clean-healthy-05
-question: Why do we eat vegetables?
-answer: Vegetables are full of good things that help your body grow. Carrots, peas and broccoli help you
-  be strong and healthy. Eating lots of {colors|colours} is good for you!
-lets_try: Can you name a vegetable that is orange? Green? Red?
-talk_about: ''
-grown_up_corner: ''
+question: Why do we have baths?
+answer: We run and play and get messy all day! A bath washes off the dirt and germs, so our skin stays
+  clean and healthy. And bubbles are fun!
+lets_try: 'Name the body parts you wash: toes, knees, tummy, arms...'
+talk_about: What is your {favorite|favourite} thing about bath time?
+grown_up_corner: Children do not need a bath every day, but regular washing is good, especially after
+  muddy play. A calm bath routine can also help signal that bedtime is coming. Never leave a young child
+  alone in the bath, even for a moment.
 tags:
   domain: health
-  value: ''
-  skill: ''
-  activity: ''
+  value: cleanliness
+  skill: personal care
+  activity: touch
 scene: home
-source: book1-32
+source: book1-29

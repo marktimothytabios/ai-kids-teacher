@@ -1,14 +1,15 @@
 id: my-body-03
-question: Why do we have two eyes?
-answer: Two eyes help you see how near or far away things are. Each eye sees a little bit differently,
-  and your brain puts the pictures together. That helps you catch a ball!
-lets_try: Close one eye, then the other. Does the picture jump?
-talk_about: ''
-grown_up_corner: ''
+question: Why do I blink?
+answer: Blinking wipes your eyes clean and wet. Your eyelids close and open very fast, again and again.
+  You do it all by yourself, without thinking!
+lets_try: Look at a friend and blink slowly. How many blinks can you do in a minute?
+talk_about: When do your eyes feel dry or tired?
+grown_up_corner: We blink about 15 to 20 times a minute, less when we stare at a screen, so keep screens
+  low. Each blink spreads a thin layer of tears over the eye to protect it.
 tags:
   domain: body
   value: ''
-  skill: ''
-  activity: ''
-scene: body
-source: book1-36
+  skill: using senses
+  activity: look
+scene: bedroom|kid,eye*2
+source: new

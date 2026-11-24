@@ -1,15 +1,15 @@
 id: sky-weather-07
-question: Why do we see rainbows?
-answer: 'A rainbow happens when the sun shines through raindrops. Each little drop splits the sunlight
-  into {colors|colours}: red, orange, yellow, green, blue and purple. Look for rainbows when it''s sunny
-  and rainy at the same time!'
-lets_try: Can you find something red? Something yellow? Something blue?
-talk_about: ''
-grown_up_corner: ''
+question: Why does it rain?
+answer: Clouds are made of teeny tiny drops of water. When lots of drops squish together, they get too
+  heavy to float. Then they fall down as rain! Plants and animals drink the rain.
+lets_try: Pitter-patter! Tap your fingers on the table like rain. Now go fast like a big storm!
+talk_about: What sound does rain make on the roof?
+grown_up_corner: Water rises from seas, rivers and puddles, cools into clouds, then falls again as rain.
+  This loop is called the water cycle.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: rainbow
-source: book1-07
+  skill: water cycle
+  activity: listen
+scene: rain
+source: book1-05

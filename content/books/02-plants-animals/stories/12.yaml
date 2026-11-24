@@ -1,0 +1,15 @@
+id: plants-animals-12
+question: Why do chickens lay eggs?
+answer: A hen lays an egg to make baby chicks. If the egg is kept warm, a chick can grow inside it. We
+  can also eat the eggs that are not hatching.
+lets_try: 'Pretend to be a hen sitting on a warm nest. Then crack open as a little chick: peep, peep!'
+talk_about: What do you like to eat that comes from a chicken?
+grown_up_corner: Eggs sold in {stores|shops} are usually not fertilized, so no chick would grow in them.
+  A hen sits on fertilized eggs for about three weeks until they hatch.
+tags:
+  domain: science
+  value: ''
+  skill: life cycles
+  activity: pretend
+scene: park|chicken,egg*3,basket
+source: new

@@ -1,0 +1,15 @@
+id: little-mathematicians-03
+question: Why do we count to ten?
+answer: Ten is a big, round number. We have ten fingers, so counting to ten is easy to see. After ten,
+  we start again with another ten!
+lets_try: Line up ten blocks and touch each one as you count. Can you count to ten without missing any?
+talk_about: What do you like to count to ten for? Hide and seek? Jumping?
+grown_up_corner: Counting to ten builds the base for our number system. Songs like 'Ten in the bed' {practice|practise}
+  the sequence and subtraction at the same time.
+tags:
+  domain: maths
+  value: ''
+  skill: counting to 10
+  activity: count
+scene: plain|block*10
+source: new

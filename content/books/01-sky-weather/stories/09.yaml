@@ -1,14 +1,16 @@
 id: sky-weather-09
-question: Why does ice melt?
-answer: Ice is water that got very, very cold and turned hard. When it gets warm, the ice turns back into
-  water. That's called melting! Drip, drip, drip.
-lets_try: Hold an ice cube with a grown-up. Is it cold? Put it in the sun and watch it melt!
-talk_about: ''
-grown_up_corner: ''
+question: Why is there thunder?
+answer: BOOM! Lightning is a big, bright spark in the clouds. It is so hot that it makes the air go BOOM!
+  That boom is thunder. It is very loud, but we are safe and {cozy|cosy} inside our house.
+lets_try: Make thunder! Clap a big loud BOOM, then a tiny quiet boom.
+talk_about: What helps you feel safe when it is very loud?
+grown_up_corner: Lightning heats the air so fast that it bursts outward, and we hear that as thunder.
+  Light travels faster than sound, so we see the flash first. Calm cuddles help children who feel scared.
 tags:
   domain: science
-  value: ''
-  skill: ''
-  activity: ''
-scene: snow
-source: book1-09
+  value: courage
+  skill: coping with fear
+  activity: listen
+scene: storm
+source: book1-06
+sound: BOOM!

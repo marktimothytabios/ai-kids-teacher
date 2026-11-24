@@ -1,0 +1,15 @@
+id: clean-healthy-19
+question: Why do we put {trash|rubbish} in the bin?
+answer: '{Trash|Rubbish} is the stuff we do not need anymore. If we drop it on the ground, it makes a
+  mess and can hurt animals. The bin keeps our streets, parks and sea clean.'
+lets_try: Go on a 'bin hunt' around the house. Can you find three bins? What do they hold?
+talk_about: What do you do with an empty snack wrapper?
+grown_up_corner: Toddlers love to 'tidy up' by putting things into bins, so celebrate it. Use one bin
+  for litter and one for recycling to introduce sorting.
+tags:
+  domain: health
+  value: caring for our world
+  skill: tidiness
+  activity: move
+scene: park|kid,bin,leaf*2
+source: new

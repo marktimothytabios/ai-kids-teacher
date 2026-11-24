@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Picture books for ages 2&ndash;4</p>
+      <h1>Little Whys</h1>
+      <p class="lead">Screen-free books that you read <em>with</em> your toddler. Every story answers one big question, adds an activity to try and a question to talk about.</p>
+      <p class="cta">
+        <a class="btn primary" href="#books">Browse the books</a>
+        <a class="btn" href="/parents">How to read them</a>
+      </p>
+      <ul class="stats" aria-label="At a glance">
+        <li><strong>{{ totals.books }}</strong> books</li>
+        <li><strong>{{ totals.stories }}</strong> stories</li>
+        <li><strong>20</strong> per book</li>
+        {% if settings.free %}<li><strong>Free</strong> for now</li>{% endif %}
+      </ul>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      {% if books %}<img class="tilt a" src="/previews/{{ books[0].slug }}/{{ spelling }}/0.png" alt="">
+      {% if books|length > 5 %}<img class="tilt b" src="/previews/{{ books[5].slug }}/{{ spelling }}/0.png" alt="">{% endif %}{% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="wrap how">
+  <h2>How it works</h2>
+  <ol class="steps">
+    <li><span class="n">1</span><h3>Pick a book</h3><p>Choose a theme, from the sky and animals to kindness, feelings and counting.</p></li>
+    <li><span class="n">2</span><h3>Print it, or read it together</h3><p>Print at home, or hold the device yourself. The child never needs to touch a screen.</p></li>
+    <li><span class="n">3</span><h3>Ask, try, talk</h3><p>Ask first, read the answer, do the <em>Let's try!</em> activity and chat about it.</p></li>
+  </ol>
+</section>
+
+<section class="wrap" id="books">
+  <h2>The books</h2>
+  <p class="muted">Each has 20 stories and 48 pages. Pick any, in any order.</p>
+  <ul class="grid">
+    {% for b in books %}
+    <li class="card">
+      <a href="/books/{{ b.slug }}" class="cover-link">
+        <img src="/previews/{{ b.slug }}/{{ spelling }}/0.png" alt="Cover of {{ b.title }}" loading="lazy" width="576" height="576">
+      </a>
+      <div class="card-body">
+        <p class="vol">Book {{ b.volume }} &middot; {{ b.domain_label }}</p>
+        <h3><a href="/books/{{ b.slug }}">{{ b.title }}</a></h3>
+        <p>{{ b.teaches }}</p>
+        {% if b.values %}<p class="chips">{% for v in b.values[:3] %}<span>{{ v }}</span>{% endfor %}</p>{% endif %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="wrap pillars">
+  <h2>More than facts</h2>
+  <div class="pillar-grid">
+    <div><h3>Knowledge</h3><p>Sky, weather, animals, plants and how things work, told simply and accurately.</p></div>
+    <div><h3>Values</h3><p>Kindness, empathy, honesty, sharing and gratitude, shown in small everyday moments.</p></div>
+    <div><h3>Everyday skills</h3><p>Handwashing, tidying up, healthy habits and staying safe.</p></div>
+    <div><h3>Practical maths</h3><p>Counting, sorting, shapes, patterns and measuring with things around the house.</p></div>
+  </div>
+</section>
+{% endblock %}

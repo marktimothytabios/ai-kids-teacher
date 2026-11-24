@@ -1,0 +1,15 @@
+id: helpers-world-02
+question: Why do we go to school?
+answer: At school, teachers help us to learn about letters, numbers and the world. We play and make friends,
+  too. Learning new things is exciting!
+lets_try: Play school with your toys. Be the teacher and read them a story.
+talk_about: What would you like to learn at school?
+grown_up_corner: Visit a {preschool|nursery}, playgroup or school if you can. Talk positively about school,
+  and read books about starting school to ease worries.
+tags:
+  domain: community
+  value: love of learning
+  skill: community helpers
+  activity: pretend
+scene: plain|kid,book*3,pencil*2,crayon
+source: new

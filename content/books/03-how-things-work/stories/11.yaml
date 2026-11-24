@@ -1,0 +1,15 @@
+id: how-things-work-11
+question: Why are bubbles round?
+answer: A bubble is a thin skin of soapy water with air inside. The skin pulls itself into a smooth ball
+  shape. That is why every bubble is round.
+lets_try: Blow bubbles outside. Can you pop one with your finger? Can you catch one on a wand?
+talk_about: What {colors|colours} can you see on the bubble?
+grown_up_corner: Soap makes the water skin stretchy. Surface tension pulls the skin tight, and a ball
+  has the smallest skin for the air inside. {Colors|Colours} swirl as the skin gets thinner.
+tags:
+  domain: science
+  value: ''
+  skill: observing
+  activity: look
+scene: sky|kid,bubble*5
+source: new

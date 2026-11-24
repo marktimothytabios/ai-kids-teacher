@@ -1,0 +1,15 @@
+id: my-body-11
+question: Why do I have fingernails?
+answer: Nails are little shields on the ends of your fingers and toes. They protect you and help you pick
+  up small things. Nails keep growing, so we trim them.
+lets_try: Look at your fingers. Can you pick up a tiny crumb with your fingertips?
+talk_about: How many fingernails do you have in all?
+grown_up_corner: Fingernails grow about 3 mm a month, toenails more slowly. Short, clean nails collect
+  fewer germs. Trim nails after a bath when they are soft, with a grown-up.
+tags:
+  domain: body
+  value: ''
+  skill: counting body parts
+  activity: count
+scene: plain|hand*2
+source: new

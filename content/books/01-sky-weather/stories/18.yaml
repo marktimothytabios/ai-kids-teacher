@@ -1,0 +1,15 @@
+id: sky-weather-18
+question: Why do flowers pop up in spring?
+answer: In winter, seeds and bulbs sleep in the soil. In spring the soil gets warmer and there is more
+  rain and sunshine. Then little green shoots wake up and push up!
+lets_try: Look outside for a green shoot or a bud. Or plant a bean seed in a cup.
+talk_about: What do plants need to wake up?
+grown_up_corner: Longer days and warmer soil tell seeds and bulbs that it is time to grow. In hot countries
+  the rainy season does the same job.
+tags:
+  domain: science
+  value: ''
+  skill: plant needs
+  activity: look
+scene: park|kid,sprout*3,flower
+source: new

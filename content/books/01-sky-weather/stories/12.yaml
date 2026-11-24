@@ -1,14 +1,15 @@
 id: sky-weather-12
-question: Why do I have a shadow?
-answer: When you stand in the sunshine, your body blocks some of the light. The dark shape on the ground
-  where the light can't reach is your shadow. It copies everything you do!
-lets_try: Go outside on a sunny day. Can you make your shadow wave?
-talk_about: ''
-grown_up_corner: ''
+question: Why do puddles disappear?
+answer: The sun warms the water. Tiny bits of water float up into the air, where we cannot see them. The
+  puddle gets smaller and smaller, and then it is gone!
+lets_try: Paint a picture on the {sidewalk|pavement} with a wet brush. Watch it vanish in the sun!
+talk_about: Where do you think the water went?
+grown_up_corner: This is evaporation. Water turns into an invisible gas called water vapor and rises.
+  Sunshine and wind make it happen faster.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: day
-source: book1-23
+  skill: cause and effect
+  activity: make
+scene: sky|kid,puddle
+source: new

@@ -1,0 +1,16 @@
+id: plants-animals-14
+question: Why do owls come out at night?
+answer: Owls sleep in the day and hunt in the dark. They have big eyes that can see in dim light. Their
+  soft feathers let them fly without a sound.
+lets_try: Turn off the lights and listen. What quiet sounds can you hear? Then say, 'Hoo hoo!'
+talk_about: What is your {favorite|favourite} thing to do at night?
+grown_up_corner: Animals that are active at night are called nocturnal. Owls can turn their heads far
+  around because they cannot move their big eyes. Mice and insects are on their menu.
+tags:
+  domain: science
+  value: ''
+  skill: night and day
+  activity: listen
+scene: night|owl,star*3
+source: new
+sound: Hoo hoo!

@@ -1,0 +1,16 @@
+id: how-things-work-08
+question: Why does the {elevator|lift} go up and down?
+answer: The {elevator|lift} is a little room that moves. Strong cables and a motor pull it up and let
+  it down. Press the button and it takes you to the right floor.
+lets_try: Crouch down low, then rise slowly to the top like the {elevator|lift}. Say 'Ding!' at each floor.
+talk_about: Which floor would you like to visit?
+grown_up_corner: '{Elevators|Lifts} have a counterweight that balances the car so the motor can move it
+  easily. Teach children to wait for the doors, hold a hand, and never play in or around them.'
+tags:
+  domain: science
+  value: ''
+  skill: how machines work
+  activity: pretend
+scene: plain|door,kid:o,clock
+source: new
+sound: Ding!
