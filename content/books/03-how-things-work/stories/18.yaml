@@ -1,0 +1,15 @@
+id: how-things-work-18
+question: Why do toys need batteries?
+answer: A battery stores a little bit of electricity inside it. It gives the toy the power to move, make
+  sounds or light up. When the battery is empty, the toy stops.
+lets_try: Ask a grown-up to show you a toy with batteries. Does it go fast when the batteries are new?
+talk_about: Which of your toys needs batteries?
+grown_up_corner: Batteries turn stored chemical energy into electricity. Button batteries are very dangerous
+  if swallowed, so keep battery compartments screwed shut and spare batteries out of reach.
+tags:
+  domain: science
+  value: safety
+  skill: how things work
+  activity: look
+scene: plain|battery*2,toy_train
+source: new

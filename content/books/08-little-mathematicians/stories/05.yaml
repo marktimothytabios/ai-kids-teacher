@@ -1,0 +1,15 @@
+id: little-mathematicians-05
+question: Why do we say 'more' and 'less'?
+answer: More means there are extra. Less means there are not so many. If you have three {cookies|biscuits}
+  and I have two, you have more and I have less.
+lets_try: Put some blocks in one pile and some in another. Which pile has more? Which has less?
+talk_about: Would you like more or less on your plate?
+grown_up_corner: 'Use ''more'' and ''less'' every day: at snack time, when pouring water, with toys. Let
+  your child match the piles one to one to see which is longer.'
+tags:
+  domain: maths
+  value: ''
+  skill: comparing amounts
+  activity: count
+scene: plain|cookie*5,row,cookie*2
+source: new

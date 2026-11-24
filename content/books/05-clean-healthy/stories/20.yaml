@@ -1,0 +1,15 @@
+id: clean-healthy-20
+question: Why do we tidy up our toys?
+answer: When toys are on the floor, we can trip on them. They can get lost or broken. If we put them away,
+  we can find them next time and everyone is safe.
+lets_try: Play 'Beat the song'. Tidy up as many toys as you can before the song ends.
+talk_about: Where do your toys live?
+grown_up_corner: 'Make tidying small and clear: one basket for blocks, one for cars. Tidy up together,
+  and praise the effort, not just the result.'
+tags:
+  domain: health
+  value: responsibility
+  skill: tidiness
+  activity: move
+scene: bedroom|kid,block*3,toy_train,basket
+source: new

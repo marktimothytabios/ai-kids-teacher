@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}For parents &middot; Little Whys{% endblock %}
+{% block content %}
+<div class="wrap prose">
+  <h1>For parents</h1>
+  <p class="lead">These books work best when they are a shared moment, not a lesson. A few simple habits make them much more powerful.</p>
+
+  <h2>How to read a story</h2>
+  <ol>
+    <li><strong>Ask first.</strong> Read the question on the left page and wait. &ldquo;Why do <em>you</em> think the sky is blue?&rdquo; Every guess is a good guess.</li>
+    <li><strong>Read the answer.</strong> It is short on purpose, so you can add your own words and examples.</li>
+    <li><strong>Do <em>Let's try!</em></strong> Moving, touching and pretending makes it stick.</li>
+    <li><strong>Talk about it.</strong> The green box has a question with no wrong answer.</li>
+    <li><strong>Use the Grown-up corner.</strong> It has the fuller explanation, for when your child asks &ldquo;but why?&rdquo;</li>
+  </ol>
+  <p>One or two stories at a time is plenty. Little children learn best in short, happy bursts.</p>
+
+  <h2 id="printing">Printing</h2>
+  <ul>
+    <li>Pages are square, 8 &times; 8 inches (20 &times; 20 cm). Print at &ldquo;Fit to page&rdquo; on Letter or A4 paper, or choose a custom 8 &times; 8 inch size if your printer allows.</li>
+    <li>Print double-sided if you can, so each question has its answer on the back. Heavier paper (120&ndash;160 gsm) lasts longer.</li>
+    <li>Staple or hole-punch the sheets into a booklet, or slip them into a folder.</li>
+    <li>The sticker-chart page near the end is meant for {{ "colouring" if spelling == "uk" else "coloring" }} or stickers.</li>
+    <li>You may print as many copies as you like for your own family or classroom, but please do not share or resell the files.</li>
+  </ul>
+
+  <h2>Good to know</h2>
+  <details><summary>Are the answers exactly true?</summary><p>They are simplified for ages 2&ndash;4, and we have tried to keep every statement correct. The Grown-up corner gives the fuller picture. If you spot a mistake, please tell us.</p></details>
+  <details><summary>Are the activities safe?</summary><p>They use household things and your supervision. Always follow your own judgement: hot things, water, small objects and sharp things are for grown-ups to handle.</p></details>
+  <details><summary>Why no app?</summary><p>Toddlers learn best from people. The books ask you to talk, move and play, so your attention, not a screen, does the teaching.</p></details>
+  <details><summary>Which spelling should I pick?</summary><p>Use the US / UK switch at the top of the page. The words are the same, only spellings and a few everyday words differ (for example, color or colour, store or shop).</p></details>
+</div>
+{% endblock %}

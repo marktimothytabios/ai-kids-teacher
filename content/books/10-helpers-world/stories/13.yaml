@@ -1,0 +1,15 @@
+id: helpers-world-13
+question: Why do we recycle?
+answer: Some things, like paper, glass and {cans|tins}, can be made into new things. When we recycle,
+  we do not need to make everything from scratch. It saves energy and keeps the Earth clean.
+lets_try: 'Sort three items into two bins: one for recycling and one for {trash|rubbish}.'
+talk_about: What can we put in the recycling bin?
+grown_up_corner: Check local recycling rules, as they vary. A simple picture chart above the bin helps
+  children sort. 'Reduce, reuse, recycle' is a great set of ideas.
+tags:
+  domain: community
+  value: caring for our world
+  skill: recycling
+  activity: move
+scene: plain|recycle,bin*2,book
+source: new

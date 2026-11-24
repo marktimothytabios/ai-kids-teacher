@@ -1,0 +1,16 @@
+id: safe-smart-05
+question: Why do we stay close in the {store|shop}?
+answer: Shops are big and busy. If we wander off, we could get lost and our grown-up would be worried.
+  We stay close, hold hands or sit in the {cart|trolley}.
+lets_try: Play 'Stay close'. Walk around the room with a grown-up and keep in touch with them all the
+  way.
+talk_about: Where is your grown-up in the {store|shop}?
+grown_up_corner: 'Choose a clear rule: ''one hand on the {cart|trolley}''. Point out helpers like {store|shop}
+  staff in uniform, in case your child gets separated.'
+tags:
+  domain: safety
+  value: safety
+  skill: staying close
+  activity: move
+scene: shop|kid,kid2,apple*2
+source: new

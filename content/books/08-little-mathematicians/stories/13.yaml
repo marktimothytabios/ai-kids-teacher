@@ -1,0 +1,15 @@
+id: little-mathematicians-13
+question: Why do roofs look like triangles?
+answer: A triangle has three sides and three corners. Triangle roofs let the rain slide off. A triangle
+  is a strong shape, too!
+lets_try: Make a triangle with three straws or three fingers. Can you find a triangle in a picture book?
+talk_about: Which things do you know that look like a triangle?
+grown_up_corner: Triangles are strong shapes, which is why they appear in bridges, ladders and roofs.
+  Look for triangles in slices of pizza, sails and the tops of tents.
+tags:
+  domain: maths
+  value: ''
+  skill: triangle
+  activity: look
+scene: plain|house*2,triangle*2
+source: new

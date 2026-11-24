@@ -1,0 +1,15 @@
+id: my-body-12
+question: Why do my fingers get wrinkly in the bath?
+answer: When your hands stay in water for a while, the skin gets wrinkly. These little wrinkles help you
+  grip slippery things. When you dry off, they go smooth again.
+lets_try: Look at your fingertips after your bath. Are they like little raisins?
+talk_about: How do your toes look after a bath?
+grown_up_corner: Scientists think wrinkles help us grip wet objects, like rain grooves in a {tire|tyre}.
+  They are a good sign that the nerves in the fingers are healthy.
+tags:
+  domain: body
+  value: ''
+  skill: observing change
+  activity: look
+scene: bath|kid,hand*2,soap
+source: new

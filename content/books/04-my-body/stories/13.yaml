@@ -1,0 +1,15 @@
+id: my-body-13
+question: Why do I sweat?
+answer: When you run and play, your body gets hot. Tiny drops of water come out of your skin. The drops
+  cool you down, like a built-in fan.
+lets_try: Run on the spot for one minute. Does your skin feel warm? Take a drink of water after.
+talk_about: What do you do when you feel too hot?
+grown_up_corner: Sweat cools us as it dries on the skin. Children lose water when they sweat, so offer
+  a drink after active play and on hot days.
+tags:
+  domain: body
+  value: ''
+  skill: how bodies work
+  activity: move
+scene: park|kid,drop*3,cup
+source: new

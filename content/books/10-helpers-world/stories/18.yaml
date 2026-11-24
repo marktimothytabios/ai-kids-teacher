@@ -1,0 +1,15 @@
+id: helpers-world-18
+question: Why do we plant trees?
+answer: Trees give us shade, fruit and homes for birds. They also clean the air that we breathe. When
+  we plant a tree, we give a gift to the future.
+lets_try: Plant a seed or a small tree with a grown-up. Water it and watch it grow.
+talk_about: What animals live in a tree?
+grown_up_corner: Trees take in carbon dioxide and release oxygen. A tree planted today shades the next
+  generation. Visit your tree through the seasons and take photos.
+tags:
+  domain: community
+  value: caring for our world
+  skill: caring for nature
+  activity: make
+scene: park|kid,tree*3,bird
+source: new

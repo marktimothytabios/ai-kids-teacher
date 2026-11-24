@@ -1,0 +1,15 @@
+id: my-body-14
+question: Why do I have bones?
+answer: Bones are strong and hard, inside your body. They hold you up, like the poles in a tent. They
+  also protect soft parts like your heart and your brain.
+lets_try: Feel your knees, your elbows and your ribs. Can you find your bones through your skin?
+talk_about: Which bones help you jump?
+grown_up_corner: Babies are born with about 300 soft bones, which join into around 206 as they grow. Calcium
+  from milk, cheese and leafy greens helps bones stay strong, as does active play.
+tags:
+  domain: body
+  value: ''
+  skill: how bodies work
+  activity: touch
+scene: plain|kid,hand*2,heart
+source: new

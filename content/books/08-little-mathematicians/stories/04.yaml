@@ -1,0 +1,15 @@
+id: little-mathematicians-04
+question: Why do some things come in twos?
+answer: We have two eyes, two ears, two hands and two feet. Shoes, socks and gloves come in twos, too.
+  Two things that go together are called a pair.
+lets_try: Find two socks that match and put them together. Can you find a pair of shoes?
+talk_about: What else do we have two of?
+grown_up_corner: Pairs are the beginning of understanding 'two' and later 'doubling'. Sorting socks into
+  pairs is a real job that helps them {practice|practise} matching.
+tags:
+  domain: maths
+  value: ''
+  skill: pairs and matching
+  activity: move
+scene: plain|sock*2,shoe*2,mitten*2
+source: new

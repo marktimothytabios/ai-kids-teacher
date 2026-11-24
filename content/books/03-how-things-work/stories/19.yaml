@@ -1,0 +1,16 @@
+id: how-things-work-19
+question: Why does a clock go tick-tock?
+answer: A clock has little parts that move and click, one step at a time. Each tick is one little second.
+  When 60 seconds have gone by, one minute has passed.
+lets_try: Listen to a clock and count ten ticks. Clap on every tick.
+talk_about: What do you do at bedtime when the clock says it is late?
+grown_up_corner: A clock splits time into equal steps, like seconds, minutes and hours. Use words like
+  before, after and soon to help children get a feel for time.
+tags:
+  domain: science
+  value: ''
+  skill: time
+  activity: count
+scene: plain|clock,kid:o
+source: new
+sound: Tick tock!

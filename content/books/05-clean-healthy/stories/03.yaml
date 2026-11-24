@@ -1,14 +1,15 @@
 id: clean-healthy-03
-question: Why do we wash our hands?
-answer: Our hands touch lots of things and pick up tiny germs we can't see. Soap and water wash the germs
-  away, so they don't make us sick. Scrub, rinse, dry!
-lets_try: Wash your hands and sing 'Happy Birthday' two times.
-talk_about: ''
-grown_up_corner: ''
+question: Why do we wipe our nose?
+answer: Our nose makes sticky mucus to catch dust and germs. When we have a cold, there is lots of it.
+  A tissue wipes it away, then we throw the tissue in the {trash|bin}.
+lets_try: Pick up a tissue. Wipe your nose gently, put the tissue in the {trash|bin}, and wash your hands.
+talk_about: What do we do after we use a tissue?
+grown_up_corner: Teach gentle blowing, one side at a time. Wash hands afterward. Dry, cracked skin around
+  the nose can be soothed with a little {moisturizer|moisturiser}.
 tags:
   domain: health
   value: cleanliness
-  skill: ''
-  activity: ''
-scene: home
-source: book1-30
+  skill: healthy habits
+  activity: move
+scene: plain|kid,tissue,bin
+source: new

@@ -1,0 +1,15 @@
+id: helpers-world-07
+question: Why do buses have drivers?
+answer: A bus driver takes lots of people to places they want to go. The driver watches the road and keeps
+  everyone safe. Buses help people travel together.
+lets_try: 'Sing ''The wheels on the bus''. Add the actions: swish, swish, swish!'
+talk_about: Where would you like to go on a bus?
+grown_up_corner: Using public transport teaches patience and sharing. Say hello to the driver, hold on
+  tight, and talk about the stops.
+tags:
+  domain: community
+  value: community
+  skill: community helpers
+  activity: sing
+scene: street|bus,kid
+source: new

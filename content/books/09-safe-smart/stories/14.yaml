@@ -1,0 +1,15 @@
+id: safe-smart-14
+question: Why do we stay near a grown-up at the water?
+answer: Water is fun, but it can be dangerous. Even a little water can be deep for a little person. A
+  grown-up stays right next to us and watches.
+lets_try: Play with water in a tub or bowl with your grown-up next to you. Splash with your hands!
+talk_about: Who is with you when you play in the water?
+grown_up_corner: Always stay within arm's reach of toddlers around any water, even a bucket or a bath.
+  Gates around pools and swimming lessons are great helpers.
+tags:
+  domain: safety
+  value: safety
+  skill: water safety
+  activity: touch
+scene: water|kid,duck*2
+source: new

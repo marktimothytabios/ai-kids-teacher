@@ -1,0 +1,15 @@
+id: plants-animals-19
+question: Why does an elephant have a long trunk?
+answer: An elephant's trunk is a nose and a hand in one! It smells, drinks, picks things up and gives
+  hugs. An elephant also sprays water on its back to keep cool.
+lets_try: Make a trunk with your arm. Can you pick up a soft toy with it?
+talk_about: What would you do with a long trunk?
+grown_up_corner: A trunk has tens of thousands of tiny muscles. Elephants can lift heavy logs or pick
+  up a single peanut. They use the trunk like a snorkel when they swim.
+tags:
+  domain: science
+  value: ''
+  skill: how animals live
+  activity: pretend
+scene: park|elephant,drop*3
+source: new

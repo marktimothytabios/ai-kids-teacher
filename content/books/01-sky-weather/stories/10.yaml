@@ -1,14 +1,16 @@
 id: sky-weather-10
-question: Why is snow cold?
-answer: Snow is made in clouds that are very, very cold. Tiny bits of water freeze into pretty snowflakes.
-  Every snowflake is a little bit different, just like you!
-lets_try: Pretend to be a snowflake. Float down... down... down... to the floor.
-talk_about: ''
-grown_up_corner: ''
+question: Why do we see rainbows?
+answer: 'A rainbow happens when the sun shines through raindrops. Each little drop splits the sunlight
+  into {colors|colours}: red, orange, yellow, green, blue and purple. Look for rainbows when it''s sunny
+  and rainy at the same time!'
+lets_try: Can you find something red? Something yellow? Something blue?
+talk_about: Which {color|colour} in the rainbow is your {favorite|favourite}?
+grown_up_corner: Raindrops bend sunlight and split it into its {colors|colours}. To see a rainbow you
+  need the sun behind you and rain in front of you. The order is always the same, with red on the outside.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: snow
-source: book1-10
+  skill: naming colors
+  activity: look
+scene: rainbow
+source: book1-07

@@ -1,0 +1,17 @@
+id: how-things-work-15
+question: Why do I hear an echo?
+answer: Sound travels through the air as invisible waves. When the waves hit a big wall or a mountain,
+  they bounce back. Then we hear our voice again!
+lets_try: Call 'Hello!' into a big empty pot, or in a tunnel or a big empty room. Listen for it to come
+  back.
+talk_about: What would you like to say to your echo?
+grown_up_corner: An echo needs a hard, flat surface that is far enough away for the sound to return a
+  moment later. Soft things like curtains and carpets soak up sound.
+tags:
+  domain: science
+  value: ''
+  skill: sound
+  activity: listen
+scene: plain|kid:o,speech,cup
+source: new
+sound: Hello-ello-llo!

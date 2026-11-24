@@ -1,0 +1,15 @@
+id: little-mathematicians-09
+question: Why are some things heavy and some light?
+answer: A heavy thing is hard to lift, like a big rock. A light thing is easy to lift, like a feather.
+  We can tell by holding them in our hands.
+lets_try: Hold a book in one hand and a feather or a tissue in the other. Which is heavy? Which is light?
+talk_about: What is the heaviest thing you can lift?
+grown_up_corner: 'Size does not always tell weight: a big balloon is lighter than a small stone. Let your
+  child feel and predict before they check.'
+tags:
+  domain: maths
+  value: ''
+  skill: heavy and light
+  activity: touch
+scene: plain|book*2,tissue
+source: new

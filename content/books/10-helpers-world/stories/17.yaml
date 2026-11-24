@@ -1,0 +1,15 @@
+id: helpers-world-17
+question: Why do we not waste food?
+answer: Food takes lots of work to grow and make. When we waste it, all that work is lost. We take what
+  we can eat, and we save what is left.
+lets_try: Help put leftovers in a container for tomorrow. Say thank you to the food!
+talk_about: What can we do with leftover food?
+grown_up_corner: Offer small portions and let children ask for more. Talk about composting or feeding
+  scraps to chickens, and help to plan meals together.
+tags:
+  domain: community
+  value: gratitude
+  skill: avoiding waste
+  activity: move
+scene: kitchen|kid,plate*2,apple,bowl
+source: new

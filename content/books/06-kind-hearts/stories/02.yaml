@@ -1,14 +1,15 @@
 id: kind-hearts-02
-question: Why do we share?
-answer: Sharing means we both get to have fun. When we take turns, everyone gets a go, and we make friends.
-  Sharing makes hearts happy!
-lets_try: 'Take turns rolling a ball with someone: my turn, your turn!'
-talk_about: ''
-grown_up_corner: ''
+question: Why do we say hello?
+answer: Saying hello is a friendly way to say 'I see you!' It makes people feel welcome and happy. A smile
+  and a wave can say hello, too.
+lets_try: Wave and say hello to three people today. Can you say hello with a big smile?
+talk_about: How do you feel when someone says hello to you?
+grown_up_corner: Shy children may prefer a wave or a smile, which is fine. {Practicing|Practising} greetings
+  with toys at home builds confidence. Never force a child to hug or kiss in greeting.
 tags:
   domain: values
-  value: sharing
-  skill: ''
-  activity: ''
-scene: play
-source: book1-48
+  value: friendliness
+  skill: greetings
+  activity: move
+scene: hearts
+source: new

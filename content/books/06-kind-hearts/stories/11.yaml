@@ -1,0 +1,15 @@
+id: kind-hearts-11
+question: Why is it nice to help?
+answer: When we help, jobs get done faster and everyone feels happy. Helping shows we care. It makes our
+  hearts feel warm, too!
+lets_try: Help a grown-up carry a light bag, set the table or water a plant. Say 'I helped!'
+talk_about: How can you help at home today?
+grown_up_corner: Toddlers love to help. Say yes to small jobs, even if it is slower. A child who feels
+  useful grows into a helpful person.
+tags:
+  domain: values
+  value: helpfulness
+  skill: helping
+  activity: move
+scene: kitchen|kid,plate*2,cup*2
+source: new

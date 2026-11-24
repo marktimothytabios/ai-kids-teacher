@@ -1,14 +1,15 @@
 id: my-body-07
-question: Why do we yawn?
-answer: We yawn when we're tired or sleepy. A great big yawn brings lots of fresh air into our body. And
-  guess what? Yawns are catchy! When you see someone yawn, you might yawn too.
-lets_try: Do a great big yawn and a stretch! Did a grown-up yawn too?
-talk_about: ''
-grown_up_corner: ''
+question: Why do I have a tongue?
+answer: Your tongue helps you taste sweet, sour and salty things. It also helps you talk and move your
+  food around. It is strong and wiggly!
+lets_try: Stick out your tongue and wiggle it up, down and side to side. Then say 'La la la!'
+talk_about: What is the yummiest thing you ever tasted?
+grown_up_corner: The little bumps on the tongue hold taste buds. A tongue is a strong muscle. Taste helps
+  us tell safe food from spoiled food. Let your child try new foods without pressure.
 tags:
   domain: body
   value: ''
-  skill: ''
-  activity: ''
-scene: night
-source: book1-41
+  skill: using senses
+  activity: taste
+scene: kitchen|kid,orange,cookie
+source: new

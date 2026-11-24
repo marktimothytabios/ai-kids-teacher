@@ -1,0 +1,15 @@
+id: helpers-world-10
+question: Why do vets look after animals?
+answer: Animals get sick or hurt, and they cannot tell us in words. Vets are animal doctors. They give
+  pets medicine, check them and keep them well.
+lets_try: Play vet with a toy animal. Listen to its heart and give it a bandage.
+talk_about: How do we look after a pet?
+grown_up_corner: 'Vets need pets to be calm, so children can learn how to handle animals gently. This
+  is a good time to talk about caring for pets: food, water, play and love.'
+tags:
+  domain: community
+  value: caring
+  skill: community helpers
+  activity: pretend
+scene: plain|dog,cat,bandage,kid
+source: new

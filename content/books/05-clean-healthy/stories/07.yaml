@@ -1,14 +1,15 @@
 id: clean-healthy-07
-question: Why do we wear shoes?
-answer: Shoes protect our feet from sharp, hot or yucky things on the ground. They help us walk, run and
-  jump without getting owies.
-lets_try: Can you find your shoes? Which one goes on which foot?
-talk_about: ''
-grown_up_corner: ''
+question: Why do we brush our teeth?
+answer: Tiny germs love to eat the bits of food left on our teeth. Brushing sweeps the germs away, so
+  our teeth stay clean, strong and shiny. Brush in the morning and at night!
+lets_try: 'Show me your big smile! Now pretend to brush: scrub, scrub, scrub.'
+talk_about: What is your {favorite|favourite} toothpaste {flavor|flavour}? What do you do after brushing?
+grown_up_corner: Brush twice a day for two minutes, in small circles, including the back teeth and tongue.
+  Use a smear of fluoride toothpaste for toddlers, and let your child 'have a turn', then you finish.
 tags:
   domain: health
-  value: ''
-  skill: ''
-  activity: ''
-scene: street
-source: book1-44
+  value: self care
+  skill: brushing teeth
+  activity: move
+scene: home
+source: book1-28

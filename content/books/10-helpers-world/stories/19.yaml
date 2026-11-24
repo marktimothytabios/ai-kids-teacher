@@ -1,0 +1,15 @@
+id: helpers-world-19
+question: Why do people speak different languages?
+answer: People all around the world have their own words. A cat is 'cat' in English and 'gato' in Spanish.
+  We can learn a new word to say hello to someone new!
+lets_try: Learn to say hello in another language. Hola! Bonjour! Kia ora! Say it to your teddy.
+talk_about: What other ways can people say hello?
+grown_up_corner: Different languages grew in different places over thousands of years. If your family
+  speaks more than one language, celebrate it. Learn a greeting or a song from a friend's language.
+tags:
+  domain: community
+  value: respect for differences
+  skill: diversity
+  activity: pretend
+scene: plain|globe,speech*2,kid
+source: new

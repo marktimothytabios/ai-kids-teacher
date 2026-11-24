@@ -1,0 +1,15 @@
+id: little-mathematicians-14
+question: Why do patterns repeat?
+answer: A pattern is something that goes again and again. Red, blue, red, blue, red, blue is a pattern.
+  What comes next? Red!
+lets_try: 'Make a pattern with blocks or toys: big, small, big, small. What comes next?'
+talk_about: What patterns can you see on your clothes?
+grown_up_corner: Patterns are the foundation of algebra. Start with AB patterns (red, blue, red, blue)
+  using real things. Stripes, steps and songs all have patterns.
+tags:
+  domain: maths
+  value: ''
+  skill: patterns
+  activity: make
+scene: plain|circle*2,square*2,circle*2,square*2
+source: new

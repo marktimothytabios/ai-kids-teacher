@@ -1,14 +1,15 @@
 id: sky-weather-08
-question: Why does the wind blow?
-answer: Wind is air on the move! When the sun warms the air, the air moves around and pushes on things.
-  We can't see wind, but we can see it wiggle the trees and blow our hair.
-lets_try: Take a big breath and blow! Whoooosh - you made wind!
-talk_about: ''
-grown_up_corner: ''
+question: Why do we use an umbrella?
+answer: Rain makes us wet and cold. An umbrella is a little roof you can carry. It keeps the rain off
+  your head and shoulders.
+lets_try: Hold a pretend umbrella over your teddy. Can you keep teddy dry?
+talk_about: What else keeps us dry in the rain?
+grown_up_corner: 'Umbrellas and raincoats are waterproof, so rain slides off instead of soaking in. A
+  good moment to name the rain gear together: boots, coat, hat.'
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: wind
-source: book1-08
+  skill: problem solving
+  activity: pretend
+scene: rainy|kid,umbrella
+source: new

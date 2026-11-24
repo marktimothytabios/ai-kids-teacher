@@ -1,14 +1,15 @@
 id: how-things-work-04
-question: Why do things fall down?
-answer: The Earth pulls everything towards it. This pull is called gravity. That's why apples fall down
-  from trees, and why your spoon drops to the floor!
-lets_try: Drop a soft toy. Did it fall up or down?
-talk_about: ''
-grown_up_corner: ''
+question: Why do balls bounce?
+answer: A ball is full of air and is a bit squishy. When it hits the ground, it squashes a little, then
+  springs back into shape. That push sends it back up! Boing!
+lets_try: Bounce a ball. Does it go higher if you drop it from up high?
+talk_about: What else bounces? What does not bounce?
+grown_up_corner: A bouncy ball is squashed when it hits the ground and then pushes back to its round shape,
+  which sends it up again. A heavy, soft or flat thing does not bounce well.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
+  skill: cause and effect
+  activity: move
 scene: play
-source: book1-25
+source: book1-24

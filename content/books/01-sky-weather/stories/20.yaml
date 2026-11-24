@@ -1,0 +1,16 @@
+id: sky-weather-20
+question: Why do leaves fall off trees?
+answer: Some trees take a rest when the weather gets cold. Their leaves turn red, orange and yellow, then
+  float to the ground. In spring, new green leaves grow back!
+lets_try: Collect some leaves. Which one is the biggest? Which one is the smallest?
+talk_about: What {color|colour} are the leaves you can find?
+grown_up_corner: Trees in cool places drop their leaves before winter to save water and energy. Leaves
+  look green because of a chemical called chlorophyll. When it fades, the orange and yellow underneath
+  show.
+tags:
+  domain: science
+  value: ''
+  skill: observing change
+  activity: look
+scene: garden
+source: book1-11

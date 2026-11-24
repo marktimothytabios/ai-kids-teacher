@@ -1,0 +1,15 @@
+id: sky-weather-19
+question: Why is it hot in summer?
+answer: In summer our part of the Earth leans toward the sun. The sunlight is stronger and the days are
+  longer. The land and the air get warm.
+lets_try: Touch something in the sun and something in the shade. Which one is warmer?
+talk_about: How do you stay cool on a hot day?
+grown_up_corner: Stay safe in the heat with shade, water, a hat and sunscreen. Try the experiment with
+  a dark stone and a light stone in the sun.
+tags:
+  domain: science
+  value: ''
+  skill: comparing
+  activity: touch
+scene: sky|kid,cup,hat
+source: new

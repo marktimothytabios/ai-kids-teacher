@@ -1,0 +1,15 @@
+id: little-mathematicians-17
+question: Why do we put things together to make more?
+answer: If we have two apples and get one more, we put them together. Now we count them all. One, two,
+  three! Two and one make three.
+lets_try: 'Put two blocks in one hand and one block in the other. Put them together and count: how many?'
+talk_about: If you have two {cookies|biscuits} and I give you one more, how many do you have?
+grown_up_corner: 'This is adding, but in toddler language, it is ''putting together''. Always use real
+  things first: toys, snacks, fingers. Say the number sentence out loud: ''two and one make three''.'
+tags:
+  domain: maths
+  value: ''
+  skill: adding
+  activity: count
+scene: kitchen|apple*2,row,apple
+source: new

@@ -1,0 +1,15 @@
+id: my-body-10
+question: Why do I have skin?
+answer: Skin is your body's soft coat. It keeps the germs out and the water in. It also lets you feel
+  hot, cold, soft and rough.
+lets_try: Touch something soft, then something rough. Then something cool. How does your skin feel it?
+talk_about: What does your skin feel when you hug your teddy?
+grown_up_corner: 'Skin is the body''s biggest organ. It heals itself: a scratch closes up by itself when
+  kept clean. Note that skin comes in many {colors|colours} and every one of them is wonderful.'
+tags:
+  domain: body
+  value: ''
+  skill: using senses
+  activity: touch
+scene: plain|kid,bandage,teddy
+source: new

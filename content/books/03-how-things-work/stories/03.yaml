@@ -1,14 +1,16 @@
 id: how-things-work-03
-question: Why do balls bounce?
-answer: A ball is full of air and is a bit squishy. When it hits the ground, it squashes a little, then
-  springs back into shape. That push sends it back up! Boing!
-lets_try: Bounce a ball. Does it go higher if you drop it from up high?
-talk_about: ''
-grown_up_corner: ''
+question: Why does a seesaw go up and down?
+answer: A seesaw is a long board that balances in the middle. When one child sits on one end, that end
+  goes down and the other end goes up. Two friends can take turns pushing.
+lets_try: Sit across from a friend. Gently push the ground with your feet to make a seesaw, or rock side
+  to side.
+talk_about: What happens if one friend is much heavier?
+grown_up_corner: A seesaw is a lever. It balances when the weights on each side are equal, or when the
+  heavier child sits closer to the middle. Great for talking about heavy and light.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: play
-source: book1-24
+  skill: balance
+  activity: move
+scene: park|seesaw,kid
+source: new

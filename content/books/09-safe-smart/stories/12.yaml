@@ -1,0 +1,15 @@
+id: safe-smart-12
+question: Why do we only take medicine from a grown-up?
+answer: Medicine can help us feel better, but too much can make us very ill. Some medicine looks like
+  {candy|sweets}, but it is not. Only a grown-up we trust gives us medicine.
+lets_try: Say, 'Medicine is not {candy|sweets}!' Point to where medicine is kept in your house, up high.
+talk_about: Who gives you medicine when you are sick?
+grown_up_corner: Always store medicine and vitamins up high and locked away, and never call medicine '{candy|sweets}'.
+  Keep the poison helpline number handy.
+tags:
+  domain: safety
+  value: safety
+  skill: hazard awareness
+  activity: look
+scene: plain|kid:o,medicine,bandage
+source: new

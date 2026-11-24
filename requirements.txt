@@ -1,0 +1,9 @@
+# Everything needed to build the books and run the website
+reportlab>=4.0
+PyYAML>=6.0
+pypdf>=4.0
+fastapi>=0.110
+uvicorn>=0.29
+jinja2>=3.1
+pypdfium2>=4.0   # cover and page previews
+pillow>=10.0

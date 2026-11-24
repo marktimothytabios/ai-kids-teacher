@@ -1,14 +1,15 @@
 id: my-body-09
-question: Why does my heart go thump-thump?
-answer: Your heart is a strong muscle inside your chest. It pumps blood all around your body, all day
-  and all night. Put your hand on your chest and feel it go thump-thump!
-lets_try: Jump 10 times, then feel your heart. Is it going faster?
-talk_about: ''
-grown_up_corner: ''
+question: Why do I have a brain?
+answer: Your brain is the boss of your body. It helps you think, remember, dream and learn new things.
+  It tells your legs to run and your mouth to smile.
+lets_try: Pat your head and rub your tummy at the same time. Your brain is working hard!
+talk_about: What did you learn today?
+grown_up_corner: 'The brain grows fastest in the first years of life, and it grows by being used: playing,
+  talking and exploring. Sleep, food and cuddles help it grow, too.'
 tags:
   domain: body
   value: ''
-  skill: ''
-  activity: ''
-scene: body
-source: book1-43
+  skill: thinking
+  activity: move
+scene: plain|kid,book*2,block
+source: new

@@ -1,14 +1,15 @@
 id: how-things-work-02
-question: Why are there waves?
-answer: The wind blows across the sea and pushes the water into bumps. The bumps roll along and splash
-  onto the beach. Whoosh, splash!
-lets_try: Make waves in the bath with your hands. Whoosh!
-talk_about: ''
-grown_up_corner: ''
+question: Why do bikes have pedals?
+answer: When we push the pedals, they turn a chain. The chain turns the back wheel, and off we go! Our
+  legs make the bike move.
+lets_try: Lie on your back and pedal your legs in the air like you are riding a bike.
+talk_about: Where would you like to go on a bike?
+grown_up_corner: Pedals, chain and gears turn leg power into wheel power. Always add a helmet for any
+  ride, even on a tricycle or a balance bike.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: sea
-source: book1-22
+  skill: how machines work
+  activity: move
+scene: park|bike,hat
+source: new

@@ -1,0 +1,16 @@
+id: how-things-work-17
+question: Why does the light turn on when I flip the switch?
+answer: A switch is like a little bridge for electricity. When you flip it on, the electricity can travel
+  to the light. When you flip it off, the bridge opens and the light goes out.
+lets_try: With a grown-up, find a light switch. Say 'On!' and 'Off!' while they flip it. Which lights
+  are on in your house?
+talk_about: When do we need to turn the lights off?
+grown_up_corner: Switches complete or break an electric circuit. Teach children that only grown-ups touch
+  sockets and plugs, and that light switches are the safe way to use electricity.
+tags:
+  domain: science
+  value: safety
+  skill: how things work
+  activity: look
+scene: bedroom|kid:o,lightbulb
+source: new

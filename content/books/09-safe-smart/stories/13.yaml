@@ -1,0 +1,15 @@
+id: safe-smart-13
+question: Why do we not put small things in our mouth?
+answer: Small things like coins, buttons and batteries can get stuck in our throat. That can make it hard
+  to breathe. We only put food in our mouth.
+lets_try: Look around for small things on the floor. Pick them up and put them in a box.
+talk_about: What goes in our mouth?
+grown_up_corner: Anything that fits through a toilet roll tube is a choking risk for under-threes. Keep
+  button batteries, magnets and coins well out of reach, and get first aid training.
+tags:
+  domain: safety
+  value: safety
+  skill: hazard awareness
+  activity: look
+scene: plain|kid:o,coin*2,block
+source: new

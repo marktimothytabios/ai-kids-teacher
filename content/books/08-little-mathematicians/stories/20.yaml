@@ -1,0 +1,15 @@
+id: little-mathematicians-20
+question: Why do coins buy things?
+answer: A coin is a small round piece of money. We give coins to a {store|shop} and in return we get something
+  we need, like bread or fruit. Money is a way to swap fairly.
+lets_try: Play {store|shop} with real coins and toys. Give a coin to your friend and get a toy in exchange!
+talk_about: What would you like to buy with a coin?
+grown_up_corner: 'Never let young children put coins in their mouths. Play {store|shop} to {practice|practise}
+  counting, fairness and waiting. You can also introduce saving: ''Let''s keep one coin in the piggy bank.'''
+tags:
+  domain: maths
+  value: ''
+  skill: money
+  activity: pretend
+scene: shop|coin*3,apple,bread
+source: new

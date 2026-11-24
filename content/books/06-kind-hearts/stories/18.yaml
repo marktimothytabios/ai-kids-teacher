@@ -1,0 +1,15 @@
+id: kind-hearts-18
+question: Why do we give presents?
+answer: A present is a way to say, 'I love you' or 'Thank you'. Giving makes our hearts happy. A present
+  does not have to be big. A drawing or a hug is a present, too.
+lets_try: Make a card or a drawing for someone you love. Give it to them with a big hug.
+talk_about: Who would you like to give a present to?
+grown_up_corner: Let your child make or choose a small gift for someone. Giving, rather than only receiving,
+  builds generosity and gratitude.
+tags:
+  domain: values
+  value: generosity
+  skill: giving
+  activity: make
+scene: plain|gift*3,kid
+source: new

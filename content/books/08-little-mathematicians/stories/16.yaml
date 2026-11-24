@@ -1,0 +1,15 @@
+id: little-mathematicians-16
+question: Why do we cut a {cookie|biscuit} in half?
+answer: When we share a {cookie|biscuit} with a friend, we cut it into two equal pieces. Each piece is
+  called a half. Two halves make one whole {cookie|biscuit}!
+lets_try: With a grown-up, cut a piece of toast or fruit in half. Are both parts the same size?
+talk_about: How can we share fairly?
+grown_up_corner: 'Fairness is a big idea for toddlers, and halving shows it. Use real food: ''two halves
+  make a whole''. Later you can talk about quarters.'
+tags:
+  domain: maths
+  value: sharing
+  skill: halves
+  activity: make
+scene: kitchen|cookie,cookie,kid2
+source: new

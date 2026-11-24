@@ -1,14 +1,15 @@
 id: clean-healthy-08
-question: Why do we wear a hat in the sun?
-answer: 'The sun is warm and bright, but too much sun can burn our skin. A hat shades our face, neck and
-  ears. Slip, slop, slap: a shirt, sunscreen and a hat!'
-lets_try: Put on your hat! Now, can you find some shade?
-talk_about: ''
-grown_up_corner: ''
+question: Why do we cut our nails?
+answer: Nails keep growing and growing. If they get long, dirt hides underneath and they can scratch.
+  So a grown-up trims them to keep them short and clean.
+lets_try: Look at your fingernails. Are they clean? Can you pick up a button with them?
+talk_about: Who helps you keep your nails short?
+grown_up_corner: Trim fingernails straight across, with child nail scissors or clippers, when your child
+  is calm. A little cuddle after trimming makes it a positive routine.
 tags:
   domain: health
-  value: self-care
-  skill: ''
-  activity: ''
-scene: day
-source: book1-45
+  value: cleanliness
+  skill: personal care
+  activity: look
+scene: bath|kid,hand*2,towel
+source: new

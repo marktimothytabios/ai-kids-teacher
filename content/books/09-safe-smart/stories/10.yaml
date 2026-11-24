@@ -1,0 +1,15 @@
+id: safe-smart-10
+question: Why do we not touch plugs and sockets?
+answer: Electricity is very powerful. It is helpful for lights and toys, but it can hurt us if we touch
+  the wrong place. Sockets and plugs are for grown-ups only.
+lets_try: Find the sockets in a room (just by looking!). Point and say, 'Grown-ups only!'
+talk_about: Who can use the sockets?
+grown_up_corner: 'Use socket covers and keep cables out of reach. Teach a simple rule: ''Look, do not
+  touch.'' Keep any child away from water and electricity together.'
+tags:
+  domain: safety
+  value: safety
+  skill: hazard awareness
+  activity: look
+scene: bedroom|kid:o,lightbulb
+source: new

@@ -1,0 +1,15 @@
+id: helpers-world-12
+question: Why does the {garbage truck|bin lorry} come to our street?
+answer: The {garbage truck|bin lorry} takes away our {trash|rubbish}. Then our street stays clean and
+  fresh. The people who do this job help keep us healthy.
+lets_try: Wave to the {garbage truck|bin lorry} next time it comes. Say, 'Thank you!'
+talk_about: What goes in our bin?
+grown_up_corner: Waste workers do a job that keeps communities healthy. Talk about what happens to {trash|rubbish},
+  and how we can make less of it.
+tags:
+  domain: community
+  value: appreciating work
+  skill: community helpers
+  activity: look
+scene: street|kid,bin*2,bus
+source: new

@@ -1,15 +1,16 @@
 id: my-body-06
-question: Why do I get hiccups?
-answer: hic! hic! There's a muscle under your chest that helps you breathe. Sometimes it jumps all by
-  itself, and air rushes in with a 'hic!' Hiccups are silly, and they always go away.
-lets_try: 'Breathe slowly: smell the flower, then blow out the candle. In... and out.'
-talk_about: ''
-grown_up_corner: ''
+question: Why do I sneeze?
+answer: ACHOO! Sometimes dust or tiny things tickle inside your nose. Your body pushes them out with a
+  big ACHOO! Remember to sneeze into your elbow.
+lets_try: 'Pretend to sneeze into your elbow: ah... ah... ACHOO!'
+talk_about: What do we say after someone sneezes?
+grown_up_corner: A sneeze is a quick blast of air that clears the nose. It can travel far and spread germs,
+  so teach sneezing into an elbow or a tissue and washing hands afterward.
 tags:
   domain: body
-  value: ''
-  skill: ''
-  activity: ''
+  value: caring for others
+  skill: healthy habits
+  activity: move
 scene: body
-source: book1-39
-sound: hic! hic!
+source: book1-38
+sound: ACHOO!

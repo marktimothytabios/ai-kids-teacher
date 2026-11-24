@@ -1,0 +1,15 @@
+id: helpers-world-16
+question: Why do we save water?
+answer: Clean water is very precious. Plants, animals and people all need it. When we turn off the tap,
+  we make sure there is enough for everyone.
+lets_try: Turn the {faucet|tap} off while you brush your teeth. Count how many drops you saved!
+talk_about: What can we do with the leftover bath water?
+grown_up_corner: Some places have very little clean water. Use a bowl to rinse vegetables and then water
+  the plants, and fix leaky {faucets|taps}.
+tags:
+  domain: community
+  value: caring for our world
+  skill: saving water
+  activity: move
+scene: bath|kid,tap,drop*3
+source: new

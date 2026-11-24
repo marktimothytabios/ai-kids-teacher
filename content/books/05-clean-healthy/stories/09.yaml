@@ -1,0 +1,15 @@
+id: clean-healthy-09
+question: Why do we put dirty clothes in the wash?
+answer: We play, run and spill, so our clothes get muddy and smelly. A washing machine uses water and
+  soap to clean them. Then they are fresh and ready to wear again.
+lets_try: 'Sort some clothes into two piles: clean and dirty. Put the dirty ones in the laundry basket.'
+talk_about: What happens to your clothes when you play in the mud?
+grown_up_corner: 'Toddlers love sorting jobs, and this is a good one: socks in pairs, big and small, dark
+  and light. Let them press the machine''s button if you have one.'
+tags:
+  domain: health
+  value: responsibility
+  skill: helping at home
+  activity: move
+scene: plain|kid,laundry,sock*2,basket
+source: new

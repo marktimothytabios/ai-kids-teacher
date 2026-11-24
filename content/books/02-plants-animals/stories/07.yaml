@@ -1,15 +1,15 @@
 id: plants-animals-07
-question: Why do cats purr?
-answer: 'purrr... Cats purr when they feel {cozy|cosy} and happy. It''s a soft, rumbly sound, like a tiny
-  motor: purrrrr. It''s a cat''s way of saying ''I feel good!'''
-lets_try: Can you purr like a cat? Purrrrr... meow!
-talk_about: ''
-grown_up_corner: ''
+question: Why do spiders make webs?
+answer: A spider spins silk from its body to make a web. The sticky web catches little flies and bugs
+  for the spider to eat. It is the spider's net and its home.
+lets_try: Spin around slowly like a spider spinning a web. Then hold very still and wait!
+talk_about: Have you ever seen a web with dew on it?
+grown_up_corner: Spiders make silk inside their bodies. Not every spider spins a web; some hunt or jump.
+  Spiders eat many insects, so they are good garden helpers.
 tags:
   domain: science
   value: ''
-  skill: ''
-  activity: ''
-scene: home
-source: book1-18
-sound: purrr...
+  skill: observing nature
+  activity: pretend
+scene: plain|spider,bee
+source: new

@@ -1,0 +1,15 @@
+id: how-things-work-20
+question: Why does the fridge keep food cold?
+answer: The fridge has a cooling machine that takes heat out of the inside. Cold keeps food fresh for
+  longer. It stops the tiny germs from growing fast.
+lets_try: Help a grown-up put the milk, fruit and vegetables into the fridge. Close the door tight!
+talk_about: What foods go in the fridge?
+grown_up_corner: Germs that spoil food grow slowly in the cold. Children can help sort groceries into
+  fridge, cupboard and fruit bowl. Keep the door closed so the cold stays inside.
+tags:
+  domain: science
+  value: ''
+  skill: food care
+  activity: move
+scene: kitchen|kid,milk,apple*2,carrot
+source: new
