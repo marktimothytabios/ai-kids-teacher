@@ -1,13 +1,37 @@
 {% extends "base.html" %}
 {% block title %}About &middot; Little Whys{% endblock %}
+{% block description %}Little Whys began with a little girl named Psalm who asks why about everything. Screen-free picture books for parents and toddlers to read together.{% endblock %}
 {% block content %}
 <div class="wrap prose">
   <h1>About Little Whys</h1>
-  <p class="lead">Toddlers ask &ldquo;why?&rdquo; all day long. We wanted a gentle, screen-free way to answer, and to share the values we hope they grow up with.</p>
-  <p>Each book has 20 short stories on one theme. Together they cover knowledge, kindness and empathy, cleanliness and healthy habits, safety and practical maths. There is no app, no account and no advertising.</p>
+  <p class="lead">Little Whys started with a small person and one very big word: <em>why?</em></p>
+
+  <h2>Meet Psalm</h2>
+  <p>I have a daughter named Psalm, and she asks why about all things. Why is it like that? Why do we do this? Why, why, why. It comes all day long, and it never seems to run out.</p>
+  <p>Some of her questions are easy. Some make me stop and {{ 'realize' if spelling == 'us' else 'realise' }} I only half know the answer. And some are not really about facts at all. They are about how we live with each other, like why we say sorry, why we share, and why we wash our hands.</p>
+  <p>Those are exactly the questions I wanted to answer well. Not with &ldquo;because I said so&rdquo;, and not with an answer too big for a toddler to hold, but with something short, true and kind.</p>
+
+  <h2>Why books, not an app</h2>
+  <p>There are plenty of ways to get an answer from a screen. I did not want Psalm&rsquo;s why-time to happen on one. I wanted it to happen with a grown-up, side by side, pointing at pictures, trying things out and talking.</p>
+  <p>So Little Whys is made of books. You can print them, or read them with the device in your own hands. There is no app to download, no account to make and no advertising. The child never has to touch a screen.</p>
+
+  <h2>What is in a book</h2>
+  <p>Every book has 20 short stories on one theme, and each story has the same simple shape:</p>
+  <ul>
+    <li><strong>A question</strong> a toddler might really ask.</li>
+    <li><strong>A short answer</strong> in words a two- to four-year-old can follow.</li>
+    <li><strong>Let&rsquo;s try!</strong> a small activity to move, touch, pretend or count.</li>
+    <li><strong>Talk about it:</strong> a question with no wrong answer.</li>
+    <li><strong>Grown-up corner:</strong> the fuller explanation for you, for when the next &ldquo;but why?&rdquo; arrives.</li>
+  </ul>
+  <p>The books are about more than facts. Along with the sky, animals and how things work, they cover kindness and empathy, feelings and friendship, keeping clean and healthy, staying safe, and practical {{ 'math' if spelling == 'us' else 'maths' }}. These are the things I hope Psalm grows up knowing, and I hope they help your child too.</p>
+
   <h2>How the books are made</h2>
-  <p>Every story is written once and built into both US and UK spelling. A checker makes sure every story has a question, an answer, an activity and something to talk about. The pictures are drawn by code for now, and we plan to commission an illustrator as the series grows.</p>
+  <p>I want to be honest about this. The stories are written with the help of AI tools, and the pictures are drawn by computer code for now. A program checks that every story is complete and that the US and UK spellings are both right. I am working toward having each book read and checked by people, including its facts and the safety of the activities, and I plan to work with a real illustrator as the series grows.</p>
+  <p>The answers are simplified on purpose for ages 2&ndash;4. If you ever spot a mistake, or something that does not suit your child, please trust your own {{ 'judgment' if spelling == 'us' else 'judgement' }} over the page.</p>
+
   <h2>Free for now</h2>
-  <p>While we launch, every book is free to download. If you enjoy them, tell another parent.</p>
+  <p>While the books are new, every one is free to download. If your child enjoys them, the best thing you can do is tell another parent.</p>
+  <p class="muted">And if your child keeps asking why about everything too, you are in the right place.</p>
 </div>
 {% endblock %}
